@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import PhoneFrame from './components/PhoneFrame';
 import IntroScreen from './screens/IntroScreen';
+import LocationScreen from './screens/LocationScreen';
 import PlaceholderScreen from './screens/PlaceholderScreen';
 import './App.css';
 
@@ -16,7 +17,7 @@ function App() {
         <PhoneFrame>
           <Routes>
             <Route path="/" element={<IntroScreen />} />
-            <Route path="/join" element={<PlaceholderScreen title="Join Xexus" />} />
+            <Route path="/join" element={<LocationScreen />} />
             <Route path="/login" element={<PlaceholderScreen title="Log in" />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
