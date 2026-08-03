@@ -71,7 +71,7 @@
   display: inline-block;
   opacity: 0;
   transform: translateY(24px);
-  animation: letter-in 260ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: letter-in 420ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes letter-in {
