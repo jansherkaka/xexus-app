@@ -21,8 +21,6 @@ function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </PhoneFrame>
-
-        <div className="page-footer">Figma design se banaya gaya prototype</div>
       </div>
     </BrowserRouter>
   );

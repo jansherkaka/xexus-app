@@ -1,5 +1,6 @@
 .page {
-  min-height: 100%;
+  height: 100dvh;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,6 +8,7 @@
   gap: 20px;
   padding: 32px 16px;
   background: radial-gradient(circle at 50% 0%, #201f22 0%, #0e0e10 60%);
+  box-sizing: border-box;
 }
 
 .page-header {
@@ -35,7 +37,8 @@
   justify-content: center;
   width: 100%;
   max-width: 402px;
-  height: min(80vh, 780px);
+  flex: 1;
+  min-height: 0;
 }
 
 .phone-bezel {
@@ -56,28 +59,17 @@
   background: #000;
 }
 
-.page-footer {
-  font-size: 12px;
-  color: #6b6b70;
-}
-
-.page-footer a {
-  color: #fd151b;
-}
-
 /* Real phone (installed PWA, or any narrow/touch viewport): fill the
    whole screen edge-to-edge — the device itself is the frame now, so
-   drop the desktop demo chrome (header, footer, bezel). */
+   drop the desktop demo chrome (header, bezel). */
 @media (display-mode: standalone), (display-mode: fullscreen), (max-width: 480px) {
   .page {
     padding: 0;
     gap: 0;
     background: #000;
-    min-height: 100dvh;
   }
 
-  .page-header,
-  .page-footer {
+  .page-header {
     display: none;
   }
 
