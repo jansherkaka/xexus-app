@@ -1,0 +1,85 @@
+.status-bar {
+  position: absolute;
+  top: 20px;
+  left: 37px;
+  right: 37px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+.status-bar__time {
+  height: 14px;
+  width: auto;
+  display: block;
+}
+
+.status-bar__right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.status-bar__wifi {
+  height: 15px;
+  width: auto;
+  display: block;
+}
+
+.status-bar__battery {
+  height: 14px;
+  width: auto;
+  display: block;
+}
+
+.status-bar__cellular {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 13px;
+}
+
+.status-bar__cellular span {
+  width: 3px;
+  border-radius: 1.5px;
+}
+
+.status-bar__cellular span:nth-child(1) {
+  height: 40%;
+}
+.status-bar__cellular span:nth-child(2) {
+  height: 60%;
+}
+.status-bar__cellular span:nth-child(3) {
+  height: 80%;
+}
+.status-bar__cellular span:nth-child(4) {
+  height: 100%;
+}
+
+.status-bar--light .status-bar__cellular span {
+  background: #fff;
+}
+.status-bar--dark .status-bar__cellular span {
+  background: #19191a;
+}
+
+.home-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 148px;
+  height: 5px;
+  border-radius: 100px;
+  z-index: 10;
+}
+
+.home-indicator--light {
+  background: #fff;
+}
+.home-indicator--dark {
+  background: #19191a;
+}
