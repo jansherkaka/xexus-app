@@ -1,19 +1,17 @@
-import { useNavigate } from 'react-router-dom';
-import StatusBar from '../components/StatusBar';
-import HomeIndicator from '../components/HomeIndicator';
-import logo from '../assets/xexus-logo-red-small.png';
-import bgPhoto from '../assets/location-bg.jpg';
-import glow1 from '../assets/glow-1.svg';
-import glow2 from '../assets/glow-2.svg';
-import arrowBack from '../assets/icon-arrow-back.svg';
-import './Screens.css';
-import './LocationScreen.css';
+import { useNavigate } from "react-router-dom";
+import StatusBar from "../components/StatusBar";
+import HomeIndicator from "../components/HomeIndicator";
+import logo from "../assets/xexus-logo-red-small.png";
+import bgPhoto from "../assets/location-bg.jpg";
+import arrowBack from "../assets/icon-arrow-back.svg";
+import "./Screens.css";
+import "./LocationScreen.css";
 
 export default function LocationScreen() {
   const navigate = useNavigate();
 
   const handleEnableLocation = () => {
-    if ('geolocation' in navigator) {
+    if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         () => {},
         () => {},
@@ -25,14 +23,16 @@ export default function LocationScreen() {
     <div className="screen location-screen">
       <div className="location-bg">
         <img src={bgPhoto} alt="" className="location-bg__photo" />
-        <img src={glow1} alt="" className="location-bg__glow location-bg__glow--1" />
-        <img src={glow2} alt="" className="location-bg__glow location-bg__glow--2" />
       </div>
 
       <StatusBar variant="dark" />
 
       <div className="location-topbar">
-        <button className="location-back" onClick={() => navigate('/')} aria-label="Back">
+        <button
+          className="location-back"
+          onClick={() => navigate("/")}
+          aria-label="Back"
+        >
           <img src={arrowBack} alt="" />
         </button>
         <div className="location-brand">
@@ -52,8 +52,8 @@ export default function LocationScreen() {
             <p>experience</p>
           </h1>
           <p className="location-body">
-            Share your location to see who&rsquo;s active nearby and unlock real-time
-            discovery around you.
+            Share your location to see who&rsquo;s active nearby and unlock
+            real-time discovery around you.
           </p>
         </div>
 
