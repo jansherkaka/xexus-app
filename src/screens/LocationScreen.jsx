@@ -1,33 +1,36 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import HomeIndicator from '../components/HomeIndicator';
-import logo from '../assets/xexus-logo-red-small.png';
+import OnboardingHeader from '../components/OnboardingHeader';
 import './Screens.css';
 
 export default function LocationScreen() {
+  const navigate = useNavigate();
   const [status, setStatus] = useState('idle'); // 'idle' | 'granted' | 'denied'
 
   const handleEnableLocation = () => {
     if (!('geolocation' in navigator)) {
       setStatus('denied');
+      setTimeout(() => navigate('/join/age-gate'), 600);
       return;
     }
     navigator.geolocation.getCurrentPosition(
-      () => setStatus('granted'),
-      () => setStatus('denied'),
+      () => {
+        setStatus('granted');
+        setTimeout(() => navigate('/join/age-gate'), 600);
+      },
+      () => {
+        setStatus('denied');
+        setTimeout(() => navigate('/join/age-gate'), 600);
+      },
     );
   };
 
   return (
     <div className="screen screen--white">
       <StatusBar variant="dark" />
-
-      <div className="location-topbar">
-        <img src={logo} alt="Xexus" className="location-topbar__logo" />
-        <div className="location-progress">
-          <div className="location-progress__fill" />
-        </div>
-      </div>
+      <OnboardingHeader step={1} />
 
       <div className="location-content">
         <div className="location-text">

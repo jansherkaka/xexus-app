@@ -1,0 +1,50 @@
+.sex-icon-wrap {
+  position: absolute;
+  top: 371px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 311px;
+  height: 384px;
+  transition: opacity 400ms ease;
+}
+
+.sex-icon-wrap--selected {
+  opacity: 0.4;
+}
+
+.sex-icon-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.sex-zone {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.sex-zone-label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  color: #ea3e2f;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+}
+
+.sex-zone-label--visible {
+  opacity: 1;
+}

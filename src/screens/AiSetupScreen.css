@@ -1,0 +1,101 @@
+.ai-setup-screen {
+  background: #d33118;
+  background-image: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.06), transparent 60%);
+}
+
+.ai-setup-content {
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 344px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+
+.ai-setup-icon {
+  width: 130px;
+  height: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+}
+
+.ai-setup-heading {
+  margin: 0;
+  font-family: 'Berthold Akzidenz Grotesk', 'Anton', sans-serif;
+  font-weight: 800;
+  color: #fff;
+  font-size: 44px;
+  line-height: 1.1;
+}
+
+.ai-setup-body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.ai-setup-bubbles {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.ai-setup-pill {
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  border-radius: 24px;
+  padding: 14px 20px;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+}
+
+.ai-setup-pill--1 {
+  align-self: flex-start;
+}
+
+.ai-setup-pill--2 {
+  align-self: flex-end;
+  border-radius: 16px;
+}
+
+.ai-setup-emoji {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.ai-setup-cta {
+  width: 100%;
+  margin-top: 12px;
+  background: #fff;
+  color: #19191a;
+  border: none;
+  padding: 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  transition: transform 0.15s ease;
+}
+
+.ai-setup-cta:active {
+  transform: scale(0.97);
+}
