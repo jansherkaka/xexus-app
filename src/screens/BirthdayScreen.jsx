@@ -44,8 +44,8 @@ export default function BirthdayScreen() {
       <StatusBar variant="dark" />
       <OnboardingHeader step={3} onBack={() => navigate('/join/age-gate')} />
 
-      <div className="ob-content" style={{ top: '160px', width: '344px' }}>
-        <h1 className="ob-h1" style={{ fontSize: '80px', lineHeight: 1.05 }}>
+      <div className="ob-content" style={{ top: '172px', width: '344px' }}>
+        <h1 className="ob-h1" style={{ fontSize: '96px', lineHeight: 1.05 }}>
           tell us about your birthday
         </h1>
         <p className="ob-body">
