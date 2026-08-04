@@ -2,8 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import HomeIndicator from '../components/HomeIndicator';
 import logo from '../assets/xexus-logo-red-small.png';
-import bgPhoto from '../assets/location-bg-photo.jpg';
-import bgMap from '../assets/location-bg-map.jpg';
+import bgPhoto from '../assets/location-bg.jpg';
 import glow1 from '../assets/glow-1.svg';
 import glow2 from '../assets/glow-2.svg';
 import arrowBack from '../assets/icon-arrow-back.svg';
@@ -26,10 +25,6 @@ export default function LocationScreen() {
     <div className="screen location-screen">
       <div className="location-bg">
         <img src={bgPhoto} alt="" className="location-bg__photo" />
-        <div className="location-bg__wash" />
-        <div className="location-bg__frost" />
-        <img src={bgMap} alt="" className="location-bg__map" />
-        <div className="location-bg__tint" />
         <img src={glow1} alt="" className="location-bg__glow location-bg__glow--1" />
         <img src={glow2} alt="" className="location-bg__glow location-bg__glow--2" />
       </div>

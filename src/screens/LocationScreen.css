@@ -9,30 +9,12 @@
   z-index: 0;
 }
 
-.location-bg__photo,
-.location-bg__map {
+.location-bg__photo {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.location-bg__map {
-  opacity: 0.55;
-  mix-blend-mode: screen;
-}
-
-.location-bg__wash {
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.location-bg__tint {
-  position: absolute;
-  inset: 0;
-  background: rgba(73, 33, 24, 0.77);
 }
 
 .location-bg__glow {
@@ -54,14 +36,6 @@
   right: -140px;
   transform: rotate(6deg);
   opacity: 0.8;
-}
-
-.location-bg__frost {
-  position: absolute;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
 }
 
 .location-topbar {
