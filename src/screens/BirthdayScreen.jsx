@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import HomeIndicator from '../components/HomeIndicator';
 import OnboardingHeader from '../components/OnboardingHeader';
+import WheelDatePicker from '../components/WheelDatePicker';
 import './Screens.css';
 import './OnboardingFlow.css';
 
@@ -62,14 +63,8 @@ export default function BirthdayScreen() {
       {modal === 'pick' && (
         <div className="ob-modal-backdrop">
           <div className="ob-modal">
-            <h2>select a date</h2>
-            <input
-              type="date"
-              className="ob-date-input"
-              value={draftDob}
-              max={new Date().toISOString().slice(0, 10)}
-              onChange={(e) => setDraftDob(e.target.value)}
-            />
+            <h2 style={{ fontSize: '40px' }}>select a date</h2>
+            <WheelDatePicker value={draftDob} onChange={setDraftDob} />
             <button className="ob-btn ob-btn--black" onClick={confirmDate} disabled={!draftDob}>
               Confirm
             </button>
