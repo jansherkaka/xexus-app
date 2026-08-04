@@ -28,7 +28,38 @@
 }
 
 /* Onboarding */
-.onboarding-heading {
+
+/* "step" — fixed huge headline, unchanged across the letters/buttons stages */
+.intro-headline {
+  position: absolute;
+  left: 50%;
+  top: 100px;
+  width: 327px;
+  margin: 0;
+  text-align: center;
+  color: #fff;
+  font-family: 'Berthold Akzidenz Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 163px;
+  letter-spacing: -8.15px;
+  line-height: 0.85;
+  opacity: 0;
+  animation: headline-fade-in 900ms ease-out forwards;
+}
+
+@keyframes headline-fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* "into the real world" — wide-tracked small type below the headline */
+.intro-subwords {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -38,14 +69,13 @@
   align-items: center;
   text-align: center;
   color: #fff;
-
-  /* stage 1: loose "kinetic type" intro, matches FRAME 13 */
-  font-family: 'Berthold Akzidenz Grotesk', 'Anton', sans-serif;
+  font-family: 'Berthold Akzidenz Grotesk', sans-serif;
   font-weight: 800;
-  top: 93px;
-  font-size: 86px;
-  letter-spacing: 20px;
-  line-height: 1.5;
+
+  top: 260px;
+  font-size: 24px;
+  letter-spacing: 47.52px;
+  line-height: 6;
 
   transition:
     top 550ms cubic-bezier(0.16, 1, 0.3, 1),
@@ -54,15 +84,12 @@
     line-height 550ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* stage 2: settles up + tightens/bolds, matches Splash / intro screen 5 */
-.onboarding-heading--settled,
-.onboarding-heading--buttons {
-  font-family: 'Anton', sans-serif;
-  font-weight: 400;
-  top: 56px;
-  font-size: 96px;
-  letter-spacing: 0;
-  line-height: 1.2;
+/* tightens slightly + shifts down as the buttons slide in */
+.intro-subwords--buttons {
+  top: 278px;
+  font-size: 22px;
+  letter-spacing: 37.84px;
+  line-height: 3.72;
 }
 
 .onboarding-line {
@@ -85,14 +112,14 @@
 
 .onboarding-actions {
   position: absolute;
-  top: 658px;
-  left: 96px;
-  width: 210.5px;
+  top: 652px;
+  left: 50%;
+  width: 246px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 22px;
   opacity: 0;
-  transform: translateY(60px);
+  transform: translateX(-50%) translateY(60px);
   transition:
     opacity 500ms cubic-bezier(0.16, 1, 0.3, 1),
     transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
@@ -100,7 +127,7 @@
 
 .onboarding-actions--in {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(-50%) translateY(0);
 }
 
 .btn-primary,
@@ -113,23 +140,21 @@
   font-weight: 500;
   line-height: 1.1;
   text-align: center;
-  border: none;
-  background: none;
-}
-
-.btn-primary {
-  background: #19191a;
-  color: #fff;
+  border: 3px solid #19191a;
   box-shadow:
     0 12px 8px rgba(234, 62, 47, 0.1),
     0 4px 3px rgba(234, 62, 47, 0.05);
   transition: transform 0.15s ease;
 }
 
+.btn-primary {
+  background: #100000;
+  color: #fff;
+}
+
 .btn-secondary {
-  border: 3px solid #19191a;
+  background: transparent;
   color: #19191a;
-  transition: transform 0.15s ease;
 }
 
 .btn-primary:active,
