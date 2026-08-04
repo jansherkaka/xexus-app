@@ -38,7 +38,7 @@
   margin: 0;
   text-align: center;
   color: #fff;
-  font-family: 'Berthold Akzidenz Grotesk', sans-serif;
+  font-family: "Berthold Akzidenz Grotesk", sans-serif;
   font-weight: 800;
   font-size: 163px;
   letter-spacing: -8.15px;
@@ -69,7 +69,7 @@
   align-items: center;
   text-align: center;
   color: #fff;
-  font-family: 'Berthold Akzidenz Grotesk', sans-serif;
+  font-family: "Berthold Akzidenz Grotesk", sans-serif;
   font-weight: 800;
 
   top: 260px;
@@ -97,17 +97,25 @@
   margin: 0;
   opacity: 0;
   animation: word-fade-in 900ms ease-out forwards;
+  /* letter-spacing adds trailing space after the last glyph, which text-align:
+     center includes in its math and pulls the visible text left of true
+     center — nudge right by half the tracking value to compensate. */
+  transition: transform 550ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes word-fade-in {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateX(23.76px) translateY(10px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(23.76px) translateY(0);
   }
+}
+
+.intro-subwords--buttons .onboarding-line {
+  transform: translateX(18.92px) translateY(0);
 }
 
 .onboarding-actions {
@@ -135,7 +143,7 @@
   width: 100%;
   padding: 24px 16px;
   border-radius: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.1;
@@ -185,7 +193,7 @@
 }
 
 .location-heading {
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   font-weight: 400;
   color: #fd151b;
   font-size: 70px;
@@ -199,7 +207,7 @@
 
 .location-body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   line-height: 1.5;
   color: #8f8f8f;
@@ -210,7 +218,7 @@
   color: #fff;
   border: none;
   padding: 24px 64px;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.1;
@@ -226,7 +234,7 @@
 
 .location-status {
   margin: -20px 0 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 13px;
   text-align: center;
 }
@@ -252,14 +260,14 @@
 }
 
 .placeholder-screen h1 {
-  font-family: 'Anton', sans-serif;
+  font-family: "Anton", sans-serif;
   font-size: 40px;
   font-weight: 400;
   letter-spacing: 0.5px;
 }
 
 .placeholder-screen p {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   color: #b9b9bd;
   line-height: 1.5;
@@ -273,7 +281,7 @@
   background: none;
   border: none;
   color: #fff;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 14px;
   font-weight: 500;
   display: flex;
