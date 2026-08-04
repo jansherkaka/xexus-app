@@ -12,7 +12,7 @@ export default function OnboardingHeader({ step, onBack }) {
         <button className="ob-header__back" onClick={onBack} aria-label="Back">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path
-              d="M15 5L8 12L15 19"
+              d="M19 12H5M5 12L11 6M5 12L11 18"
               stroke="#19191A"
               strokeWidth="2"
               strokeLinecap="round"

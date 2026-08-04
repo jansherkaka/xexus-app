@@ -13,7 +13,7 @@ export default function AgeGateScreen() {
       <StatusBar variant="dark" />
       <OnboardingHeader step={2} onBack={() => navigate('/join')} />
 
-      <div className="ob-content" style={{ top: '567px' }}>
+      <div className="ob-content">
         <h1 className="ob-h1">20+ ONLY</h1>
         <p className="ob-body">XEXSUS is for people aged 20 and over.</p>
 
