@@ -16,20 +16,29 @@ function formatDate(iso) {
   });
 }
 
+function calcAge(iso) {
+  const birth = new Date(iso);
+  const today = new Date();
+  let age = today.getFullYear() - birth.getFullYear();
+  const m = today.getMonth() - birth.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age -= 1;
+  return age;
+}
+
 export default function BirthdayScreen() {
   const navigate = useNavigate();
-  const [pickerOpen, setPickerOpen] = useState(false);
+  const [modal, setModal] = useState(null); // null | 'pick' | 'confirm'
   const [dob, setDob] = useState('');
   const [draftDob, setDraftDob] = useState('');
 
   const openPicker = () => {
     setDraftDob(dob || '2000-01-01');
-    setPickerOpen(true);
+    setModal('pick');
   };
 
   const confirmDate = () => {
     setDob(draftDob);
-    setPickerOpen(false);
+    setModal('confirm');
   };
 
   const resetDate = () => setDraftDob('2000-01-01');
@@ -80,7 +89,7 @@ export default function BirthdayScreen() {
 
       <HomeIndicator variant="dark" />
 
-      {pickerOpen && (
+      {modal === 'pick' && (
         <>
           <div className="birthday-dim" />
           <div className="birthday-popup">
@@ -92,6 +101,33 @@ export default function BirthdayScreen() {
               </button>
               <button className="birthday-popup__reset" onClick={resetDate}>
                 reset
+              </button>
+            </div>
+          </div>
+        </>
+      )}
+
+      {modal === 'confirm' && (
+        <>
+          <div className="birthday-dim" />
+          <div className="birthday-confirm-popup">
+            <div className="birthday-confirm-heading">
+              <p className="birthday-confirm-line birthday-confirm-line--confirm">confirm</p>
+              <p className="birthday-confirm-line birthday-confirm-line--your">your</p>
+              <p className="birthday-confirm-line birthday-confirm-line--age">age</p>
+              <p className="birthday-confirm-body">
+                you entered {formatDate(dob)} ({calcAge(dob)} years old). confirm this
+                is correct to continue.
+                <br />
+                you wont be able to edit this later
+              </p>
+            </div>
+            <div className="birthday-popup__actions">
+              <button className="birthday-popup__confirm" onClick={() => setModal(null)}>
+                confirm
+              </button>
+              <button className="birthday-popup__reset" onClick={() => setModal('pick')}>
+                change
               </button>
             </div>
           </div>

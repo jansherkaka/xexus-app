@@ -232,3 +232,63 @@
   color: #19191a;
   text-align: center;
 }
+
+.birthday-confirm-popup {
+  position: absolute;
+  left: 50%;
+  top: calc(50% + 30px);
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  width: 362px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 40px 49px;
+  border-radius: 24px;
+  background: #f5f5f5;
+}
+
+.birthday-confirm-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 31px;
+  width: 100%;
+  text-align: center;
+  font-family: 'Berthold Akzidenz Grotesk', sans-serif;
+  font-weight: 800;
+  color: #fd151b;
+}
+
+.birthday-confirm-line {
+  margin: 0;
+  width: 100%;
+}
+
+.birthday-confirm-line--confirm {
+  font-size: 72px;
+  line-height: 1.2;
+}
+
+.birthday-confirm-line--your {
+  font-size: 28px;
+  letter-spacing: 20.44px;
+  line-height: 0.92;
+  transform: translateX(10.22px);
+}
+
+.birthday-confirm-line--age {
+  font-size: 59px;
+  line-height: 1.2;
+}
+
+.birthday-confirm-body {
+  margin: 0;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #8f8f8f;
+}
