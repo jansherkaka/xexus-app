@@ -1,12 +1,16 @@
+import { useState } from 'react';
 import StatusBar from '../components/StatusBar';
 import HomeIndicator from '../components/HomeIndicator';
 import shieldIcon from '../assets/icon-shield-check.png';
 import phoneIcon from '../assets/icon-phone.png';
 import faceScanIcon from '../assets/icon-face-scan.png';
+import verifiedBadge from '../assets/icon-verified-badge.png';
 import './Screens.css';
 import './VerifyIdentityScreen.css';
 
 export default function VerifyIdentityScreen() {
+  const [verified, setVerified] = useState(false);
+
   return (
     <div className="screen screen--white">
       <StatusBar variant="dark" />
@@ -31,17 +35,39 @@ export default function VerifyIdentityScreen() {
         </p>
       </div>
 
-      <button className="verify-option verify-option--phone">
+      <button className="verify-option verify-option--phone" onClick={() => setVerified(true)}>
         <img src={phoneIcon} alt="" className="verify-option__icon" />
         <span>verify with phone number</span>
       </button>
 
-      <button className="verify-option verify-option--selfie">
+      <button className="verify-option verify-option--selfie" onClick={() => setVerified(true)}>
         <img src={faceScanIcon} alt="" className="verify-option__icon" />
         <span>verify with a selfie</span>
       </button>
 
       <HomeIndicator variant="dark" />
+
+      {verified && (
+        <>
+          <div className="verify-dim" />
+          <div className="verify-success-popup">
+            <div className="verify-success-heading">
+              <p className="verify-success-line verify-success-line--youre">you&rsquo;re</p>
+              <p className="verify-success-line verify-success-line--verified">verified!</p>
+            </div>
+            <p className="verify-success-body">
+              your age has been confirmed. you&rsquo;re all set to continue.
+            </p>
+            <div className="verify-success-icon">
+              <span className="verify-success-icon__check">✅</span>
+              <img src={verifiedBadge} alt="" className="verify-success-icon__badge" />
+            </div>
+            <button className="verify-success-confirm" onClick={() => setVerified(false)}>
+              confirm
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 }
