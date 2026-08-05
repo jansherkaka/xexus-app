@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import './WheelDatePicker.css';
 
 const ITEM_HEIGHT = 35.4;
-const PAD_ROWS = 2;
+const PAD_ROWS = 3;
 
 const MONTHS = [
   'January', 'February', 'March', 'April', 'May', 'June',
