@@ -4,7 +4,6 @@ import HomeIndicator from '../components/HomeIndicator';
 import shieldIcon from '../assets/icon-shield-check.png';
 import phoneIcon from '../assets/icon-phone.png';
 import faceScanIcon from '../assets/icon-face-scan.png';
-import verifiedBadge from '../assets/icon-verified-badge.png';
 import './Screens.css';
 import './VerifyIdentityScreen.css';
 
@@ -55,15 +54,13 @@ export default function VerifyIdentityScreen() {
               <p className="verify-success-line verify-success-line--youre">you&rsquo;re</p>
               <p className="verify-success-line verify-success-line--verified">verified!</p>
             </div>
-            <p className="verify-success-body">
-              your age has been confirmed. you&rsquo;re all set to continue.
-            </p>
-            <div className="verify-success-icon">
-              <span className="verify-success-icon__check">✅</span>
-              <img src={verifiedBadge} alt="" className="verify-success-icon__badge" />
+            <div className="verify-success-body-wrap">
+              <p className="verify-success-body">
+                your age has been confirmed. you&rsquo;re all set to continue.
+              </p>
             </div>
             <button className="verify-success-confirm" onClick={() => setVerified(false)}>
-              confirm
+              finish
             </button>
           </div>
         </>
