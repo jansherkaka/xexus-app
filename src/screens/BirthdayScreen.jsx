@@ -123,7 +123,10 @@ export default function BirthdayScreen() {
               </p>
             </div>
             <div className="birthday-popup__actions">
-              <button className="birthday-popup__confirm" onClick={() => setModal(null)}>
+              <button
+                className="birthday-popup__confirm"
+                onClick={() => navigate('/join/verify-identity')}
+              >
                 confirm
               </button>
               <button className="birthday-popup__reset" onClick={() => setModal('pick')}>
