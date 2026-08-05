@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import HomeIndicator from '../components/HomeIndicator';
 import shieldIcon from '../assets/icon-shield-check.png';
@@ -5,6 +6,8 @@ import './Screens.css';
 import './AgeVerifyScreen.css';
 
 export default function AgeVerifyScreen() {
+  const navigate = useNavigate();
+
   return (
     <div className="screen screen--white">
       <StatusBar variant="dark" />
@@ -24,7 +27,9 @@ export default function AgeVerifyScreen() {
       </p>
 
       <div className="consent-cta-wrap">
-        <button className="consent-cta">next</button>
+        <button className="consent-cta" onClick={() => navigate('/join/age-gate')}>
+          next
+        </button>
       </div>
 
       <HomeIndicator variant="dark" />

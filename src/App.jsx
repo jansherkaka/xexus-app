@@ -3,6 +3,7 @@ import PhoneFrame from './components/PhoneFrame';
 import IntroScreen from './screens/IntroScreen';
 import LocationScreen from './screens/LocationScreen';
 import AgeVerifyScreen from './screens/AgeVerifyScreen';
+import AgeGateScreen from './screens/AgeGateScreen';
 import './App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<IntroScreen />} />
             <Route path="/join" element={<LocationScreen />} />
             <Route path="/join/verify" element={<AgeVerifyScreen />} />
+            <Route path="/join/age-gate" element={<AgeGateScreen />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </PhoneFrame>
