@@ -5,13 +5,6 @@
   height: 177px;
   border-radius: 13px;
   overflow: hidden;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    rgba(255, 255, 255, 0.92) 30%,
-    rgba(255, 255, 255, 0.92) 70%,
-    transparent 100%
-  );
 }
 
 .wheel-picker__highlight {
@@ -20,7 +13,7 @@
   left: -20px;
   right: -20px;
   height: 35px;
-  background: rgba(48, 48, 58, 0.18);
+  background: #d01b21;
   border-radius: 7px;
   pointer-events: none;
   z-index: 0;
@@ -65,19 +58,19 @@
 }
 
 .wheel-col__item--d0 {
-  color: #19191a;
+  color: #fff;
   font-size: 20px;
   font-weight: 700;
 }
 
 .wheel-col__item--d1 {
-  color: #8f8f8f;
+  color: #19191a;
   font-size: 17px;
   font-weight: 500;
 }
 
 .wheel-col__item--d2 {
-  color: #c7c7c7;
+  color: #19191a;
   font-size: 15px;
   font-weight: 500;
 }
