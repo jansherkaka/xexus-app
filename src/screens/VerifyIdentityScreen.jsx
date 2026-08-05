@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import HomeIndicator from '../components/HomeIndicator';
 import shieldIcon from '../assets/icon-shield-check.png';
@@ -8,6 +9,7 @@ import './Screens.css';
 import './VerifyIdentityScreen.css';
 
 export default function VerifyIdentityScreen() {
+  const navigate = useNavigate();
   const [verified, setVerified] = useState(false);
 
   return (
@@ -59,7 +61,10 @@ export default function VerifyIdentityScreen() {
                 your age has been confirmed. you&rsquo;re all set to continue.
               </p>
             </div>
-            <button className="verify-success-confirm" onClick={() => setVerified(false)}>
+            <button
+              className="verify-success-confirm"
+              onClick={() => navigate('/join/gender')}
+            >
               finish
             </button>
           </div>
