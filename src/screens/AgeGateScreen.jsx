@@ -39,7 +39,9 @@ export default function AgeGateScreen() {
       <p className="age-gate-body">XEXSUS is for people aged 20 and over.</p>
 
       <div className="age-gate-cta-wrap">
-        <button className="age-gate-cta">i&rsquo;m 18 or older</button>
+        <button className="age-gate-cta" onClick={() => navigate('/join/birthday')}>
+          i&rsquo;m 18 or older
+        </button>
       </div>
 
       <HomeIndicator variant="dark" />
