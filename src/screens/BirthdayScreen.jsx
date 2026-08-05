@@ -1,13 +1,38 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import HomeIndicator from '../components/HomeIndicator';
+import WheelDatePicker from '../components/WheelDatePicker';
 import logo from '../assets/xexus-logo-red-small.png';
 import arrowBack from '../assets/icon-arrow-back.svg';
 import './Screens.css';
 import './BirthdayScreen.css';
 
+function formatDate(iso) {
+  return new Date(iso).toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+}
+
 export default function BirthdayScreen() {
   const navigate = useNavigate();
+  const [pickerOpen, setPickerOpen] = useState(false);
+  const [dob, setDob] = useState('');
+  const [draftDob, setDraftDob] = useState('');
+
+  const openPicker = () => {
+    setDraftDob(dob || '2000-01-01');
+    setPickerOpen(true);
+  };
+
+  const confirmDate = () => {
+    setDob(draftDob);
+    setPickerOpen(false);
+  };
+
+  const resetDate = () => setDraftDob('2000-01-01');
 
   return (
     <div className="screen screen--white">
@@ -48,10 +73,30 @@ export default function BirthdayScreen() {
       </div>
 
       <div className="birthday-cta-wrap">
-        <button className="birthday-cta">select a date</button>
+        <button className="birthday-cta" onClick={openPicker}>
+          {dob ? formatDate(dob) : 'select a date'}
+        </button>
       </div>
 
       <HomeIndicator variant="dark" />
+
+      {pickerOpen && (
+        <>
+          <div className="birthday-dim" />
+          <div className="birthday-popup">
+            <p className="birthday-popup__heading">select a date</p>
+            <WheelDatePicker value={draftDob} onChange={setDraftDob} />
+            <div className="birthday-popup__actions">
+              <button className="birthday-popup__confirm" onClick={confirmDate}>
+                confirm
+              </button>
+              <button className="birthday-popup__reset" onClick={resetDate}>
+                reset
+              </button>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }
