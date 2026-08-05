@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import PhoneFrame from './components/PhoneFrame';
 import IntroScreen from './screens/IntroScreen';
 import LocationScreen from './screens/LocationScreen';
+import AgeVerifyScreen from './screens/AgeVerifyScreen';
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Routes>
             <Route path="/" element={<IntroScreen />} />
             <Route path="/join" element={<LocationScreen />} />
+            <Route path="/join/verify" element={<AgeVerifyScreen />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </PhoneFrame>

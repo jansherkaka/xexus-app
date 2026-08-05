@@ -1,0 +1,92 @@
+.consent-icon {
+  position: absolute;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 160px;
+}
+
+.consent-text {
+  position: absolute;
+  top: 271px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 344px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.consent-line {
+  margin: 0;
+  width: 100%;
+  font-family: 'Berthold Akzidenz Grotesk', sans-serif;
+  font-weight: 800;
+  color: #fd151b;
+}
+
+.consent-line--big {
+  font-size: 86px;
+  letter-spacing: -4.3px;
+  line-height: 0.85;
+}
+
+.consent-line--small {
+  font-size: 28px;
+  line-height: 0.92;
+  margin: 6px 0;
+}
+
+/* letter-spacing adds trailing space after the last glyph, which shifts the
+   visible text left of true center — nudge right by half the tracking value */
+.consent-line--starts {
+  letter-spacing: 19.32px;
+  transform: translateX(9.66px);
+}
+
+.consent-line--with {
+  letter-spacing: 20.44px;
+  transform: translateX(10.22px);
+}
+
+.consent-body {
+  position: absolute;
+  top: 561px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 339px;
+  margin: 0;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #8f8f8f;
+}
+
+.consent-cta-wrap {
+  position: absolute;
+  top: 718px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.consent-cta {
+  width: 246px;
+  padding: 24px;
+  background: #fd151b;
+  color: #fff;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.1;
+  transition: transform 0.15s ease;
+}
+
+.consent-cta:active {
+  transform: scale(0.97);
+}
