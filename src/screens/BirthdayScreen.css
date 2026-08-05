@@ -236,10 +236,10 @@
 .birthday-confirm-popup {
   position: absolute;
   left: 50%;
-  top: calc(50% + 30px);
+  top: calc(50% + 4.5px);
   transform: translate(-50%, -50%);
   z-index: 6;
-  width: 362px;
+  width: 361px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -250,45 +250,41 @@
 }
 
 .birthday-confirm-heading {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 31px;
+  margin: 0;
   width: 100%;
   text-align: center;
   font-family: 'Berthold Akzidenz Grotesk', sans-serif;
   font-weight: 800;
+  font-size: 52px;
+  line-height: 0.78;
   color: #fd151b;
-}
-
-.birthday-confirm-line {
-  margin: 0;
-  width: 100%;
-}
-
-.birthday-confirm-line--confirm {
-  font-size: 72px;
-  line-height: 1.2;
-}
-
-.birthday-confirm-line--your {
-  font-size: 28px;
-  letter-spacing: 20.44px;
-  line-height: 0.92;
-  transform: translateX(10.22px);
-}
-
-.birthday-confirm-line--age {
-  font-size: 59px;
-  line-height: 1.2;
 }
 
 .birthday-confirm-body {
   margin: 0;
   width: 100%;
+  text-align: center;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.5;
   color: #8f8f8f;
+}
+
+.birthday-confirm-popup__confirm {
+  width: 100%;
+  height: 72px;
+  background: #19191a;
+  color: #fff;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.1;
+  box-shadow: 0 4px 3px rgba(39, 39, 39, 0.05);
+  transition: transform 0.15s ease;
+}
+
+.birthday-confirm-popup__confirm:active {
+  transform: scale(0.97);
 }

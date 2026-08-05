@@ -111,20 +111,20 @@ export default function BirthdayScreen() {
         <>
           <div className="birthday-dim" />
           <div className="birthday-confirm-popup">
-            <div className="birthday-confirm-heading">
-              <p className="birthday-confirm-line birthday-confirm-line--confirm">confirm</p>
-              <p className="birthday-confirm-line birthday-confirm-line--your">your</p>
-              <p className="birthday-confirm-line birthday-confirm-line--age">age</p>
-              <p className="birthday-confirm-body">
-                you entered {formatDate(dob)} ({calcAge(dob)} years old). confirm this
-                is correct to continue.
-                <br />
-                you wont be able to edit this later
-              </p>
-            </div>
+            <p className="birthday-confirm-heading">confirm your age</p>
+            <p className="birthday-confirm-body">
+              looks like you&rsquo;re {calcAge(dob)}.
+              <br />
+              you entered {formatDate(dob)}.
+              <br />
+              <br />
+              confirm this is correct to continue.
+              <br />
+              you won&rsquo;t be able to change this later.
+            </p>
             <div className="birthday-popup__actions">
               <button
-                className="birthday-popup__confirm"
+                className="birthday-confirm-popup__confirm"
                 onClick={() => navigate('/join/verify-identity')}
               >
                 confirm
