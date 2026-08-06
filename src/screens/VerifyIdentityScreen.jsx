@@ -14,7 +14,7 @@ export default function VerifyIdentityScreen() {
 
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" />
+      <StatusBar variant="dark" bg="#ffffff" />
 
       <img src={shieldIcon} alt="" className="verify-icon anim-fade-scale anim-d1" />
 

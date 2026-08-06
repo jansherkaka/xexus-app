@@ -13,7 +13,7 @@ export default function NameScreen() {
 
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" />
+      <StatusBar variant="dark" bg="#ffffff" />
 
       <div className="name-topbar">
         <button

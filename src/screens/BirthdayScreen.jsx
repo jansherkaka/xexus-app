@@ -45,7 +45,7 @@ export default function BirthdayScreen() {
 
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" />
+      <StatusBar variant="dark" bg="#ffffff" />
 
       <div className="birthday-topbar">
         <button

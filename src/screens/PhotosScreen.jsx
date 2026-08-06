@@ -27,7 +27,7 @@ export default function PhotosScreen() {
 
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" />
+      <StatusBar variant="dark" bg="#ffffff" />
 
       <div className="photos-topbar">
         <div className="photos-brand">

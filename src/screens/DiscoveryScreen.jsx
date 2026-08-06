@@ -18,7 +18,7 @@ export default function DiscoveryScreen() {
 
   return (
     <div className="screen screen--white discovery-screen">
-      <StatusBar variant="dark" />
+      <StatusBar variant="dark" bg="#ffffff" />
 
       <img src={peekTop} alt="" className="discovery-peek discovery-peek--top anim-fade" />
       <img src={peekBottom} alt="" className="discovery-peek discovery-peek--bottom anim-fade" />

@@ -32,7 +32,7 @@ export default function IntroScreen() {
   if (stage === 'splash') {
     return (
       <div className="screen screen--red">
-        <StatusBar variant="light" />
+        <StatusBar variant="light" bg="#fd151b" />
         <img src={logo} alt="Xexus" className="splash-logo" />
         <HomeIndicator variant="light" />
       </div>
@@ -41,7 +41,7 @@ export default function IntroScreen() {
 
   return (
     <div className="screen screen--red">
-      <StatusBar variant="dark" />
+      <StatusBar variant="dark" bg="#fd151b" />
 
       <p className="intro-headline">step</p>
 

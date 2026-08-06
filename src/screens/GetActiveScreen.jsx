@@ -11,7 +11,7 @@ export default function GetActiveScreen() {
 
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" />
+      <StatusBar variant="dark" bg="#ffffff" />
 
       <div className="get-active-topbar">
         <button

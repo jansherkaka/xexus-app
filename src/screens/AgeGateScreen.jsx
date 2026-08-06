@@ -11,7 +11,7 @@ export default function AgeGateScreen() {
 
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" />
+      <StatusBar variant="dark" bg="#ffffff" />
 
       <div className="age-gate-topbar">
         <button

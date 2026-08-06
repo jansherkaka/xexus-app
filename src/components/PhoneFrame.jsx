@@ -2,10 +2,11 @@ import { useEffect, useRef, useState } from 'react';
 
 const DESIGN_WIDTH = 402;
 const DESIGN_HEIGHT = 874;
+const FULL_BLEED_QUERY = '(display-mode: standalone), (display-mode: fullscreen), (max-width: 480px)';
 
 export default function PhoneFrame({ children }) {
   const outerRef = useRef(null);
-  const [scale, setScale] = useState(1);
+  const [box, setBox] = useState({ scaleX: 1, scaleY: 1, bezel: 16, fullBleed: false });
 
   useEffect(() => {
     const el = outerRef.current;
@@ -13,13 +14,28 @@ export default function PhoneFrame({ children }) {
 
     const update = () => {
       const { width, height } = el.getBoundingClientRect();
-      setScale(Math.min(width / DESIGN_WIDTH, height / DESIGN_HEIGHT));
+      const fullBleed = window.matchMedia(FULL_BLEED_QUERY).matches;
+      if (fullBleed) {
+        // On a real device (installed app or any narrow/touch viewport) the
+        // device itself is the frame — stretch to fill edge-to-edge instead
+        // of aspect-fitting, so slightly-off aspect ratios never letterbox
+        // into visible bars on the sides or top/bottom.
+        setBox({ scaleX: width / DESIGN_WIDTH, scaleY: height / DESIGN_HEIGHT, bezel: 0, fullBleed: true });
+      } else {
+        const s = Math.min(width / DESIGN_WIDTH, height / DESIGN_HEIGHT);
+        setBox({ scaleX: s, scaleY: s, bezel: 16, fullBleed: false });
+      }
     };
 
     update();
     const ro = new ResizeObserver(update);
     ro.observe(el);
-    return () => ro.disconnect();
+    const mq = window.matchMedia(FULL_BLEED_QUERY);
+    mq.addEventListener?.('change', update);
+    return () => {
+      ro.disconnect();
+      mq.removeEventListener?.('change', update);
+    };
   }, []);
 
   return (
@@ -27,8 +43,8 @@ export default function PhoneFrame({ children }) {
       <div
         className="phone-bezel"
         style={{
-          width: DESIGN_WIDTH * scale + 16,
-          height: DESIGN_HEIGHT * scale + 16,
+          width: DESIGN_WIDTH * box.scaleX + box.bezel,
+          height: DESIGN_HEIGHT * box.scaleY + box.bezel,
         }}
       >
         <div
@@ -36,7 +52,7 @@ export default function PhoneFrame({ children }) {
           style={{
             width: DESIGN_WIDTH,
             height: DESIGN_HEIGHT,
-            transform: `scale(${scale})`,
+            transform: `scale(${box.scaleX}, ${box.scaleY})`,
           }}
         >
           {children}

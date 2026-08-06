@@ -10,7 +10,7 @@ export default function AgeVerifyScreen() {
 
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" />
+      <StatusBar variant="dark" bg="#ffffff" />
 
       <img src={shieldIcon} alt="" className="consent-icon anim-fade-scale anim-d1" />
 

@@ -13,7 +13,7 @@ export default function SetToneScreen() {
     <div className="screen set-tone-screen">
       <img src={bgSetTone} alt="" className="set-tone-bg anim-fade-scale" />
 
-      <StatusBar variant="light" />
+      <StatusBar variant="light" bg="#ca282a" />
 
       <img src={identityIconWhite} alt="" className="set-tone-icon anim-fade-scale anim-d1" />
 

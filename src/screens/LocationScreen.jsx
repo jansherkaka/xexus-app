@@ -26,7 +26,7 @@ export default function LocationScreen() {
         <img src={bgPhoto} alt="" className="location-bg__photo anim-fade-scale" />
       </div>
 
-      <StatusBar variant="dark" />
+      <StatusBar variant="dark" bg="#3e3126" />
 
       <div className="location-topbar">
         <button

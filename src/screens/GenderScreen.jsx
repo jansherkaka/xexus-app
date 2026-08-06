@@ -44,7 +44,7 @@ export default function GenderScreen() {
 
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" />
+      <StatusBar variant="dark" bg="#ffffff" />
 
       <div className="gender-topbar">
         <button

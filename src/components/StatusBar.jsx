@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import batteryWhite from '../assets/battery-white.svg';
 import wifiWhite from '../assets/wifi-white.svg';
 import timeWhite from '../assets/time-white.svg';
@@ -12,9 +13,18 @@ const ASSETS = {
   dark: { battery: batteryBlack, wifi: wifiBlack, time: timeBlack },
 };
 
-export default function StatusBar({ variant = 'dark' }) {
+export default function StatusBar({ variant = 'dark', bg }) {
   const isInstalledApp = useIsInstalledApp();
   const { battery, wifi, time } = ASSETS[variant];
+
+  // Tints the real OS status bar (Android TWA/PWA) to match this screen's
+  // own top background, instead of the one static color baked into the
+  // manifest. Also colors mobile Chrome's address bar the same way.
+  useEffect(() => {
+    if (!bg) return;
+    const meta = document.querySelector('meta[name="theme-color"]');
+    meta?.setAttribute('content', bg);
+  }, [bg]);
 
   if (isInstalledApp) return null;
 

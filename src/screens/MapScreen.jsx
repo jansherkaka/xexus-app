@@ -107,7 +107,7 @@ export default function MapScreen() {
 
       <img src={fadeBottom} alt="" className="map-fade map-fade--bottom anim-fade" />
 
-      <StatusBar variant="light" />
+      <StatusBar variant="light" bg="#2f3133" />
 
       <div className="map-topbar">
         <button className="map-back" onClick={() => navigate('/join/discover')} aria-label="Back">
