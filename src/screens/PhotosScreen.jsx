@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import HomeIndicator from '../components/HomeIndicator';
 import logo from '../assets/xexus-logo-red-small.png';
@@ -10,6 +11,7 @@ import './PhotosScreen.css';
 const SLOT_COUNT = 6;
 
 export default function PhotosScreen() {
+  const navigate = useNavigate();
   const [photos, setPhotos] = useState([examplePhoto, null, null, null, null, null]);
 
   const handleFile = (index, e) => {
@@ -65,7 +67,9 @@ export default function PhotosScreen() {
       </div>
 
       <div className="photos-cta-wrap">
-        <button className="photos-cta">next</button>
+        <button className="photos-cta" onClick={() => navigate('/join/get-active')}>
+          next
+        </button>
       </div>
 
       <HomeIndicator variant="dark" />
