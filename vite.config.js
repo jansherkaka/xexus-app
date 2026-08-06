@@ -15,6 +15,9 @@ export default defineConfig({
       devOptions: {
         enabled: true,
       },
+      workbox: {
+        navigateFallbackDenylist: [/^\/downloads\//, /^\/\.well-known\//],
+      },
       manifest: {
         name: 'Xexus',
         short_name: 'Xexus',
