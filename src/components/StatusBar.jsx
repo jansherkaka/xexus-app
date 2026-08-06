@@ -4,6 +4,7 @@ import timeWhite from '../assets/time-white.svg';
 import batteryBlack from '../assets/battery-black.svg';
 import wifiBlack from '../assets/wifi-black.svg';
 import timeBlack from '../assets/time-black.svg';
+import useIsInstalledApp from '../hooks/useIsInstalledApp';
 import './DeviceChrome.css';
 
 const ASSETS = {
@@ -12,7 +13,10 @@ const ASSETS = {
 };
 
 export default function StatusBar({ variant = 'dark' }) {
+  const isInstalledApp = useIsInstalledApp();
   const { battery, wifi, time } = ASSETS[variant];
+
+  if (isInstalledApp) return null;
 
   return (
     <div className={`status-bar status-bar--${variant}`}>

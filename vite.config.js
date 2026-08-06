@@ -24,7 +24,7 @@ export default defineConfig({
         description: 'Xexus — interactive prototype',
         theme_color: '#fd151b',
         background_color: '#fd151b',
-        display: 'fullscreen',
+        display: 'standalone',
         orientation: 'portrait',
         start_url: '/',
         icons: [
