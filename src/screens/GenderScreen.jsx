@@ -4,7 +4,7 @@ import StatusBar from '../components/StatusBar';
 import HomeIndicator from '../components/HomeIndicator';
 import logo from '../assets/xexus-logo-red-small.png';
 import arrowBack from '../assets/icon-arrow-back.svg';
-import identityIcon from '../assets/icon-identity.png';
+import identityIcon from '../assets/icon-identify.svg';
 import './Screens.css';
 import './GenderScreen.css';
 
@@ -63,20 +63,22 @@ export default function GenderScreen() {
         <p className="gender-line gender-line--identify">identify?</p>
       </div>
 
-      <img src={identityIcon} alt="" className="gender-icon" />
+      <div className="gender-figure">
+        <img src={identityIcon} alt="" className="gender-icon" />
 
-      {OPTIONS.map((opt) => (
-        <button
-          key={opt.id}
-          className={`gender-label ${opt.className}${selected === opt.id ? ' gender-label--selected' : ''}`}
-          aria-label={opt.label}
-          onClick={() => setSelected(opt.id)}
-        >
-          <svg viewBox={opt.viewBox} width="100%" height="100%">
-            <path d={LABEL_PATHS[PATH_KEY[opt.id]]} fill="currentColor" />
-          </svg>
-        </button>
-      ))}
+        {OPTIONS.map((opt) => (
+          <button
+            key={opt.id}
+            className={`gender-label ${opt.className}${selected === opt.id ? ' gender-label--selected' : ''}`}
+            aria-label={opt.label}
+            onClick={() => setSelected(opt.id)}
+          >
+            <svg viewBox={opt.viewBox} width="100%" height="100%">
+              <path d={LABEL_PATHS[PATH_KEY[opt.id]]} fill="currentColor" />
+            </svg>
+          </button>
+        ))}
+      </div>
 
       <HomeIndicator variant="dark" />
     </div>
