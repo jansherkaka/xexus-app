@@ -1,0 +1,248 @@
+.map-screen {
+  background: #0d0d0d;
+}
+
+.map-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+}
+
+.map-tint {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.map-fade {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.map-fade--top {
+  top: 0;
+  height: 130px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+}
+
+.map-fade--bottom {
+  bottom: 0;
+  height: 150px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.map-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 130px;
+  z-index: 3;
+}
+
+.map-back {
+  position: absolute;
+  top: 72px;
+  left: 20px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+}
+
+.map-back img {
+  width: 100%;
+  height: 100%;
+}
+
+.map-brand {
+  position: absolute;
+  top: 67px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.map-brand__logo {
+  width: 100px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.map-pin {
+  position: absolute;
+  width: 357px;
+  height: 78px;
+  z-index: 2;
+}
+
+.map-pin__glow {
+  position: absolute;
+  left: 3px;
+  top: 0;
+  width: 41px;
+  height: 41px;
+  border-radius: 50%;
+  filter: blur(4px);
+}
+
+.map-pin__badge {
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    0 4px 4px rgba(16, 24, 40, 0.1),
+    0 2px 2px rgba(16, 24, 40, 0.06);
+}
+
+.map-pin__avatar {
+  position: absolute;
+  left: 29px;
+  top: 24px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow:
+    0 4px 8px rgba(16, 24, 40, 0.1),
+    0 2px 4px rgba(16, 24, 40, 0.06);
+}
+
+.map-pin__emoji {
+  position: absolute;
+  left: 9px;
+  top: 9px;
+  font-size: 19px;
+  line-height: 1.1;
+}
+
+.map-pin__icon {
+  position: absolute;
+  left: 9px;
+  top: 6px;
+  width: 18px;
+  height: 22px;
+}
+
+.map-pin__label {
+  position: absolute;
+  left: 0;
+  top: 49px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 0 8px;
+  border-radius: 8px;
+  background: #fffaf7;
+  border: 0.3px solid #d3e0e6;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #19191a;
+  white-space: nowrap;
+}
+
+.map-pin__label img {
+  width: 9px;
+  height: 9px;
+}
+
+.map-pin--you .map-pin__you-avatar {
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  box-shadow:
+    0 4px 4px rgba(16, 24, 40, 0.1),
+    0 2px 2px rgba(16, 24, 40, 0.06);
+}
+
+.map-pin--you .map-pin__you-avatar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.map-pin--you .map-pin__you-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-toggle {
+  position: absolute;
+  left: 341px;
+  top: 242px;
+  width: 39px;
+  height: 148px;
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(1px);
+  z-index: 3;
+}
+
+.map-toggle__btn {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 1;
+  box-shadow:
+    0 4px 8px rgba(16, 24, 40, 0.1),
+    0 2px 4px rgba(16, 24, 40, 0.06);
+}
+
+.map-toggle__btn--top {
+  top: 25px;
+}
+
+.map-toggle__btn--mid {
+  top: 62px;
+}
+
+.map-toggle__btn--bottom {
+  top: 98px;
+}
+
+.map-toggle__btn--top img {
+  width: 15px;
+  height: 18px;
+}
+
+.map-bottom-nav {
+  position: absolute;
+  left: 56px;
+  top: 820px;
+  width: 291px;
+  height: 32px;
+  z-index: 3;
+}
