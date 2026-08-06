@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import HomeIndicator from '../components/HomeIndicator';
 import identityIconWhite from '../assets/icon-identity-white.png';
@@ -6,6 +7,8 @@ import './Screens.css';
 import './SetToneScreen.css';
 
 export default function SetToneScreen() {
+  const navigate = useNavigate();
+
   return (
     <div className="screen set-tone-screen">
       <img src={bgSetTone} alt="" className="set-tone-bg" />
@@ -27,7 +30,9 @@ export default function SetToneScreen() {
       </p>
 
       <div className="set-tone-cta-wrap">
-        <button className="set-tone-cta">start chat with AI</button>
+        <button className="set-tone-cta" onClick={() => navigate('/join/photos')}>
+          start chat with AI
+        </button>
       </div>
 
       <HomeIndicator variant="light" />
