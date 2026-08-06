@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
-import HomeIndicator from '../components/HomeIndicator';
 import logo from '../assets/xexus-logo-red-small.png';
 import arrowBack from '../assets/icon-arrow-back.svg';
 import cardPhoto from '../assets/discovery-card-photo.jpg';
@@ -74,8 +73,6 @@ export default function DiscoveryScreen() {
       </button>
 
       <img src={bottomNav} alt="" className="discovery-bottom-nav" />
-
-      <HomeIndicator variant="dark" />
     </div>
   );
 }
