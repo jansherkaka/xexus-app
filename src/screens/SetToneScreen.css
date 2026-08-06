@@ -2,6 +2,15 @@
   background: #fd151b;
 }
 
+.set-tone-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
 .set-tone-icon {
   position: absolute;
   top: 87px;

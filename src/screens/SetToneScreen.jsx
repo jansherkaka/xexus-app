@@ -1,12 +1,15 @@
 import StatusBar from '../components/StatusBar';
 import HomeIndicator from '../components/HomeIndicator';
 import identityIconWhite from '../assets/icon-identity-white.png';
+import bgSetTone from '../assets/bg-set-tone.png';
 import './Screens.css';
 import './SetToneScreen.css';
 
 export default function SetToneScreen() {
   return (
     <div className="screen set-tone-screen">
+      <img src={bgSetTone} alt="" className="set-tone-bg" />
+
       <StatusBar variant="light" />
 
       <img src={identityIconWhite} alt="" className="set-tone-icon" />
