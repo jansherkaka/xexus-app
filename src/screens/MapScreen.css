@@ -21,20 +21,20 @@
   position: absolute;
   left: 0;
   width: 100%;
-  z-index: 1;
+  object-fit: cover;
   pointer-events: none;
 }
 
 .map-fade--top {
   top: 0;
-  height: 130px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+  height: 121px;
+  z-index: 1;
 }
 
 .map-fade--bottom {
   bottom: 0;
   height: 150px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  z-index: 2;
 }
 
 .map-topbar {
@@ -43,7 +43,7 @@
   left: 0;
   width: 100%;
   height: 130px;
-  z-index: 3;
+  z-index: 4;
 }
 
 .map-back {

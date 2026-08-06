@@ -3,6 +3,8 @@ import StatusBar from '../components/StatusBar';
 import logo from '../assets/xexus-logo-red-small.png';
 import arrowBack from '../assets/icon-arrow-back.svg';
 import mapBg from '../assets/map-bg.jpg';
+import fadeTop from '../assets/top.png';
+import fadeBottom from '../assets/bottom.png';
 import bottomNav from '../assets/icon-bottom-nav.svg';
 import iconSquiggle from '../assets/map-icon-camera-asset.png';
 import dotYellow from '../assets/icon-dot-yellow.svg';
@@ -65,7 +67,7 @@ export default function MapScreen() {
     <div className="screen screen--dark map-screen">
       <img src={mapBg} alt="" className="map-bg" />
       <div className="map-tint" />
-      <div className="map-fade map-fade--top" />
+      <img src={fadeTop} alt="" className="map-fade map-fade--top" />
 
       {PINS.map((pin) => (
         <div key={pin.id} className="map-pin" style={{ left: pin.left, top: pin.top }}>
@@ -96,7 +98,7 @@ export default function MapScreen() {
         </div>
       </div>
 
-      <div className="map-fade map-fade--bottom" />
+      <img src={fadeBottom} alt="" className="map-fade map-fade--bottom" />
 
       <StatusBar variant="light" />
 
