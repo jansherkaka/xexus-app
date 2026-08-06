@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
+import BottomNav from '../components/BottomNav';
 import logo from '../assets/xexus-logo-red-small.png';
 import arrowBack from '../assets/icon-arrow-back.svg';
 import cardPhoto from '../assets/discovery-card-photo.jpg';
 import peekTop from '../assets/discovery-peek-4.jpg';
 import peekBottom from '../assets/discovery-peek-2.jpg';
 import onlineDot from '../assets/icon-online-dot.svg';
-import bottomNav from '../assets/icon-bottom-nav.svg';
 import iconX from '../assets/icon-x.svg';
 import iconHeart from '../assets/icon-heart.svg';
 import iconPin from '../assets/icon-pin.svg';
@@ -68,11 +68,15 @@ export default function DiscoveryScreen() {
       <button className="discovery-action discovery-action--like" aria-label="Like">
         <img src={iconHeart} alt="" />
       </button>
-      <button className="discovery-action discovery-action--superlike" aria-label="Super like">
+      <button
+        className="discovery-action discovery-action--superlike"
+        aria-label="Open LiveLustMap"
+        onClick={() => navigate('/join/map')}
+      >
         <img src={iconPin} alt="" />
       </button>
 
-      <img src={bottomNav} alt="" className="discovery-bottom-nav" />
+      <BottomNav className="discovery-bottom-nav" />
     </div>
   );
 }

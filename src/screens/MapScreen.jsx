@@ -1,11 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
+import BottomNav from '../components/BottomNav';
 import logo from '../assets/xexus-logo-red-small.png';
 import arrowBack from '../assets/icon-arrow-back.svg';
 import mapBg from '../assets/map-bg.jpg';
 import fadeTop from '../assets/top.png';
 import fadeBottom from '../assets/bottom.png';
-import bottomNav from '../assets/icon-bottom-nav.svg';
 import iconSquiggle from '../assets/map-icon-camera-asset.png';
 import dotYellow from '../assets/icon-dot-yellow.svg';
 import dotGreen from '../assets/icon-dot-green.svg';
@@ -123,7 +123,7 @@ export default function MapScreen() {
         </button>
       </div>
 
-      <img src={bottomNav} alt="" className="map-bottom-nav" />
+      <BottomNav className="map-bottom-nav" onChat={() => navigate('/join/discover')} />
     </div>
   );
 }

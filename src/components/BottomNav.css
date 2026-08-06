@@ -1,0 +1,39 @@
+.bottom-nav {
+  position: absolute;
+  width: 291px;
+  height: 32px;
+}
+
+.bottom-nav__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.bottom-nav__btn {
+  position: absolute;
+  top: 0;
+  width: 70px;
+  height: 32px;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.bottom-nav__btn--profile {
+  left: 16px;
+}
+
+.bottom-nav__btn--chat {
+  left: 104px;
+}
+
+.bottom-nav__btn--explore {
+  left: 190px;
+}
+
+.bottom-nav__btn--matches {
+  left: 275px;
+}
