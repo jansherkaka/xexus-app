@@ -37,6 +37,11 @@ export default function GenderScreen() {
   const navigate = useNavigate();
   const [selected, setSelected] = useState(null);
 
+  const selectOption = (id) => {
+    setSelected(id);
+    setTimeout(() => navigate('/join/name'), 250);
+  };
+
   return (
     <div className="screen screen--white">
       <StatusBar variant="dark" />
@@ -71,7 +76,7 @@ export default function GenderScreen() {
             key={opt.id}
             className={`gender-label ${opt.className}${selected === opt.id ? ' gender-label--selected' : ''}`}
             aria-label={opt.label}
-            onClick={() => setSelected(opt.id)}
+            onClick={() => selectOption(opt.id)}
           >
             <svg viewBox={opt.viewBox} width="100%" height="100%">
               <path d={LABEL_PATHS[PATH_KEY[opt.id]]} fill="currentColor" />

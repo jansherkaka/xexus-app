@@ -7,6 +7,7 @@ import AgeGateScreen from './screens/AgeGateScreen';
 import BirthdayScreen from './screens/BirthdayScreen';
 import VerifyIdentityScreen from './screens/VerifyIdentityScreen';
 import GenderScreen from './screens/GenderScreen';
+import NameScreen from './screens/NameScreen';
 import './App.css';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             <Route path="/join/birthday" element={<BirthdayScreen />} />
             <Route path="/join/verify-identity" element={<VerifyIdentityScreen />} />
             <Route path="/join/gender" element={<GenderScreen />} />
+            <Route path="/join/name" element={<NameScreen />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </PhoneFrame>
