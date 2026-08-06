@@ -39,7 +39,9 @@ export default function GetActiveScreen() {
       </p>
 
       <div className="get-active-cta-wrap">
-        <button className="get-active-cta">activate LiveLustMap</button>
+        <button className="get-active-cta" onClick={() => navigate('/join/discover')}>
+          activate LiveLustMap
+        </button>
       </div>
 
       <HomeIndicator variant="dark" />

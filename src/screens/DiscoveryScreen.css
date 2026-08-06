@@ -1,0 +1,256 @@
+.discovery-screen {
+  background: #fff;
+}
+
+.discovery-peek {
+  position: absolute;
+  left: 13px;
+  width: 375px;
+  height: 68px;
+  border-radius: 27px;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.discovery-peek--top {
+  top: 122px;
+  object-position: center 30%;
+}
+
+.discovery-peek--bottom {
+  top: 731px;
+  object-position: center 40%;
+}
+
+.discovery-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 130px;
+  z-index: 2;
+}
+
+.discovery-back {
+  position: absolute;
+  top: 72px;
+  left: 20px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+}
+
+.discovery-back img {
+  width: 100%;
+  height: 100%;
+}
+
+.discovery-brand {
+  position: absolute;
+  top: 67px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+}
+
+.discovery-brand__logo {
+  width: 100px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.discovery-card {
+  position: absolute;
+  left: 11px;
+  top: 197px;
+  width: 375px;
+  height: 526px;
+  border-radius: 27px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px -1px #cab7b8;
+  z-index: 1;
+}
+
+.discovery-card__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.discovery-card__overlay {
+  position: absolute;
+  left: 16px;
+  top: 360px;
+  width: 343px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 0;
+  border-radius: 20px;
+  background: rgba(33, 32, 32, 0.64);
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+}
+
+.discovery-card__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.discovery-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+.discovery-card__name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.discovery-card__name-bold {
+  font-weight: 500;
+}
+
+.discovery-card__distance {
+  margin: 0;
+  font-size: 14px;
+  line-height: 16px;
+  color: #b9b5b5;
+}
+
+.discovery-card__online {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ea3e2f;
+}
+
+.discovery-card__bio {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 8px;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+.discovery-card__bio-label {
+  margin: 0;
+  font-weight: 600;
+}
+
+.discovery-card__bio-text {
+  margin: 0;
+  font-weight: 400;
+}
+
+.discovery-tag {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28px;
+  padding: 0 16px;
+  border-radius: 16px;
+  background: #fffaf7;
+  box-shadow:
+    0 12px 27px rgba(107, 127, 156, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.04);
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #19191a;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.discovery-tag--1 {
+  left: 26px;
+  top: 228px;
+}
+
+.discovery-tag--2 {
+  left: 28px;
+  top: 264px;
+}
+
+.discovery-tag--3 {
+  left: 29px;
+  top: 300px;
+}
+
+.discovery-action {
+  position: absolute;
+  left: 310px;
+  width: 62px;
+  height: 39px;
+  border-radius: 20px;
+  background: #fffaf7;
+  backdrop-filter: blur(1px);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 2;
+  transition: transform 0.15s ease;
+}
+
+.discovery-action:active {
+  transform: scale(0.94);
+}
+
+.discovery-action--dislike {
+  top: 407px;
+}
+
+.discovery-action--like {
+  top: 456px;
+}
+
+.discovery-action--superlike {
+  top: 505px;
+}
+
+.discovery-action img {
+  display: block;
+}
+
+.discovery-action--dislike img {
+  width: 18px;
+  height: 18px;
+}
+
+.discovery-action--like img {
+  width: 25px;
+  height: 22px;
+}
+
+.discovery-action--superlike img {
+  width: 22px;
+  height: 28px;
+}
+
+.discovery-bottom-nav {
+  position: absolute;
+  left: 56px;
+  top: 820px;
+  width: 291px;
+  height: 32px;
+  z-index: 2;
+}

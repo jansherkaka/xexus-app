@@ -11,6 +11,7 @@ import NameScreen from './screens/NameScreen';
 import SetToneScreen from './screens/SetToneScreen';
 import PhotosScreen from './screens/PhotosScreen';
 import GetActiveScreen from './screens/GetActiveScreen';
+import DiscoveryScreen from './screens/DiscoveryScreen';
 import './App.css';
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
             <Route path="/join/set-tone" element={<SetToneScreen />} />
             <Route path="/join/photos" element={<PhotosScreen />} />
             <Route path="/join/get-active" element={<GetActiveScreen />} />
+            <Route path="/join/discover" element={<DiscoveryScreen />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </PhoneFrame>
