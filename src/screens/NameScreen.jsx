@@ -32,19 +32,19 @@ export default function NameScreen() {
       </div>
 
       <div className="name-heading">
-        <p className="name-line name-line--whats">what&rsquo;s</p>
-        <p className="name-line name-line--your">your</p>
-        <p className="name-line name-line--profile">profile</p>
-        <p className="name-line name-line--name">name?</p>
+        <p className="name-line name-line--whats anim-fade-up anim-d1">what&rsquo;s</p>
+        <p className="name-line name-line--your anim-fade-up anim-d2">your</p>
+        <p className="name-line name-line--profile anim-fade-up anim-d3">profile</p>
+        <p className="name-line name-line--name anim-fade-up anim-d4">name?</p>
       </div>
 
-      <p className="name-body">
+      <p className="name-body anim-fade-up anim-d5">
         add the name you want people to see.
         <br />
         keep it low-key.
       </p>
 
-      <div className="name-field">
+      <div className="name-field anim-fade-up anim-d6">
         <label className="name-field__label" htmlFor="profile-name">
           Name
         </label>
@@ -59,7 +59,10 @@ export default function NameScreen() {
       </div>
 
       <div className="name-cta-wrap">
-        <button className="name-cta" onClick={() => navigate('/join/set-tone')}>
+        <button
+          className="name-cta anim-fade-up anim-d7"
+          onClick={() => navigate('/join/set-tone')}
+        >
           next
         </button>
       </div>

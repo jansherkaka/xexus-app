@@ -16,16 +16,16 @@ export default function VerifyIdentityScreen() {
     <div className="screen screen--white">
       <StatusBar variant="dark" />
 
-      <img src={shieldIcon} alt="" className="verify-icon" />
+      <img src={shieldIcon} alt="" className="verify-icon anim-fade-scale anim-d1" />
 
       <div className="verify-content">
         <div className="verify-heading">
-          <p className="verify-line verify-line--verify">verify</p>
-          <p className="verify-line verify-line--youre">you&rsquo;re</p>
-          <p className="verify-line verify-line--over18">over 18</p>
+          <p className="verify-line verify-line--verify anim-fade-up anim-d2">verify</p>
+          <p className="verify-line verify-line--youre anim-fade-up anim-d3">you&rsquo;re</p>
+          <p className="verify-line verify-line--over18 anim-fade-up anim-d4">over 18</p>
         </div>
 
-        <p className="verify-body">
+        <p className="verify-body anim-fade-up anim-d5">
           to use XEXUS, you&rsquo;ll need to confirm that you&rsquo;re 20 or
           over. This helps us keep the platform adult-only and safer for
           everyone.
@@ -36,12 +36,18 @@ export default function VerifyIdentityScreen() {
         </p>
       </div>
 
-      <button className="verify-option verify-option--phone" onClick={() => setVerified(true)}>
+      <button
+        className="verify-option verify-option--phone anim-fade-up anim-d6"
+        onClick={() => setVerified(true)}
+      >
         <img src={phoneIcon} alt="" className="verify-option__icon" />
         <span>verify with phone number</span>
       </button>
 
-      <button className="verify-option verify-option--selfie" onClick={() => setVerified(true)}>
+      <button
+        className="verify-option verify-option--selfie anim-fade-up anim-d7"
+        onClick={() => setVerified(true)}
+      >
         <img src={faceScanIcon} alt="" className="verify-option__icon" />
         <span>verify with a selfie</span>
       </button>
@@ -50,8 +56,8 @@ export default function VerifyIdentityScreen() {
 
       {verified && (
         <>
-          <div className="verify-dim" />
-          <div className="verify-success-popup">
+          <div className="verify-dim anim-fade" />
+          <div className="verify-success-popup anim-pop-in">
             <div className="verify-success-heading">
               <p className="verify-success-line verify-success-line--youre">you&rsquo;re</p>
               <p className="verify-success-line verify-success-line--verified">verified!</p>

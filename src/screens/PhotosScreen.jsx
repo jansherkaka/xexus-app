@@ -39,18 +39,22 @@ export default function PhotosScreen() {
       </div>
 
       <div className="photos-heading">
-        <p className="photos-line photos-line--add">add</p>
-        <p className="photos-line photos-line--your">your</p>
-        <p className="photos-line photos-line--photos">photos</p>
+        <p className="photos-line photos-line--add anim-fade-up anim-d1">add</p>
+        <p className="photos-line photos-line--your anim-fade-up anim-d2">your</p>
+        <p className="photos-line photos-line--photos anim-fade-up anim-d3">photos</p>
       </div>
 
-      <p className="photos-body">
+      <p className="photos-body anim-fade-up anim-d4">
         your photos stay private. share them only when you choose.
       </p>
 
       <div className="photos-grid">
         {Array.from({ length: SLOT_COUNT }, (_, i) => (
-          <label key={i} className={`photos-slot${photos[i] ? '' : ' photos-slot--empty'}`}>
+          <label
+            key={i}
+            className={`photos-slot${photos[i] ? '' : ' photos-slot--empty'} anim-fade-scale`}
+            style={{ animationDelay: `${0.4 + i * 0.06}s` }}
+          >
             {photos[i] ? (
               <img src={photos[i]} alt="" className="photos-slot__img" />
             ) : (
@@ -67,7 +71,11 @@ export default function PhotosScreen() {
       </div>
 
       <div className="photos-cta-wrap">
-        <button className="photos-cta" onClick={() => navigate('/join/get-active')}>
+        <button
+          className="photos-cta anim-fade-up"
+          style={{ animationDelay: '0.85s' }}
+          onClick={() => navigate('/join/get-active')}
+        >
           next
         </button>
       </div>

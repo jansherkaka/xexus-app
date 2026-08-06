@@ -12,22 +12,29 @@ export default function AgeVerifyScreen() {
     <div className="screen screen--white">
       <StatusBar variant="dark" />
 
-      <img src={shieldIcon} alt="" className="consent-icon" />
+      <img src={shieldIcon} alt="" className="consent-icon anim-fade-scale anim-d1" />
 
       <div className="consent-text">
-        <p className="consent-line consent-line--big">pleasure</p>
-        <p className="consent-line consent-line--small consent-line--starts">starts</p>
-        <p className="consent-line consent-line--small consent-line--with">with</p>
-        <p className="consent-line consent-line--big">consent</p>
+        <p className="consent-line consent-line--big anim-fade-up anim-d2">pleasure</p>
+        <p className="consent-line consent-line--small consent-line--starts anim-fade-up anim-d3">
+          starts
+        </p>
+        <p className="consent-line consent-line--small consent-line--with anim-fade-up anim-d4">
+          with
+        </p>
+        <p className="consent-line consent-line--big anim-fade-up anim-d5">consent</p>
       </div>
 
-      <p className="consent-body">
+      <p className="consent-body anim-fade-up anim-d6">
         XEXUS is built around clear boundaries, mutual respect, and experiences that
         feel good for everyone involved
       </p>
 
       <div className="consent-cta-wrap">
-        <button className="consent-cta" onClick={() => navigate('/join/age-gate')}>
+        <button
+          className="consent-cta anim-fade-up anim-d7"
+          onClick={() => navigate('/join/age-gate')}
+        >
           next
         </button>
       </div>

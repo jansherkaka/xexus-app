@@ -65,13 +65,17 @@ export default function MapScreen() {
 
   return (
     <div className="screen screen--dark map-screen">
-      <img src={mapBg} alt="" className="map-bg" />
+      <img src={mapBg} alt="" className="map-bg anim-fade-scale" />
       <div className="map-tint" />
-      <img src={fadeTop} alt="" className="map-fade map-fade--top" />
+      <img src={fadeTop} alt="" className="map-fade map-fade--top anim-fade" />
 
-      {PINS.map((pin) => (
-        <div key={pin.id} className="map-pin" style={{ left: pin.left, top: pin.top }}>
-          <div className="map-pin__glow" style={{ background: pin.glow }} />
+      {PINS.map((pin, i) => (
+        <div
+          key={pin.id}
+          className="map-pin anim-pop-in"
+          style={{ left: pin.left, top: pin.top, animationDelay: `${0.3 + i * 0.12}s` }}
+        >
+          <div className="map-pin__glow map-pin__glow--pulse" style={{ background: pin.glow }} />
           <div className="map-pin__badge">
             <img src={pin.avatar} alt="" className="map-pin__avatar" />
             {pin.icon ? (
@@ -87,8 +91,11 @@ export default function MapScreen() {
         </div>
       ))}
 
-      <div className="map-pin map-pin--you" style={{ left: 261, top: 507 }}>
-        <div className="map-pin__glow" style={{ background: '#c5f9a3' }} />
+      <div
+        className="map-pin map-pin--you anim-pop-in"
+        style={{ left: 261, top: 507, animationDelay: '0.78s' }}
+      >
+        <div className="map-pin__glow map-pin__glow--pulse" style={{ background: '#c5f9a3' }} />
         <div className="map-pin__you-avatar">
           <img src={avatarYou} alt="" />
         </div>
@@ -98,7 +105,7 @@ export default function MapScreen() {
         </div>
       </div>
 
-      <img src={fadeBottom} alt="" className="map-fade map-fade--bottom" />
+      <img src={fadeBottom} alt="" className="map-fade map-fade--bottom anim-fade" />
 
       <StatusBar variant="light" />
 
@@ -106,12 +113,12 @@ export default function MapScreen() {
         <button className="map-back" onClick={() => navigate('/join/discover')} aria-label="Back">
           <img src={arrowBack} alt="" />
         </button>
-        <div className="map-brand">
+        <div className="map-brand anim-fade-up">
           <img src={logo} alt="Xexus" className="map-brand__logo" />
         </div>
       </div>
 
-      <div className="map-toggle">
+      <div className="map-toggle anim-fade-scale" style={{ animationDelay: '0.5s' }}>
         <button className="map-toggle__btn map-toggle__btn--top" aria-label="Photos">
           <img src={iconSquiggle} alt="" />
         </button>
@@ -123,7 +130,11 @@ export default function MapScreen() {
         </button>
       </div>
 
-      <BottomNav className="map-bottom-nav" onChat={() => navigate('/join/discover')} />
+      <BottomNav
+        className="map-bottom-nav anim-fade-up"
+        style={{ animationDelay: '0.6s' }}
+        onChat={() => navigate('/join/discover')}
+      />
     </div>
   );
 }

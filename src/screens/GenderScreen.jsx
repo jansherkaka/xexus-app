@@ -63,18 +63,18 @@ export default function GenderScreen() {
       </div>
 
       <div className="gender-heading">
-        <p className="gender-line gender-line--how">how</p>
-        <p className="gender-line gender-line--doyou">do you</p>
-        <p className="gender-line gender-line--identify">identify?</p>
+        <p className="gender-line gender-line--how anim-fade-up anim-d1">how</p>
+        <p className="gender-line gender-line--doyou anim-fade-up anim-d2">do you</p>
+        <p className="gender-line gender-line--identify anim-fade-up anim-d3">identify?</p>
       </div>
 
       <div className="gender-figure">
-        <img src={identityIcon} alt="" className="gender-icon" />
+        <img src={identityIcon} alt="" className="gender-icon anim-fade-scale anim-d4" />
 
-        {OPTIONS.map((opt) => (
+        {OPTIONS.map((opt, i) => (
           <button
             key={opt.id}
-            className={`gender-label ${opt.className}${selected === opt.id ? ' gender-label--selected' : ''}`}
+            className={`gender-label ${opt.className}${selected === opt.id ? ' gender-label--selected' : ''} anim-fade-up anim-d${5 + i}`}
             aria-label={opt.label}
             onClick={() => selectOption(opt.id)}
           >

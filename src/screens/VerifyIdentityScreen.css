@@ -79,7 +79,7 @@
   font-weight: 500;
   line-height: 1.1;
   color: #19191a;
-  transition: transform 0.15s ease;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .verify-option:active {
@@ -186,7 +186,7 @@
   font-weight: 500;
   line-height: 1.1;
   box-shadow: 0 4px 3px rgba(39, 39, 39, 0.05);
-  transition: transform 0.15s ease;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .verify-success-confirm:active {

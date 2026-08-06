@@ -20,8 +20,8 @@ export default function DiscoveryScreen() {
     <div className="screen screen--white discovery-screen">
       <StatusBar variant="dark" />
 
-      <img src={peekTop} alt="" className="discovery-peek discovery-peek--top" />
-      <img src={peekBottom} alt="" className="discovery-peek discovery-peek--bottom" />
+      <img src={peekTop} alt="" className="discovery-peek discovery-peek--top anim-fade" />
+      <img src={peekBottom} alt="" className="discovery-peek discovery-peek--bottom anim-fade" />
 
       <div className="discovery-topbar">
         <button className="discovery-back" onClick={() => navigate('/join/get-active')} aria-label="Back">
@@ -32,7 +32,7 @@ export default function DiscoveryScreen() {
         </div>
       </div>
 
-      <div className="discovery-card">
+      <div className="discovery-card anim-fade-scale anim-d1">
         <img src={cardPhoto} alt="" className="discovery-card__photo" />
 
         <div className="discovery-card__overlay">
@@ -58,25 +58,34 @@ export default function DiscoveryScreen() {
         </div>
       </div>
 
-      <div className="discovery-tag discovery-tag--1">Something casual 👀</div>
-      <div className="discovery-tag discovery-tag--2">Queer</div>
-      <div className="discovery-tag discovery-tag--3">Hosting tonight 🏠</div>
+      <div className="discovery-tag discovery-tag--1 anim-fade-up anim-d3">Something casual 👀</div>
+      <div className="discovery-tag discovery-tag--2 anim-fade-up anim-d4">Queer</div>
+      <div className="discovery-tag discovery-tag--3 anim-fade-up anim-d5">Hosting tonight 🏠</div>
 
-      <button className="discovery-action discovery-action--dislike" aria-label="Pass">
+      <button
+        className="discovery-action discovery-action--dislike anim-fade-scale anim-d6"
+        aria-label="Pass"
+      >
         <img src={iconX} alt="" />
       </button>
-      <button className="discovery-action discovery-action--like" aria-label="Like">
+      <button
+        className="discovery-action discovery-action--like anim-fade-scale anim-d7"
+        aria-label="Like"
+      >
         <img src={iconHeart} alt="" />
       </button>
       <button
-        className="discovery-action discovery-action--superlike"
+        className="discovery-action discovery-action--superlike anim-fade-scale anim-d8"
         aria-label="Open LiveLustMap"
         onClick={() => navigate('/join/map')}
       >
         <img src={iconPin} alt="" />
       </button>
 
-      <BottomNav className="discovery-bottom-nav" />
+      <BottomNav
+        className="discovery-bottom-nav anim-fade-up"
+        style={{ animationDelay: '0.7s' }}
+      />
     </div>
   );
 }

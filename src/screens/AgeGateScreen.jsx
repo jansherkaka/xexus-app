@@ -29,17 +29,20 @@ export default function AgeGateScreen() {
         </div>
       </div>
 
-      <p className="age-gate-number">18</p>
+      <p className="age-gate-number anim-fade-up anim-d1">18</p>
 
       <div className="age-gate-only">
-        <p className="age-gate-only-line">++++</p>
-        <p className="age-gate-only-line">only</p>
+        <p className="age-gate-only-line anim-fade-up anim-d2">++++</p>
+        <p className="age-gate-only-line anim-fade-up anim-d3">only</p>
       </div>
 
-      <p className="age-gate-body">XEXSUS is for people aged 20 and over.</p>
+      <p className="age-gate-body anim-fade-up anim-d4">XEXSUS is for people aged 20 and over.</p>
 
       <div className="age-gate-cta-wrap">
-        <button className="age-gate-cta" onClick={() => navigate('/join/birthday')}>
+        <button
+          className="age-gate-cta anim-fade-up anim-d5"
+          onClick={() => navigate('/join/birthday')}
+        >
           i&rsquo;m 18 or older
         </button>
       </div>

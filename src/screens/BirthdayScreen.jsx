@@ -64,13 +64,13 @@ export default function BirthdayScreen() {
       </div>
 
       <div className="birthday-heading">
-        <p className="birthday-line birthday-line--tell">tell us</p>
-        <p className="birthday-line birthday-line--about">about</p>
-        <p className="birthday-line birthday-line--your">your</p>
-        <p className="birthday-line birthday-line--birthday">birthday</p>
+        <p className="birthday-line birthday-line--tell anim-fade-up anim-d1">tell us</p>
+        <p className="birthday-line birthday-line--about anim-fade-up anim-d2">about</p>
+        <p className="birthday-line birthday-line--your anim-fade-up anim-d3">your</p>
+        <p className="birthday-line birthday-line--birthday anim-fade-up anim-d4">birthday</p>
       </div>
 
-      <div className="birthday-body">
+      <div className="birthday-body anim-fade-up anim-d5">
         <p className="birthday-body__line">
           please enter your date of birth to confirm that you meet the age
           requirement and personalize your experience.
@@ -82,7 +82,7 @@ export default function BirthdayScreen() {
       </div>
 
       <div className="birthday-cta-wrap">
-        <button className="birthday-cta" onClick={openPicker}>
+        <button className="birthday-cta anim-fade-up anim-d6" onClick={openPicker}>
           {dob ? formatDate(dob) : 'select a date'}
         </button>
       </div>
@@ -91,8 +91,8 @@ export default function BirthdayScreen() {
 
       {modal === 'pick' && (
         <>
-          <div className="birthday-dim" />
-          <div className="birthday-popup">
+          <div className="birthday-dim anim-fade" />
+          <div className="birthday-popup anim-pop-in">
             <p className="birthday-popup__heading">select a date</p>
             <WheelDatePicker value={draftDob} onChange={setDraftDob} />
             <div className="birthday-popup__actions">
@@ -109,8 +109,8 @@ export default function BirthdayScreen() {
 
       {modal === 'confirm' && (
         <>
-          <div className="birthday-dim" />
-          <div className="birthday-confirm-popup">
+          <div className="birthday-dim anim-fade" />
+          <div className="birthday-confirm-popup anim-pop-in">
             <p className="birthday-confirm-heading">confirm your age</p>
             <p className="birthday-confirm-body">
               looks like you&rsquo;re {calcAge(dob)}.

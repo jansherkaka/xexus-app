@@ -149,7 +149,7 @@
   box-shadow:
     0 12px 8px rgba(234, 62, 47, 0.1),
     0 4px 3px rgba(234, 62, 47, 0.05);
-  transition: transform 0.15s ease;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .birthday-cta:active {
@@ -212,7 +212,7 @@
   font-weight: 500;
   line-height: 1.1;
   box-shadow: 0 4px 3px rgba(39, 39, 39, 0.05);
-  transition: transform 0.15s ease;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .birthday-popup__confirm:active {
@@ -282,7 +282,7 @@
   font-weight: 500;
   line-height: 1.1;
   box-shadow: 0 4px 3px rgba(39, 39, 39, 0.05);
-  transition: transform 0.15s ease;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .birthday-confirm-popup__confirm:active {

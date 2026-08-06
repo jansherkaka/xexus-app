@@ -95,6 +95,22 @@
   filter: blur(4px);
 }
 
+.map-pin__glow--pulse {
+  animation: pin-glow-pulse 2.6s ease-in-out infinite;
+}
+
+@keyframes pin-glow-pulse {
+  0%,
+  100% {
+    scale: 1;
+    opacity: 0.85;
+  }
+  50% {
+    scale: 1.22;
+    opacity: 1;
+  }
+}
+
 .map-pin__badge {
   position: absolute;
   left: 4px;

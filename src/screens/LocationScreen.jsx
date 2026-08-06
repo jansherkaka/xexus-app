@@ -23,7 +23,7 @@ export default function LocationScreen() {
   return (
     <div className="screen location-screen">
       <div className="location-bg">
-        <img src={bgPhoto} alt="" className="location-bg__photo" />
+        <img src={bgPhoto} alt="" className="location-bg__photo anim-fade-scale" />
       </div>
 
       <StatusBar variant="dark" />
@@ -46,19 +46,19 @@ export default function LocationScreen() {
 
       <div className="location-content">
         <div className="location-text">
-          <h1 className="location-heading">
+          <h1 className="location-heading anim-fade-up anim-d1">
             <p>we are a</p>
             <p>location</p>
             <p>based</p>
             <p>experience</p>
           </h1>
-          <p className="location-body">
+          <p className="location-body anim-fade-up anim-d3">
             Share your location to see who&rsquo;s active nearby and unlock
             real-time discovery around you.
           </p>
         </div>
 
-        <button className="location-cta" onClick={handleEnableLocation}>
+        <button className="location-cta anim-fade-up anim-d5" onClick={handleEnableLocation}>
           Enable location
         </button>
       </div>
