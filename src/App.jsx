@@ -8,6 +8,7 @@ import BirthdayScreen from './screens/BirthdayScreen';
 import VerifyIdentityScreen from './screens/VerifyIdentityScreen';
 import GenderScreen from './screens/GenderScreen';
 import NameScreen from './screens/NameScreen';
+import SetToneScreen from './screens/SetToneScreen';
 import './App.css';
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
             <Route path="/join/verify-identity" element={<VerifyIdentityScreen />} />
             <Route path="/join/gender" element={<GenderScreen />} />
             <Route path="/join/name" element={<NameScreen />} />
+            <Route path="/join/set-tone" element={<SetToneScreen />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </PhoneFrame>

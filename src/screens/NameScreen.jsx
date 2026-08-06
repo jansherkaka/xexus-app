@@ -59,7 +59,9 @@ export default function NameScreen() {
       </div>
 
       <div className="name-cta-wrap">
-        <button className="name-cta">next</button>
+        <button className="name-cta" onClick={() => navigate('/join/set-tone')}>
+          next
+        </button>
       </div>
 
       <HomeIndicator variant="dark" />
