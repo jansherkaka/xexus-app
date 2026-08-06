@@ -1,0 +1,8 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "app.xexus.prototype",
+    "sha256_cert_fingerprints": ["84:72:C1:DC:BA:F5:52:56:2B:98:15:0B:84:86:9A:54:AD:B7:43:92:13:A4:31:9E:F4:B3:21:21:0A:9F:95:EB"]
+  }
+}]
