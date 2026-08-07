@@ -3,6 +3,14 @@ import { useEffect, useRef, useState } from 'react';
 const DESIGN_WIDTH = 402;
 const DESIGN_HEIGHT = 874;
 const FULL_BLEED_QUERY = '(display-mode: standalone), (display-mode: fullscreen), (max-width: 480px)';
+const INSTALLED_QUERY = '(display-mode: standalone), (display-mode: fullscreen), (display-mode: minimal-ui)';
+
+function isInstalledApp() {
+  const displayModeMatch = window.matchMedia(INSTALLED_QUERY).matches;
+  const launchedFromTwa = document.referrer?.startsWith('android-app://');
+  const iosStandalone = window.navigator?.standalone === true;
+  return Boolean(displayModeMatch || launchedFromTwa || iosStandalone);
+}
 
 export default function PhoneFrame({ children }) {
   const outerRef = useRef(null);
@@ -15,12 +23,20 @@ export default function PhoneFrame({ children }) {
     const update = () => {
       const { width, height } = el.getBoundingClientRect();
       const fullBleed = window.matchMedia(FULL_BLEED_QUERY).matches;
-      if (fullBleed) {
-        // On a real device (installed app or any narrow/touch viewport) the
-        // device itself is the frame — stretch to fill edge-to-edge instead
-        // of aspect-fitting, so slightly-off aspect ratios never letterbox
-        // into visible bars on the sides or top/bottom.
+      if (fullBleed && isInstalledApp()) {
+        // Installed app (Android TWA / iOS "Add to Home Screen"): the
+        // viewport is stable, so stretch to fill edge-to-edge instead of
+        // aspect-fitting, guaranteeing zero black bars even if the device's
+        // aspect ratio is slightly off from the design canvas.
         setBox({ scaleX: width / DESIGN_WIDTH, scaleY: height / DESIGN_HEIGHT, bezel: 0, fullBleed: true });
+      } else if (fullBleed) {
+        // Plain mobile browser tab: the visible viewport height wobbles as
+        // Safari/Chrome show and hide their address bar, so stretching to
+        // fill exactly would visibly distort the UI. Scale uniformly
+        // (cover-fit) instead — no distortion, at most a sliver cropped off
+        // one edge.
+        const s = Math.max(width / DESIGN_WIDTH, height / DESIGN_HEIGHT);
+        setBox({ scaleX: s, scaleY: s, bezel: 0, fullBleed: true });
       } else {
         const s = Math.min(width / DESIGN_WIDTH, height / DESIGN_HEIGHT);
         setBox({ scaleX: s, scaleY: s, bezel: 16, fullBleed: false });
@@ -32,9 +48,11 @@ export default function PhoneFrame({ children }) {
     ro.observe(el);
     const mq = window.matchMedia(FULL_BLEED_QUERY);
     mq.addEventListener?.('change', update);
+    window.addEventListener('resize', update);
     return () => {
       ro.disconnect();
       mq.removeEventListener?.('change', update);
+      window.removeEventListener('resize', update);
     };
   }, []);
 

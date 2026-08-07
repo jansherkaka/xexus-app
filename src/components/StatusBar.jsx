@@ -5,7 +5,7 @@ import timeWhite from '../assets/time-white.svg';
 import batteryBlack from '../assets/battery-black.svg';
 import wifiBlack from '../assets/wifi-black.svg';
 import timeBlack from '../assets/time-black.svg';
-import useIsInstalledApp from '../hooks/useIsInstalledApp';
+import useIsFullBleed from '../hooks/useIsFullBleed';
 import './DeviceChrome.css';
 
 const ASSETS = {
@@ -14,7 +14,7 @@ const ASSETS = {
 };
 
 export default function StatusBar({ variant = 'dark', bg }) {
-  const isInstalledApp = useIsInstalledApp();
+  const isFullBleed = useIsFullBleed();
   const { battery, wifi, time } = ASSETS[variant];
 
   // Tints the real OS status bar (Android TWA/PWA) to match this screen's
@@ -26,7 +26,7 @@ export default function StatusBar({ variant = 'dark', bg }) {
     meta?.setAttribute('content', bg);
   }, [bg]);
 
-  if (isInstalledApp) return null;
+  if (isFullBleed) return null;
 
   return (
     <div className={`status-bar status-bar--${variant}`}>

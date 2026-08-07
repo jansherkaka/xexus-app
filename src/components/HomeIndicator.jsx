@@ -1,10 +1,10 @@
-import useIsInstalledApp from '../hooks/useIsInstalledApp';
+import useIsFullBleed from '../hooks/useIsFullBleed';
 import './DeviceChrome.css';
 
 export default function HomeIndicator({ variant = 'dark' }) {
-  const isInstalledApp = useIsInstalledApp();
+  const isFullBleed = useIsFullBleed();
 
-  if (isInstalledApp) return null;
+  if (isFullBleed) return null;
 
   return <div className={`home-indicator home-indicator--${variant}`} />;
 }
