@@ -2,24 +2,52 @@
   background: #fff;
 }
 
-.discovery-peek {
+.discovery-stack {
   position: absolute;
-  left: 13px;
-  width: 375px;
-  height: 68px;
-  border-radius: 27px;
-  object-fit: cover;
+  inset: 0;
+  touch-action: pan-y;
   z-index: 0;
 }
 
-.discovery-peek--top {
-  top: 122px;
-  object-position: center 30%;
+.discovery-card {
+  position: absolute;
+  left: 11px;
+  width: 375px;
+  border-radius: 27px;
+  overflow: hidden;
+  box-shadow: 0 4px 4px -1px #cab7b8;
+  border-style: solid;
+  transition:
+    top 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+    height 0.48s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.32s ease,
+    border-width 0.3s ease;
 }
 
-.discovery-peek--bottom {
-  top: 731px;
-  object-position: center 40%;
+.discovery-card--peek {
+  pointer-events: none;
+}
+
+.discovery-card__photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.discovery-card__overlay {
+  position: absolute;
+  left: 16px;
+  bottom: 8px;
+  width: 343px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 8px 0;
+  border-radius: 20px;
+  font-family: 'Inter', sans-serif;
+  transition: opacity 0.22s ease;
 }
 
 .discovery-topbar {
@@ -61,41 +89,6 @@
   width: 100px;
   height: 24px;
   object-fit: contain;
-}
-
-.discovery-card {
-  position: absolute;
-  left: 11px;
-  top: 197px;
-  width: 375px;
-  height: 526px;
-  border-radius: 27px;
-  overflow: hidden;
-  box-shadow: 0 4px 4px -1px #cab7b8;
-  z-index: 1;
-}
-
-.discovery-card__photo {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.discovery-card__overlay {
-  position: absolute;
-  left: 16px;
-  top: 360px;
-  width: 343px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 8px 0;
-  border-radius: 20px;
-  background: rgba(33, 32, 32, 0.64);
-  font-family: 'Inter', sans-serif;
-  color: #fff;
 }
 
 .discovery-card__info {

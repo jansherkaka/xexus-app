@@ -1,27 +1,190 @@
+import { useCallback, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import BottomNav from '../components/BottomNav';
 import logo from '../assets/xexus-logo-red-small.png';
 import arrowBack from '../assets/icon-arrow-back.svg';
-import cardPhoto from '../assets/discovery-card-photo.jpg';
-import peekTop from '../assets/discovery-peek-4.jpg';
-import peekBottom from '../assets/discovery-peek-2.jpg';
 import onlineDot from '../assets/icon-online-dot.svg';
 import iconX from '../assets/icon-x.svg';
 import iconHeart from '../assets/icon-heart.svg';
 import iconPin from '../assets/icon-pin.svg';
+import profile1 from '../assets/discovery-profile-1.jpg';
+import profile2 from '../assets/discovery-profile-2.jpg';
+import profile3 from '../assets/discovery-profile-3.jpg';
+import profile4 from '../assets/discovery-profile-4.jpg';
+import profile5 from '../assets/discovery-profile-5.jpg';
 import './Screens.css';
 import './DiscoveryScreen.css';
 
+const PROFILES = [
+  {
+    name: 'PLAYDIRTY92',
+    age: 23,
+    height: '5’7',
+    distance: '2 miles away',
+    bio: 'hi, i’m queer & i love to meet new ppl! I love martinis, swimming, and couples dates,  deff looking for something casual.',
+    tags: ['Something casual 👀', 'Queer', 'Hosting tonight 🏠'],
+    photo: profile1,
+    overlayBg: 'rgba(33, 32, 32, 0.64)',
+    textColor: '#ffffff',
+    mutedColor: '#b9b5b5',
+  },
+  {
+    name: 'COMEOVR',
+    age: 25,
+    height: '5’1',
+    distance: '2 miles away',
+    bio: 'whos on what',
+    tags: ['Something casual 👀', 'Queer', 'Hosting tonight 🏠'],
+    photo: profile2,
+    overlayBg: 'rgba(75, 74, 74, 0.64)',
+    textColor: '#ffffff',
+    mutedColor: '#b9b5b5',
+  },
+  {
+    name: 'NIGHTSHIFT88',
+    age: 20,
+    height: '5’2',
+    distance: '2 miles away',
+    bio: 'maybe she will',
+    tags: ['something casual', 'queer', 'hosting tonight'],
+    photo: profile3,
+    overlayBg: '#cecece',
+    textColor: '#19191a',
+    mutedColor: '#19191a',
+  },
+  {
+    name: 'UNHOLYHOURS',
+    age: 28,
+    height: '5’9',
+    distance: '2 miles away',
+    bio: 'a gracious reciever',
+    tags: ['something casual', 'queer', 'hosting tonight'],
+    photo: profile4,
+    overlayBg: 'rgba(75, 74, 74, 0.95)',
+    textColor: '#ffffff',
+    mutedColor: '#b9b5b5',
+    accent: '#fd151b',
+    tagTextColor: '#ea3e2f',
+  },
+  {
+    name: 'NIGHTSHIFT88',
+    age: 20,
+    height: '5’2',
+    distance: '2 miles away',
+    bio: 'maybe she will',
+    tags: ['something casual', 'queer', 'hosting tonight'],
+    photo: profile5,
+    overlayBg: '#cecece',
+    textColor: '#19191a',
+    mutedColor: '#19191a',
+  },
+];
+
+const N = PROFILES.length;
+const SLOT = {
+  0: { top: 197, height: 526, opacity: 1 },
+  '-1': { top: 122, height: 68, opacity: 1 },
+  1: { top: 731, height: 68, opacity: 1 },
+  '-2': { top: 38, height: 68, opacity: 0 },
+  2: { top: 815, height: 68, opacity: 0 },
+};
+
+function shortestOffset(i, active) {
+  let offset = i - active;
+  if (offset > N / 2) offset -= N;
+  if (offset < -N / 2) offset += N;
+  return offset;
+}
+
 export default function DiscoveryScreen() {
   const navigate = useNavigate();
+  const [activeIndex, setActiveIndex] = useState(0);
+  const lockRef = useRef(false);
+  const touchStartY = useRef(null);
+
+  const step = useCallback((dir) => {
+    if (lockRef.current) return;
+    lockRef.current = true;
+    setActiveIndex((prev) => (prev + dir + N) % N);
+    setTimeout(() => {
+      lockRef.current = false;
+    }, 480);
+  }, []);
+
+  const handleWheel = (e) => {
+    if (Math.abs(e.deltaY) < 12) return;
+    step(e.deltaY > 0 ? 1 : -1);
+  };
+
+  const handleTouchStart = (e) => {
+    touchStartY.current = e.touches[0].clientY;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (touchStartY.current == null) return;
+    const dy = touchStartY.current - e.changedTouches[0].clientY;
+    if (Math.abs(dy) > 30) step(dy > 0 ? 1 : -1);
+    touchStartY.current = null;
+  };
+
+  const active = PROFILES[activeIndex];
 
   return (
     <div className="screen screen--white discovery-screen">
       <StatusBar variant="dark" bg="#ffffff" />
 
-      <img src={peekTop} alt="" className="discovery-peek discovery-peek--top anim-fade" />
-      <img src={peekBottom} alt="" className="discovery-peek discovery-peek--bottom anim-fade" />
+      <div
+        className="discovery-stack anim-fade-scale anim-d1"
+        onWheel={handleWheel}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        {PROFILES.map((p, i) => {
+          const offset = shortestOffset(i, activeIndex);
+          const slot = SLOT[offset] ?? SLOT[offset > 0 ? 2 : -2];
+          const isActive = offset === 0;
+          return (
+            <div
+              key={`${p.name}-${i}`}
+              className={`discovery-card${isActive ? ' discovery-card--active' : ' discovery-card--peek'}`}
+              style={{
+                top: slot.top,
+                height: slot.height,
+                opacity: slot.opacity,
+                borderColor: isActive && p.accent ? p.accent : 'transparent',
+                borderWidth: isActive && p.accent ? 2 : 0,
+              }}
+            >
+              <img src={p.photo} alt="" className="discovery-card__photo" />
+              <div className="discovery-card__overlay" style={{ background: p.overlayBg, opacity: isActive ? 1 : 0 }}>
+                <div className="discovery-card__info">
+                  <div className="discovery-card__row">
+                    <p className="discovery-card__name" style={{ color: p.textColor }}>
+                      <span className="discovery-card__name-bold">{p.name},</span> {p.age} - {p.height}
+                    </p>
+                    <p className="discovery-card__distance" style={{ color: p.mutedColor }}>
+                      {p.distance}
+                    </p>
+                  </div>
+                  <div className="discovery-card__online">
+                    <span>Online</span>
+                    <img src={onlineDot} alt="" />
+                  </div>
+                </div>
+                <div className="discovery-card__bio">
+                  <p className="discovery-card__bio-label" style={{ color: p.textColor }}>
+                    Bio
+                  </p>
+                  <p className="discovery-card__bio-text" style={{ color: p.textColor }}>
+                    {p.bio}
+                  </p>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
 
       <div className="discovery-topbar">
         <button className="discovery-back" onClick={() => navigate('/join/get-active')} aria-label="Back">
@@ -32,45 +195,27 @@ export default function DiscoveryScreen() {
         </div>
       </div>
 
-      <div className="discovery-card anim-fade-scale anim-d1">
-        <img src={cardPhoto} alt="" className="discovery-card__photo" />
-
-        <div className="discovery-card__overlay">
-          <div className="discovery-card__info">
-            <div className="discovery-card__row">
-              <p className="discovery-card__name">
-                <span className="discovery-card__name-bold">PLAYDIRTY92,</span> 23 - 5’7
-              </p>
-              <p className="discovery-card__distance">2 miles away</p>
-            </div>
-            <div className="discovery-card__online">
-              <span>Online</span>
-              <img src={onlineDot} alt="" />
-            </div>
-          </div>
-          <div className="discovery-card__bio">
-            <p className="discovery-card__bio-label">Bio</p>
-            <p className="discovery-card__bio-text">
-              hi, i’m a queer guy &amp; i love to meet new ppl! I love martinis, swimming, and
-              couples dates, deff looking for something casual.
-            </p>
-          </div>
+      {active.tags.map((tag, idx) => (
+        <div
+          key={idx}
+          className={`discovery-tag discovery-tag--${idx + 1} anim-fade-up anim-d${idx + 3}`}
+          style={{ color: active.tagTextColor || '#19191a' }}
+        >
+          {tag}
         </div>
-      </div>
-
-      <div className="discovery-tag discovery-tag--1 anim-fade-up anim-d3">Something casual 👀</div>
-      <div className="discovery-tag discovery-tag--2 anim-fade-up anim-d4">Queer</div>
-      <div className="discovery-tag discovery-tag--3 anim-fade-up anim-d5">Hosting tonight 🏠</div>
+      ))}
 
       <button
         className="discovery-action discovery-action--dislike anim-fade-scale anim-d6"
         aria-label="Pass"
+        onClick={() => step(1)}
       >
         <img src={iconX} alt="" />
       </button>
       <button
         className="discovery-action discovery-action--like anim-fade-scale anim-d7"
         aria-label="Like"
+        onClick={() => step(1)}
       >
         <img src={iconHeart} alt="" />
       </button>
@@ -82,10 +227,7 @@ export default function DiscoveryScreen() {
         <img src={iconPin} alt="" />
       </button>
 
-      <BottomNav
-        className="discovery-bottom-nav anim-fade-up"
-        style={{ animationDelay: '0.7s' }}
-      />
+      <BottomNav className="discovery-bottom-nav anim-fade-up" style={{ animationDelay: '0.7s' }} />
     </div>
   );
 }
