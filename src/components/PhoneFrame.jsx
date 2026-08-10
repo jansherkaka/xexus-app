@@ -32,10 +32,12 @@ export default function PhoneFrame({ children }) {
       } else if (fullBleed) {
         // Plain mobile browser tab: the visible viewport height wobbles as
         // Safari/Chrome show and hide their address bar, so stretching to
-        // fill exactly would visibly distort the UI. Scale uniformly
-        // (cover-fit) instead — no distortion, at most a sliver cropped off
-        // one edge.
-        const s = Math.max(width / DESIGN_WIDTH, height / DESIGN_HEIGHT);
+        // fill exactly would visibly distort the UI, and cover-fitting would
+        // crop real UI (status bar, back button, bottom CTA) off the edges.
+        // Scale uniformly to fit the whole design inside the viewport
+        // instead — no distortion, nothing cropped, at most a thin bar of
+        // the page background on one axis.
+        const s = Math.min(width / DESIGN_WIDTH, height / DESIGN_HEIGHT);
         setBox({ scaleX: s, scaleY: s, bezel: 0, fullBleed: true });
       } else {
         const s = Math.min(width / DESIGN_WIDTH, height / DESIGN_HEIGHT);
