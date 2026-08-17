@@ -142,19 +142,7 @@
   font-size: 163px;
   letter-spacing: -8.15px;
   line-height: 0.85;
-  opacity: 0;
-  animation: headline-fade-in 900ms ease-out forwards;
-}
-
-@keyframes headline-fade-in {
-  from {
-    opacity: 0;
-    transform: translateX(-50%) translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
+  transform: translateX(-50%);
 }
 
 /* "into the real world" — wide-tracked small type below the headline */
@@ -194,27 +182,78 @@
 .onboarding-line {
   width: 100%;
   margin: 0;
-  opacity: 0;
-  animation: word-fade-in 900ms ease-out forwards;
   /* letter-spacing adds trailing space after the last glyph, which text-align:
      center includes in its math and pulls the visible text left of true
      center — nudge right by half the tracking value to compensate. */
+  transform: translateX(23.76px);
   transition: transform 550ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@keyframes word-fade-in {
+.intro-subwords--buttons .onboarding-line {
+  transform: translateX(18.92px);
+}
+
+/* Per-letter reveal — three candidate styles, picked via ?intro=1|2|3 */
+.letter-reveal__char {
+  display: inline-block;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* v1: fast cascade — soft rise + blur-out-of-focus resolve */
+.letter-reveal--v1 .letter-reveal__char {
+  animation: letter-cascade-in 480ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes letter-cascade-in {
   from {
     opacity: 0;
-    transform: translateX(23.76px) translateY(10px);
+    transform: translateY(16px);
+    filter: blur(6px);
   }
   to {
     opacity: 1;
-    transform: translateX(23.76px) translateY(0);
+    transform: translateY(0);
+    filter: blur(0);
   }
 }
 
-.intro-subwords--buttons .onboarding-line {
-  transform: translateX(18.92px) translateY(0);
+/* v2: springy pop — each letter overshoots slightly as it lands */
+.letter-reveal--v2 .letter-reveal__char {
+  animation: letter-pop-in 620ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes letter-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.35) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* v3: rising reveal — each letter slides up from behind a masked curtain */
+.letter-reveal--v3 .letter-reveal__mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+
+.letter-reveal--v3 .letter-reveal__char {
+  animation: letter-slide-up-in 520ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes letter-slide-up-in {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .onboarding-actions {

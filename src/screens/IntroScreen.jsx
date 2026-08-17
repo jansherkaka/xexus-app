@@ -1,23 +1,32 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import HomeIndicator from '../components/HomeIndicator';
+import LetterReveal from '../components/LetterReveal';
 import logo from '../assets/xexus-logo-white.png';
 import './Screens.css';
 
 const SUBWORDS = ['into', 'the', 'real', 'world'];
 
 const SPLASH_DURATION = 2000; // logo screen
-const WORD_STAGGER = 420; // ms between each word's fade-in start
-const WORD_FADE_DURATION = 900; // ms for a whole word to softly fade in
-const BUTTONS_DELAY = 400; // pause after the last word before buttons slide in
+const HEADLINE_LETTER_DELAY = 60; // ms between each "step" letter
+const WORD_STAGGER = 260; // ms between each subword's cascade start
+const LETTER_DELAY = 45; // ms between each letter within a subword
+const LETTER_ANIM_DURATION = 560; // longest per-letter animation, for timing budget
+const BUTTONS_DELAY = 400; // pause after the last letter before buttons slide in
 
-// "step" fades in first, then the 4 subwords stagger after it
-const WORDS_DONE_AT = SUBWORDS.length * WORD_STAGGER + WORD_FADE_DURATION;
+const MAX_WORD_LETTERS = Math.max(...SUBWORDS.map((w) => w.length));
+const WORDS_DONE_AT =
+  (SUBWORDS.length - 1) * WORD_STAGGER + MAX_WORD_LETTERS * LETTER_DELAY + LETTER_ANIM_DURATION;
 const BUTTONS_AT = SPLASH_DURATION + WORDS_DONE_AT + BUTTONS_DELAY;
 
 export default function IntroScreen() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  // ?intro=1|2|3 lets the same build be compared side by side while picking
+  // an animation style; defaults to variant 1.
+  const variant = [1, 2, 3].includes(Number(searchParams.get('intro'))) ? Number(searchParams.get('intro')) : 1;
+
   // 'splash' -> 'letters' -> 'buttons'
   const [stage, setStage] = useState('splash');
 
@@ -43,16 +52,19 @@ export default function IntroScreen() {
     <div className="screen screen--red">
       <StatusBar variant="dark" bg="#fd151b" />
 
-      <p className="intro-headline">step</p>
+      <p className="intro-headline">
+        <LetterReveal text="step" variant={variant} startDelay={0} letterDelay={HEADLINE_LETTER_DELAY} />
+      </p>
 
       <div className={`intro-subwords${stage === 'buttons' ? ' intro-subwords--buttons' : ''}`}>
         {SUBWORDS.map((word, wordIndex) => (
-          <p
-            key={word}
-            className="onboarding-line"
-            style={{ animationDelay: `${(wordIndex + 1) * WORD_STAGGER}ms` }}
-          >
-            {word}
+          <p key={word} className="onboarding-line">
+            <LetterReveal
+              text={word}
+              variant={variant}
+              startDelay={wordIndex * WORD_STAGGER}
+              letterDelay={LETTER_DELAY}
+            />
           </p>
         ))}
       </div>
