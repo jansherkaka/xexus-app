@@ -5,12 +5,7 @@
   height: 100%;
 }
 
-.route-transition__layer--exit {
-  z-index: 1;
-}
-
 .route-transition__layer--enter {
-  z-index: 2;
   box-shadow: -14px 0 36px rgba(0, 0, 0, 0.2);
   animation: route-slide-in 380ms cubic-bezier(0.32, 0.72, 0, 1) both;
 }
