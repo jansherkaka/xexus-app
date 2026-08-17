@@ -49,7 +49,7 @@ export default function GenderScreen() {
       <div className="gender-topbar">
         <button
           className="gender-back"
-          onClick={() => navigate('/join/live-selfie')}
+          onClick={() => navigate('/join/verify-identity')}
           aria-label="Back"
         >
           <img src={arrowBack} alt="" />

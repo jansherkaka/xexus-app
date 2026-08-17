@@ -10,6 +10,7 @@ import VerifyStepsScreen from './screens/VerifyStepsScreen';
 import GovernmentIdScreen from './screens/GovernmentIdScreen';
 import GovernmentIdUploadScreen from './screens/GovernmentIdUploadScreen';
 import LiveSelfieScreen from './screens/LiveSelfieScreen';
+import VerifyIdentityScreen from './screens/VerifyIdentityScreen';
 import GenderScreen from './screens/GenderScreen';
 import NameScreen from './screens/NameScreen';
 import SetToneScreen from './screens/SetToneScreen';
@@ -40,6 +41,7 @@ function App() {
             <Route path="/join/government-id" element={<GovernmentIdScreen />} />
             <Route path="/join/government-id-upload" element={<GovernmentIdUploadScreen />} />
             <Route path="/join/live-selfie" element={<LiveSelfieScreen />} />
+            <Route path="/join/verify-identity" element={<VerifyIdentityScreen />} />
             <Route path="/join/gender" element={<GenderScreen />} />
             <Route path="/join/name" element={<NameScreen />} />
             <Route path="/join/set-tone" element={<SetToneScreen />} />

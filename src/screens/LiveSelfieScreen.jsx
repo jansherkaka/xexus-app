@@ -60,7 +60,7 @@ export default function LiveSelfieScreen() {
       </div>
 
       <div className="selfie-cta-wrap">
-        <button className="selfie-cta anim-fade-up anim-d5" onClick={() => navigate('/join/gender')}>
+        <button className="selfie-cta anim-fade-up anim-d5" onClick={() => navigate('/join/verify-identity')}>
           next
         </button>
       </div>
