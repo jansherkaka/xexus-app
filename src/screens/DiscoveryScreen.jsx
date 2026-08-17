@@ -8,11 +8,9 @@ import onlineDot from '../assets/icon-online-dot.svg';
 import iconX from '../assets/icon-x.svg';
 import iconHeart from '../assets/icon-heart.svg';
 import iconPin from '../assets/icon-pin.svg';
-import profile1 from '../assets/discovery-profile-1.jpg';
-import profile2 from '../assets/discovery-profile-2.jpg';
-import profile3 from '../assets/discovery-profile-3.jpg';
-import profile4 from '../assets/discovery-profile-4.jpg';
-import profile5 from '../assets/discovery-profile-5.jpg';
+import discoveryPeekBlue from '../assets/discovery-peek-blue.jpg';
+import discoveryMainRed from '../assets/discovery-main-red.jpg';
+import discoveryPeekMagenta from '../assets/discovery-peek-magenta.jpg';
 import './Screens.css';
 import './DiscoveryScreen.css';
 
@@ -24,34 +22,10 @@ const PROFILES = [
     distance: '2 miles away',
     bio: 'hi, i’m queer & i love to meet new ppl! I love martinis, swimming, and couples dates,  deff looking for something casual.',
     tags: ['Something casual 👀', 'Queer', 'Hosting tonight 🏠'],
-    photo: profile1,
+    photo: discoveryPeekBlue,
     overlayBg: 'rgba(33, 32, 32, 0.64)',
     textColor: '#ffffff',
     mutedColor: '#b9b5b5',
-  },
-  {
-    name: 'COMEOVR',
-    age: 25,
-    height: '5’1',
-    distance: '2 miles away',
-    bio: 'whos on what',
-    tags: ['Something casual 👀', 'Queer', 'Hosting tonight 🏠'],
-    photo: profile2,
-    overlayBg: 'rgba(75, 74, 74, 0.64)',
-    textColor: '#ffffff',
-    mutedColor: '#b9b5b5',
-  },
-  {
-    name: 'NIGHTSHIFT88',
-    age: 20,
-    height: '5’2',
-    distance: '2 miles away',
-    bio: 'maybe she will',
-    tags: ['something casual', 'queer', 'hosting tonight'],
-    photo: profile3,
-    overlayBg: '#cecece',
-    textColor: '#19191a',
-    mutedColor: '#19191a',
   },
   {
     name: 'UNHOLYHOURS',
@@ -60,7 +34,7 @@ const PROFILES = [
     distance: '2 miles away',
     bio: 'a gracious reciever',
     tags: ['something casual', 'queer', 'hosting tonight'],
-    photo: profile4,
+    photo: discoveryMainRed,
     overlayBg: 'rgba(75, 74, 74, 0.95)',
     textColor: '#ffffff',
     mutedColor: '#b9b5b5',
@@ -68,16 +42,16 @@ const PROFILES = [
     tagTextColor: '#ea3e2f',
   },
   {
-    name: 'NIGHTSHIFT88',
-    age: 20,
-    height: '5’2',
+    name: 'COMEOVR',
+    age: 25,
+    height: '5’1',
     distance: '2 miles away',
-    bio: 'maybe she will',
-    tags: ['something casual', 'queer', 'hosting tonight'],
-    photo: profile5,
-    overlayBg: '#cecece',
-    textColor: '#19191a',
-    mutedColor: '#19191a',
+    bio: 'whos on what',
+    tags: ['Something casual 👀', 'Queer', 'Hosting tonight 🏠'],
+    photo: discoveryPeekMagenta,
+    overlayBg: 'rgba(75, 74, 74, 0.64)',
+    textColor: '#ffffff',
+    mutedColor: '#b9b5b5',
   },
 ];
 
@@ -99,7 +73,7 @@ function shortestOffset(i, active) {
 
 export default function DiscoveryScreen() {
   const navigate = useNavigate();
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(1);
   const lockRef = useRef(false);
   const touchStartY = useRef(null);
 
