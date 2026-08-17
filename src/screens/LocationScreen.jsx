@@ -17,7 +17,7 @@ export default function LocationScreen() {
         () => {},
       );
     }
-    navigate("/join/verify");
+    navigate("/join/age-gate");
   };
 
   return (

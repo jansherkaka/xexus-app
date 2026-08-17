@@ -68,7 +68,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 46px;
+  gap: 45px;
   text-align: center;
   font-family: 'Berthold Akzidenz Grotesk', sans-serif;
   font-weight: 800;
@@ -80,27 +80,30 @@
   width: 100%;
 }
 
-.birthday-line--tell {
-  font-size: 113px;
-  letter-spacing: -5.65px;
+.birthday-line--whatis {
+  font-size: 103px;
+  letter-spacing: -5.15px;
   line-height: 0.85;
 }
 
-.birthday-line--about {
-  font-size: 28px;
-  letter-spacing: 19.32px;
-  line-height: 0.92;
-  transform: translateX(9.66px);
-}
-
 .birthday-line--your {
-  font-size: 28px;
-  letter-spacing: 20.44px;
+  font-size: 24px;
+  letter-spacing: 45.6px;
   line-height: 0.92;
-  transform: translateX(10.22px);
+  /* letter-spacing adds trailing space after the last glyph, which text-align:
+     center includes in its math and pulls the visible text left of true
+     center — nudge right by half the tracking value to compensate. */
+  transform: translateX(22.8px);
 }
 
-.birthday-line--birthday {
+.birthday-line--date {
+  font-size: 24px;
+  letter-spacing: 66.48px;
+  line-height: 0.92;
+  transform: translateX(33.24px);
+}
+
+.birthday-line--ofbirth {
   font-size: 76px;
   letter-spacing: -0.76px;
   line-height: 0.92;
@@ -108,7 +111,7 @@
 
 .birthday-body {
   position: absolute;
-  top: 555px;
+  top: 559px;
   left: 50%;
   transform: translateX(-50%);
   width: 344px;

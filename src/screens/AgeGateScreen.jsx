@@ -16,7 +16,7 @@ export default function AgeGateScreen() {
       <div className="age-gate-topbar">
         <button
           className="age-gate-back"
-          onClick={() => navigate('/join/verify')}
+          onClick={() => navigate('/join')}
           aria-label="Back"
         >
           <img src={arrowBack} alt="" />
@@ -36,7 +36,7 @@ export default function AgeGateScreen() {
         <p className="age-gate-only-line anim-fade-up anim-d3">only</p>
       </div>
 
-      <p className="age-gate-body anim-fade-up anim-d4">XEXSUS is for people aged 20 and over.</p>
+      <p className="age-gate-body anim-fade-up anim-d4">xexus is for people aged 18 and over.</p>
 
       <div className="age-gate-cta-wrap">
         <button

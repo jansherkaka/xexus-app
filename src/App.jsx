@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import PhoneFrame from './components/PhoneFrame';
 import IntroScreen from './screens/IntroScreen';
 import LocationScreen from './screens/LocationScreen';
-import AgeVerifyScreen from './screens/AgeVerifyScreen';
 import AgeGateScreen from './screens/AgeGateScreen';
 import BirthdayScreen from './screens/BirthdayScreen';
 import VerifyIdentityScreen from './screens/VerifyIdentityScreen';
@@ -28,7 +27,6 @@ function App() {
           <Routes>
             <Route path="/" element={<IntroScreen />} />
             <Route path="/join" element={<LocationScreen />} />
-            <Route path="/join/verify" element={<AgeVerifyScreen />} />
             <Route path="/join/age-gate" element={<AgeGateScreen />} />
             <Route path="/join/birthday" element={<BirthdayScreen />} />
             <Route path="/join/verify-identity" element={<VerifyIdentityScreen />} />

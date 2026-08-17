@@ -64,10 +64,10 @@ export default function BirthdayScreen() {
       </div>
 
       <div className="birthday-heading">
-        <p className="birthday-line birthday-line--tell anim-fade-up anim-d1">tell us</p>
-        <p className="birthday-line birthday-line--about anim-fade-up anim-d2">about</p>
-        <p className="birthday-line birthday-line--your anim-fade-up anim-d3">your</p>
-        <p className="birthday-line birthday-line--birthday anim-fade-up anim-d4">birthday</p>
+        <p className="birthday-line birthday-line--whatis anim-fade-up anim-d1">what is</p>
+        <p className="birthday-line birthday-line--your anim-fade-up anim-d2">your</p>
+        <p className="birthday-line birthday-line--date anim-fade-up anim-d3">date</p>
+        <p className="birthday-line birthday-line--ofbirth anim-fade-up anim-d4">of birth?</p>
       </div>
 
       <div className="birthday-body anim-fade-up anim-d5">
