@@ -24,12 +24,12 @@ export default function IntroScreen() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   // ?intro=1-10 lets the same build be compared side by side while picking
-  // an animation style; defaults to variant 2 (springy pop) pending final
+  // an animation style; defaults to variant 1 (fast cascade) pending final
   // client sign-off.
   const requestedVariant = Number(searchParams.get('intro'));
   const variant = Array.from({ length: 10 }, (_, i) => i + 1).includes(requestedVariant)
     ? requestedVariant
-    : 2;
+    : 1;
 
   // 'splash' -> 'letters' -> 'buttons'
   const [stage, setStage] = useState('splash');

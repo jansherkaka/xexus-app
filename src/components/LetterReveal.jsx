@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 
 const SCRAMBLE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!?#%&';
-const SCRAMBLE_DURATION = 320; // ms of glyph-cycling before a letter settles
-const SCRAMBLE_TICK = 30; // ms between glyph swaps
+const SCRAMBLE_DURATION = 420; // ms of glyph-cycling before a letter settles
+const SCRAMBLE_TICK = 35; // ms between glyph swaps
 
 // A single letter for variant 5: cycles through random glyphs for a beat,
 // then settles on the real character — needs local state, unlike the other
