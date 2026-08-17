@@ -24,8 +24,9 @@ export default function IntroScreen() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   // ?intro=1|2|3 lets the same build be compared side by side while picking
-  // an animation style; defaults to variant 1.
-  const variant = [1, 2, 3].includes(Number(searchParams.get('intro'))) ? Number(searchParams.get('intro')) : 1;
+  // an animation style; defaults to variant 2 (springy pop) pending final
+  // client sign-off.
+  const variant = [1, 2, 3].includes(Number(searchParams.get('intro'))) ? Number(searchParams.get('intro')) : 2;
 
   // 'splash' -> 'letters' -> 'buttons'
   const [stage, setStage] = useState('splash');
