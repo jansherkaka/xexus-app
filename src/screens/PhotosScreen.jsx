@@ -4,25 +4,17 @@ import StatusBar from '../components/StatusBar';
 import HomeIndicator from '../components/HomeIndicator';
 import logo from '../assets/xexus-logo-red-small.png';
 import addIcon from '../assets/icon-add.svg';
-import examplePhoto from '../assets/photo-example-thread.png';
 import './Screens.css';
 import './PhotosScreen.css';
 
-const SLOT_COUNT = 6;
-
 export default function PhotosScreen() {
   const navigate = useNavigate();
-  const [photos, setPhotos] = useState([examplePhoto, null, null, null, null, null]);
+  const [photo, setPhoto] = useState(null);
 
-  const handleFile = (index, e) => {
+  const handleFile = (e) => {
     const file = e.target.files?.[0];
     if (!file) return;
-    const url = URL.createObjectURL(file);
-    setPhotos((prev) => {
-      const next = [...prev];
-      next[index] = url;
-      return next;
-    });
+    setPhoto(URL.createObjectURL(file));
   };
 
   return (
@@ -38,42 +30,31 @@ export default function PhotosScreen() {
         </div>
       </div>
 
-      <div className="photos-heading">
-        <p className="photos-line photos-line--add anim-fade-up anim-d1">add</p>
-        <p className="photos-line photos-line--your anim-fade-up anim-d2">your</p>
-        <p className="photos-line photos-line--photos anim-fade-up anim-d3">photos</p>
+      <div className="photos-text">
+        <p className="photos-heading anim-fade-up anim-d1">add your photo</p>
+        <p className="photos-body anim-fade-up anim-d2">
+          face or body is fine. we apply an ambiguity filter to keep you
+          more anonymous. no visible genitalia, please.
+        </p>
       </div>
 
-      <p className="photos-body anim-fade-up anim-d4">
-        your photos stay private. share them only when you choose.
-      </p>
-
-      <div className="photos-grid">
-        {Array.from({ length: SLOT_COUNT }, (_, i) => (
-          <label
-            key={i}
-            className={`photos-slot${photos[i] ? '' : ' photos-slot--empty'} anim-fade-scale`}
-            style={{ animationDelay: `${0.4 + i * 0.06}s` }}
-          >
-            {photos[i] ? (
-              <img src={photos[i]} alt="" className="photos-slot__img" />
-            ) : (
-              <img src={addIcon} alt="" className="photos-slot__add" />
-            )}
-            <input
-              type="file"
-              accept="image/*"
-              className="photos-slot__input"
-              onChange={(e) => handleFile(i, e)}
-            />
-          </label>
-        ))}
-      </div>
+      <label className="photos-slot anim-fade-scale anim-d3">
+        {photo ? (
+          <img src={photo} alt="" className="photos-slot__img" />
+        ) : (
+          <img src={addIcon} alt="" className="photos-slot__add" />
+        )}
+        <input
+          type="file"
+          accept="image/*"
+          className="photos-slot__input"
+          onChange={handleFile}
+        />
+      </label>
 
       <div className="photos-cta-wrap">
         <button
-          className="photos-cta anim-fade-up"
-          style={{ animationDelay: '0.85s' }}
+          className="photos-cta anim-fade-up anim-d4"
           onClick={() => navigate('/join/get-active')}
         >
           next
