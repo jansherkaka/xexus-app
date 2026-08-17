@@ -23,10 +23,11 @@ const BUTTONS_AT = SPLASH_DURATION + WORDS_DONE_AT + BUTTONS_DELAY;
 export default function IntroScreen() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  // ?intro=1|2|3 lets the same build be compared side by side while picking
-  // an animation style; defaults to variant 2 (springy pop) pending final
-  // client sign-off.
-  const variant = [1, 2, 3].includes(Number(searchParams.get('intro'))) ? Number(searchParams.get('intro')) : 2;
+  // ?intro=1|2|3|4|5 lets the same build be compared side by side while
+  // picking an animation style; defaults to variant 2 (springy pop) pending
+  // final client sign-off.
+  const requestedVariant = Number(searchParams.get('intro'));
+  const variant = [1, 2, 3, 4, 5].includes(requestedVariant) ? requestedVariant : 2;
 
   // 'splash' -> 'letters' -> 'buttons'
   const [stage, setStage] = useState('splash');
