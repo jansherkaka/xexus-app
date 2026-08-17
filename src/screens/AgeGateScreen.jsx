@@ -1,8 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import HomeIndicator from '../components/HomeIndicator';
-import logo from '../assets/xexus-logo-red-small.png';
-import arrowBack from '../assets/icon-arrow-back.svg';
 import './Screens.css';
 import './AgeGateScreen.css';
 
@@ -12,22 +10,6 @@ export default function AgeGateScreen() {
   return (
     <div className="screen screen--white">
       <StatusBar variant="dark" bg="#ffffff" />
-
-      <div className="age-gate-topbar">
-        <button
-          className="age-gate-back"
-          onClick={() => navigate('/join')}
-          aria-label="Back"
-        >
-          <img src={arrowBack} alt="" />
-        </button>
-        <div className="age-gate-brand">
-          <img src={logo} alt="Xexus" className="age-gate-brand__logo" />
-          <div className="age-gate-brand__progress">
-            <div className="age-gate-brand__progress-fill" />
-          </div>
-        </div>
-      </div>
 
       <p className="age-gate-number anim-fade-up anim-d1">18</p>
 

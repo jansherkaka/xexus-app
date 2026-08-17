@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Navigate } from 'react-router-dom';
 import PhoneFrame from './components/PhoneFrame';
 import RouteTransition from './components/RouteTransition';
+import AppTopbar from './components/AppTopbar';
 import IntroScreen from './screens/IntroScreen';
 import LocationScreen from './screens/LocationScreen';
 import AgeGateScreen from './screens/AgeGateScreen';
@@ -30,6 +31,7 @@ function App() {
         </div>
 
         <PhoneFrame>
+          <AppTopbar />
           <RouteTransition>
             <Route path="/" element={<IntroScreen />} />
             <Route path="/join" element={<LocationScreen />} />

@@ -1,8 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import BottomNav from '../components/BottomNav';
-import logo from '../assets/xexus-logo-red-small.png';
-import arrowBack from '../assets/icon-arrow-back.svg';
 import mapBg from '../assets/map-bg.jpg';
 import fadeTop from '../assets/top.png';
 import fadeBottom from '../assets/bottom.png';
@@ -108,15 +106,6 @@ export default function MapScreen() {
       <img src={fadeBottom} alt="" className="map-fade map-fade--bottom anim-fade" />
 
       <StatusBar variant="light" bg="#2f3133" />
-
-      <div className="map-topbar">
-        <button className="map-back" onClick={() => navigate('/join/discover')} aria-label="Back">
-          <img src={arrowBack} alt="" />
-        </button>
-        <div className="map-brand anim-fade-up">
-          <img src={logo} alt="Xexus" className="map-brand__logo" />
-        </div>
-      </div>
 
       <div className="map-toggle anim-fade-scale" style={{ animationDelay: '0.5s' }}>
         <button className="map-toggle__btn map-toggle__btn--top" aria-label="Photos">

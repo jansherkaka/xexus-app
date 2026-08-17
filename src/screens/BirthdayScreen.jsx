@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import HomeIndicator from '../components/HomeIndicator';
 import WheelDatePicker from '../components/WheelDatePicker';
-import logo from '../assets/xexus-logo-red-small.png';
-import arrowBack from '../assets/icon-arrow-back.svg';
 import './Screens.css';
 import './BirthdayScreen.css';
 
@@ -46,22 +44,6 @@ export default function BirthdayScreen() {
   return (
     <div className="screen screen--white">
       <StatusBar variant="dark" bg="#ffffff" />
-
-      <div className="birthday-topbar">
-        <button
-          className="birthday-back"
-          onClick={() => navigate('/join/age-gate')}
-          aria-label="Back"
-        >
-          <img src={arrowBack} alt="" />
-        </button>
-        <div className="birthday-brand">
-          <img src={logo} alt="Xexus" className="birthday-brand__logo" />
-          <div className="birthday-brand__progress">
-            <div className="birthday-brand__progress-fill" />
-          </div>
-        </div>
-      </div>
 
       <div className="birthday-heading">
         <p className="birthday-line birthday-line--whatis anim-fade-up anim-d1">what is</p>

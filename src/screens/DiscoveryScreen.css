@@ -50,47 +50,6 @@
   transition: opacity 0.22s ease;
 }
 
-.discovery-topbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 130px;
-  z-index: 2;
-}
-
-.discovery-back {
-  position: absolute;
-  top: 72px;
-  left: 20px;
-  width: 32px;
-  height: 32px;
-  background: none;
-  border: none;
-  padding: 0;
-  display: flex;
-}
-
-.discovery-back img {
-  width: 100%;
-  height: 100%;
-}
-
-.discovery-brand {
-  position: absolute;
-  top: 67px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  justify-content: center;
-}
-
-.discovery-brand__logo {
-  width: 100px;
-  height: 24px;
-  object-fit: contain;
-}
-
 .discovery-card__info {
   display: flex;
   flex-direction: column;

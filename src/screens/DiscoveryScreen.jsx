@@ -2,8 +2,6 @@ import { useCallback, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import BottomNav from '../components/BottomNav';
-import logo from '../assets/xexus-logo-red-small.png';
-import arrowBack from '../assets/icon-arrow-back.svg';
 import onlineDot from '../assets/icon-online-dot.svg';
 import iconX from '../assets/icon-x.svg';
 import iconHeart from '../assets/icon-heart.svg';
@@ -180,15 +178,6 @@ export default function DiscoveryScreen() {
             </div>
           );
         })}
-      </div>
-
-      <div className="discovery-topbar">
-        <button className="discovery-back" onClick={() => navigate('/join/get-active')} aria-label="Back">
-          <img src={arrowBack} alt="" />
-        </button>
-        <div className="discovery-brand">
-          <img src={logo} alt="Xexus" className="discovery-brand__logo" />
-        </div>
       </div>
 
       {active.tags.map((tag, idx) => (

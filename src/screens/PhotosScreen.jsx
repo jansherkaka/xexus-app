@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import HomeIndicator from '../components/HomeIndicator';
-import logo from '../assets/xexus-logo-red-small.png';
 import addIcon from '../assets/icon-add.svg';
 import './Screens.css';
 import './PhotosScreen.css';
@@ -20,15 +19,6 @@ export default function PhotosScreen() {
   return (
     <div className="screen screen--white">
       <StatusBar variant="dark" bg="#ffffff" />
-
-      <div className="photos-topbar">
-        <div className="photos-brand">
-          <img src={logo} alt="Xexus" className="photos-brand__logo" />
-          <div className="photos-brand__progress">
-            <div className="photos-brand__progress-fill" />
-          </div>
-        </div>
-      </div>
 
       <div className="photos-text">
         <p className="photos-heading anim-fade-up anim-d1">add your photo</p>

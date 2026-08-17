@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import HomeIndicator from '../components/HomeIndicator';
-import logo from '../assets/xexus-logo-red-small.png';
-import arrowBack from '../assets/icon-arrow-back.svg';
 import './Screens.css';
 import './NameScreen.css';
 
@@ -14,22 +12,6 @@ export default function NameScreen() {
   return (
     <div className="screen screen--white">
       <StatusBar variant="dark" bg="#ffffff" />
-
-      <div className="name-topbar">
-        <button
-          className="name-back"
-          onClick={() => navigate('/join/gender')}
-          aria-label="Back"
-        >
-          <img src={arrowBack} alt="" />
-        </button>
-        <div className="name-brand">
-          <img src={logo} alt="Xexus" className="name-brand__logo" />
-          <div className="name-brand__progress">
-            <div className="name-brand__progress-fill" />
-          </div>
-        </div>
-      </div>
 
       <div className="name-heading">
         <p className="name-line name-line--what anim-fade-up anim-d1">what</p>

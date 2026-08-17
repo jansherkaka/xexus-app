@@ -2,8 +2,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import StatusBar from '../components/StatusBar';
 import HomeIndicator from '../components/HomeIndicator';
-import logo from '../assets/xexus-logo-red-small.png';
-import arrowBack from '../assets/icon-arrow-back.svg';
 import identityIcon from '../assets/icon-identify.svg';
 import './Screens.css';
 import './GenderScreen.css';
@@ -45,22 +43,6 @@ export default function GenderScreen() {
   return (
     <div className="screen screen--white">
       <StatusBar variant="dark" bg="#ffffff" />
-
-      <div className="gender-topbar">
-        <button
-          className="gender-back"
-          onClick={() => navigate('/join/live-selfie')}
-          aria-label="Back"
-        >
-          <img src={arrowBack} alt="" />
-        </button>
-        <div className="gender-brand">
-          <img src={logo} alt="Xexus" className="gender-brand__logo" />
-          <div className="gender-brand__progress">
-            <div className="gender-brand__progress-fill" />
-          </div>
-        </div>
-      </div>
 
       <div className="gender-heading">
         <p className="gender-line gender-line--how anim-fade-up anim-d1">how</p>
