@@ -18,6 +18,7 @@ const TIPS = [
 export default function LiveSelfieScreen() {
   const navigate = useNavigate();
   const [selfie, setSelfie] = useState(null);
+  const [verified, setVerified] = useState(false);
 
   const handleFile = (e) => {
     const file = e.target.files?.[0];
@@ -60,12 +61,33 @@ export default function LiveSelfieScreen() {
       </div>
 
       <div className="selfie-cta-wrap">
-        <button className="selfie-cta anim-fade-up anim-d5" onClick={() => navigate('/join/verify-identity')}>
+        <button className="selfie-cta anim-fade-up anim-d5" onClick={() => setVerified(true)}>
           next
         </button>
       </div>
 
       <HomeIndicator variant="dark" />
+
+      {verified && (
+        <>
+          <div className="verify3-dim anim-fade" />
+          <div className="verify3-popup anim-pop-in">
+            <div className="verify3-popup-heading">
+              <p className="verify3-popup-line verify3-popup-line--youre">you&rsquo;re</p>
+              <p className="verify3-popup-line verify3-popup-line--verified">verified!</p>
+            </div>
+            <p className="verify3-popup-body">
+              your age has been confirmed. you&rsquo;re all set to continue.
+            </p>
+            <button
+              className="verify3-popup-cta"
+              onClick={() => navigate('/join/gender')}
+            >
+              finish
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 }
