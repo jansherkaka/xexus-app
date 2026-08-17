@@ -234,72 +234,97 @@
   }
 }
 
-/* v3: rising reveal — each letter slides up from behind a masked curtain */
-.letter-reveal--v3 .letter-reveal__mask {
+/* v3: word wipe — the WHOLE word reveals in one clip-path swipe left to
+   right, no per-letter stagger. A completely different rhythm from v1/v2:
+   one clean motion per word instead of N small ones. */
+.letter-reveal--v3 {
   display: inline-block;
-  overflow: hidden;
-  vertical-align: bottom;
+  clip-path: inset(0 100% 0 0);
+  animation: word-wipe-in 640ms cubic-bezier(0.65, 0, 0.35, 1) forwards;
 }
 
-.letter-reveal--v3 .letter-reveal__char {
-  animation: letter-slide-up-in 660ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-@keyframes letter-slide-up-in {
-  from {
-    opacity: 0;
-    transform: translateY(100%);
-  }
+@keyframes word-wipe-in {
   to {
-    opacity: 1;
-    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
   }
 }
 
-/* v4: 3D flip-in — each letter tips forward into place like a flap display */
+/* v4: typewriter — letters pop in instantly (no easing, no motion), like a
+   character being struck onto the page. Paired with a blinking .intro-cursor
+   rendered alongside the headline in IntroScreen. */
 .letter-reveal--v4 .letter-reveal__char {
-  animation: letter-flip-in 640ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  transform-origin: 50% 100%;
+  animation: letter-typewriter-in 1ms steps(1) forwards;
 }
 
-@keyframes letter-flip-in {
+@keyframes letter-typewriter-in {
   from {
     opacity: 0;
-    transform: perspective(300px) rotateX(-100deg) translateY(6px);
-  }
-  55% {
-    opacity: 1;
   }
   to {
     opacity: 1;
-    transform: perspective(300px) rotateX(0deg) translateY(0);
   }
 }
 
-/* v5: scramble/decode — letters cycle random glyphs then lock in, driven by
-   ScrambleChar's own state rather than a CSS keyframe. Only needs a quick
-   fade for the cycling phase and a subtle flash-to-color on settle. */
+/* Absolutely positioned (relative to .intro-headline) instead of inline —
+   the custom display font's baseline metrics put an inline cursor's bottom
+   edge much lower than the visible glyphs, overlapping the subwords below. */
+.intro-cursor {
+  position: absolute;
+  top: 32px;
+  right: 2px;
+  width: 12px;
+  height: 108px;
+  background: #fff;
+  animation: cursor-blink 900ms steps(1) infinite;
+}
+
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* v5: glitch/scramble — letters cycle random glyphs with jitter and a
+   chromatic-aberration flicker before locking onto the real character with
+   a glow flash. Driven by ScrambleChar's own state, not a CSS keyframe. */
 .letter-reveal--v5 .letter-reveal__char--scramble {
   display: inline-block;
   opacity: 0;
   color: inherit;
-  transition: opacity 120ms ease-out;
+  transition: opacity 100ms ease-out;
 }
 
 .letter-reveal--v5 .letter-reveal__char--scrambling {
-  opacity: 0.55;
-  color: #ffd4d1;
+  opacity: 0.85;
+  color: #7dffef;
+  text-shadow:
+    1.5px 0 #ff3b6e,
+    -1.5px 0 #3bfff0;
+  animation: glitch-jitter 90ms steps(2) infinite;
+}
+
+@keyframes glitch-jitter {
+  0% {
+    transform: translate(0, 0) skewX(0deg);
+  }
+  50% {
+    transform: translate(-2px, 1px) skewX(-6deg);
+  }
+  100% {
+    transform: translate(2px, -1px) skewX(5deg);
+  }
 }
 
 .letter-reveal--v5 .letter-reveal__char--settled {
   opacity: 1;
   color: inherit;
+  transform: none;
   animation: letter-settle-flash 320ms ease-out;
 }
 
 @keyframes letter-settle-flash {
   0% {
-    text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0 14px rgba(255, 255, 255, 0.95);
   }
   100% {
     text-shadow: 0 0 0 rgba(255, 255, 255, 0);

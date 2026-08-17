@@ -56,6 +56,7 @@ export default function IntroScreen() {
 
       <p className="intro-headline">
         <LetterReveal text="step" variant={variant} startDelay={0} letterDelay={HEADLINE_LETTER_DELAY} />
+        {variant === 4 && stage === 'letters' && <span className="intro-cursor" />}
       </p>
 
       <div className={`intro-subwords${stage === 'buttons' ? ' intro-subwords--buttons' : ''}`}>
