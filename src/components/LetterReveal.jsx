@@ -56,6 +56,14 @@ function ScrambleChar({ glyph, startDelay }) {
 //       trailing blinking cursor, like text being typed
 //   5 - glitch/scramble: letters cycle random glyphs with jitter + a
 //       chromatic-aberration flicker before locking onto the real character
+//   6 - tumble: letters rotate + rise up from below into place, slow/graceful
+//   7 - focus pull: letters start big and blurred, zoom+sharpen down to size
+//   8 - alternating slide: even letters slide in from the left, odd letters
+//       from the right, converging on their spot
+//   9 - elastic drop: letters fall from above and bounce/settle, like they
+//       landed with weight
+//   10 - per-letter curtain: each letter reveals with its own vertical
+//       clip-path wipe (unlike v3, which wipes the whole word as one piece)
 export default function LetterReveal({ text, variant = 1, startDelay = 0, letterDelay = 45 }) {
   if (variant === 3) {
     return (
@@ -82,8 +90,15 @@ export default function LetterReveal({ text, variant = 1, startDelay = 0, letter
         }
 
         const style = { animationDelay: `${delay}ms` };
+        const directionClass =
+          variant === 8 ? ` letter-reveal__char--${i % 2 === 0 ? 'from-left' : 'from-right'}` : '';
         return (
-          <span key={i} className="letter-reveal__char" style={style} aria-hidden="true">
+          <span
+            key={i}
+            className={`letter-reveal__char${directionClass}`}
+            style={style}
+            aria-hidden="true"
+          >
             {glyph}
           </span>
         );

@@ -12,7 +12,7 @@ const SPLASH_DURATION = 2000; // logo screen
 const HEADLINE_LETTER_DELAY = 110; // ms between each "step" letter
 const WORD_STAGGER = 460; // ms between each subword's cascade start
 const LETTER_DELAY = 90; // ms between each letter within a subword
-const LETTER_ANIM_DURATION = 700; // longest per-letter animation, for timing budget
+const LETTER_ANIM_DURATION = 950; // longest per-letter animation, for timing budget
 const BUTTONS_DELAY = 500; // pause after the last letter before buttons slide in
 
 const MAX_WORD_LETTERS = Math.max(...SUBWORDS.map((w) => w.length));
@@ -23,11 +23,13 @@ const BUTTONS_AT = SPLASH_DURATION + WORDS_DONE_AT + BUTTONS_DELAY;
 export default function IntroScreen() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  // ?intro=1|2|3|4|5 lets the same build be compared side by side while
-  // picking an animation style; defaults to variant 2 (springy pop) pending
-  // final client sign-off.
+  // ?intro=1-10 lets the same build be compared side by side while picking
+  // an animation style; defaults to variant 2 (springy pop) pending final
+  // client sign-off.
   const requestedVariant = Number(searchParams.get('intro'));
-  const variant = [1, 2, 3, 4, 5].includes(requestedVariant) ? requestedVariant : 2;
+  const variant = Array.from({ length: 10 }, (_, i) => i + 1).includes(requestedVariant)
+    ? requestedVariant
+    : 2;
 
   // 'splash' -> 'letters' -> 'buttons'
   const [stage, setStage] = useState('splash');
