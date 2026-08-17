@@ -64,10 +64,12 @@
 
 .vsteps-cta-wrap {
   position: absolute;
-  top: 718px;
+  top: 721px;
   left: 0;
   width: 100%;
+  height: 110px;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 

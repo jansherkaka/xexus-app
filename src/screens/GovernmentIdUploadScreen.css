@@ -24,7 +24,7 @@
 
 .govup-upload {
   position: absolute;
-  top: 300px;
+  top: 293px;
   left: 50%;
   transform: translateX(-50%);
   width: 327px;
@@ -73,7 +73,7 @@
 
 .govup-checklist {
   position: absolute;
-  top: 532px;
+  top: 530px;
   left: 50%;
   transform: translateX(-50%);
   width: 258px;
@@ -83,7 +83,7 @@
 }
 
 .govup-checklist--expiry {
-  top: 655px;
+  top: 656px;
 }
 
 .govup-checklist__label {
@@ -117,7 +117,9 @@
   top: 718px;
   left: 0;
   width: 100%;
+  height: 110px;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 

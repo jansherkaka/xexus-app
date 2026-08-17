@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 34px;
+  gap: 18px;
   text-align: center;
 }
 
@@ -80,7 +80,9 @@
   top: 718px;
   left: 0;
   width: 100%;
+  height: 110px;
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 

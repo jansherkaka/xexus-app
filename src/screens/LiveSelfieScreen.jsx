@@ -38,23 +38,25 @@ export default function LiveSelfieScreen() {
         <input type="file" accept="image/*" capture="user" className="selfie-frame__input" onChange={handleFile} />
       </label>
 
-      <div className="selfie-info anim-fade-up anim-d3">
-        <p className="selfie-info__title">facial recognition</p>
-        <p className="selfie-info__body">
-          in order to improve the success rate of face recognition, please
-          follow these requirements below
-        </p>
-      </div>
+      <div className="selfie-group">
+        <div className="selfie-info anim-fade-up anim-d3">
+          <p className="selfie-info__title">facial recognition</p>
+          <p className="selfie-info__body">
+            in order to improve the success rate of face recognition, please
+            follow these requirements below
+          </p>
+        </div>
 
-      <div className="selfie-tips anim-fade-up anim-d4">
-        {TIPS.map((tip) => (
-          <div key={tip.label} className="selfie-tip">
-            <span className="selfie-tip__badge">
-              <img src={tip.icon} alt="" />
-            </span>
-            <p className="selfie-tip__label">{tip.label}</p>
-          </div>
-        ))}
+        <div className="selfie-tips anim-fade-up anim-d4">
+          {TIPS.map((tip) => (
+            <div key={tip.label} className="selfie-tip">
+              <span className="selfie-tip__badge">
+                <img src={tip.icon} alt="" />
+              </span>
+              <p className="selfie-tip__label">{tip.label}</p>
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="selfie-cta-wrap">
