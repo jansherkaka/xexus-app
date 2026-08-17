@@ -18,3 +18,20 @@
     transform: translateX(0);
   }
 }
+
+/* The outgoing screen dims as the new one covers it, so its own content
+   (text, photos) stops reading clearly partway through the slide instead of
+   staying fully legible - matches the native push-transition feel and stops
+   a busy outgoing screen's text from looking like it "leaked" forward. */
+.route-transition__layer--exit {
+  animation: route-exit-dim 380ms cubic-bezier(0.32, 0.72, 0, 1) both;
+}
+
+@keyframes route-exit-dim {
+  from {
+    filter: brightness(1);
+  }
+  to {
+    filter: brightness(0.55);
+  }
+}

@@ -5,7 +5,11 @@ import './RouteTransition.css';
 // Mimics a native iOS-style push transition: the new screen slides in from
 // the right and covers the previous one, which stays put underneath (not a
 // fade/scale-in-place, which is what this replaced after client feedback
-// referencing Hinge's onboarding flow).
+// referencing Hinge's onboarding flow). The outgoing screen also dims
+// progressively while it's covered (see .route-transition__layer--exit) -
+// without it, a busy/high-contrast outgoing screen (e.g. Location's dark
+// photo + bold heading) stays fully legible for the whole slide, which read
+// as its content "leaking" into the next screen rather than a clean handoff.
 //
 // Each screen gets its own layer div keyed on location.key, and that key
 // never changes for as long as the layer stays mounted — critical, because
@@ -44,10 +48,11 @@ export default function RouteTransition({ children }) {
 
   return layers.map((layer, i) => {
     const isEntering = i === layers.length - 1 && layers.length > 1;
+    const isExiting = i < layers.length - 1;
     return (
       <div
         key={layer.id}
-        className={`route-transition__layer${isEntering ? ' route-transition__layer--enter' : ''}`}
+        className={`route-transition__layer${isEntering ? ' route-transition__layer--enter' : ''}${isExiting ? ' route-transition__layer--exit' : ''}`}
       >
         <Routes location={layer.location}>{children}</Routes>
       </div>
