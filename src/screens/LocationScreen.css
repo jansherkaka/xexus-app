@@ -85,10 +85,6 @@
   transform: translateX(-50%);
   width: 344px;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 152px;
 }
 
 .location-text {
@@ -101,16 +97,44 @@
 }
 
 .location-heading {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 59px;
+  width: 100%;
+  text-align: center;
   font-family: 'Berthold Akzidenz Grotesk', sans-serif;
   font-weight: 800;
   color: #fff;
-  font-size: 62px;
-  line-height: 1;
+}
+
+.location-heading__line {
+  margin: 0;
   width: 100%;
 }
 
-.location-heading p {
-  margin: 0;
+.location-heading__line--big {
+  font-size: 62px;
+  line-height: 1;
+}
+
+.location-heading__line--small {
+  font-size: 28px;
+  line-height: 0.92;
+}
+
+.location-heading__line--location {
+  letter-spacing: 19.32px;
+  /* letter-spacing adds trailing space after the last glyph, which text-align:
+     center includes in its math and pulls the visible text left of true
+     center — nudge right by half the tracking value to compensate. */
+  transform: translateX(9.66px);
+}
+
+.location-heading__line--based {
+  letter-spacing: 20.44px;
+  transform: translateX(10.22px);
 }
 
 .location-body {
@@ -121,12 +145,22 @@
   color: #fafafa;
 }
 
-.location-cta {
+.location-cta-wrap {
+  position: absolute;
+  top: 717px;
+  left: 0;
   width: 100%;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.location-cta {
+  width: 246px;
   background: #fff;
   color: #ea3e2f;
   border: none;
-  padding: 24px 64px;
+  padding: 24px;
   font-family: 'Inter', sans-serif;
   font-size: 16px;
   font-weight: 500;
