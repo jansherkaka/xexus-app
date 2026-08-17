@@ -253,7 +253,7 @@
    character being struck onto the page. Paired with a blinking .intro-cursor
    rendered alongside the headline in IntroScreen. */
 .letter-reveal--v4 .letter-reveal__char {
-  animation: letter-typewriter-in 1ms steps(1) forwards;
+  animation: letter-typewriter-in 100ms steps(1) forwards;
 }
 
 @keyframes letter-typewriter-in {
