@@ -32,19 +32,18 @@ export default function NameScreen() {
       </div>
 
       <div className="name-heading">
-        <p className="name-line name-line--whats anim-fade-up anim-d1">what&rsquo;s</p>
-        <p className="name-line name-line--your anim-fade-up anim-d2">your</p>
-        <p className="name-line name-line--profile anim-fade-up anim-d3">profile</p>
-        <p className="name-line name-line--name anim-fade-up anim-d4">name?</p>
+        <p className="name-line name-line--what anim-fade-up anim-d1">what</p>
+        <p className="name-line name-line--should anim-fade-up anim-d2">should</p>
+        <p className="name-line name-line--we anim-fade-up anim-d3">we</p>
+        <p className="name-line name-line--call anim-fade-up anim-d4">call</p>
+        <p className="name-line name-line--you anim-fade-up anim-d5">you?</p>
       </div>
 
-      <p className="name-body anim-fade-up anim-d5">
+      <p className="name-body anim-fade-up anim-d6">
         add the name you want people to see.
-        <br />
-        keep it low-key.
       </p>
 
-      <div className="name-field anim-fade-up anim-d6">
+      <div className="name-field anim-fade-up anim-d7">
         <label className="name-field__label" htmlFor="profile-name">
           Name
         </label>
@@ -52,7 +51,7 @@ export default function NameScreen() {
           id="profile-name"
           className="name-field__input"
           type="text"
-          placeholder="Enter your name"
+          placeholder="Enter username"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
@@ -60,7 +59,7 @@ export default function NameScreen() {
 
       <div className="name-cta-wrap">
         <button
-          className="name-cta anim-fade-up anim-d7"
+          className="name-cta anim-fade-up anim-d8"
           onClick={() => navigate('/join/set-tone')}
         >
           next

@@ -61,14 +61,14 @@
 
 .name-heading {
   position: absolute;
-  top: 182px;
+  top: 163px;
   left: 50%;
   transform: translateX(-50%);
   width: 344px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 46px;
+  gap: 29px;
   text-align: center;
   font-family: 'Berthold Akzidenz Grotesk', sans-serif;
   font-weight: 800;
@@ -80,35 +80,30 @@
   width: 100%;
 }
 
-.name-line--whats {
-  font-size: 113px;
-  letter-spacing: -5.65px;
+.name-line--what {
+  font-size: 140px;
+  letter-spacing: -7px;
   line-height: 0.85;
 }
 
-.name-line--your {
-  font-size: 28px;
-  letter-spacing: 19.32px;
+.name-line--should,
+.name-line--we,
+.name-line--call {
+  font-size: 24px;
+  letter-spacing: 23.04px;
   line-height: 0.92;
-  transform: translateX(9.66px);
+  transform: translateX(11.52px);
 }
 
-.name-line--profile {
-  font-size: 28px;
-  letter-spacing: 17.52px;
-  line-height: 0.92;
-  transform: translateX(8.76px);
-}
-
-.name-line--name {
-  font-size: 85px;
-  letter-spacing: -0.85px;
+.name-line--you {
+  font-size: 101px;
+  letter-spacing: -5.05px;
   line-height: 0.92;
 }
 
 .name-body {
   position: absolute;
-  top: 554px;
+  top: 578px;
   left: 50%;
   transform: translateX(-50%);
   width: 344px;
@@ -122,7 +117,7 @@
 
 .name-field {
   position: absolute;
-  top: 613px;
+  top: 632px;
   left: 50%;
   transform: translateX(-50%);
   width: 348px;
