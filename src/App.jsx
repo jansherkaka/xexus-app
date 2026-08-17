@@ -1,5 +1,6 @@
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter, Route, Navigate } from 'react-router-dom';
 import PhoneFrame from './components/PhoneFrame';
+import RouteTransition from './components/RouteTransition';
 import IntroScreen from './screens/IntroScreen';
 import LocationScreen from './screens/LocationScreen';
 import AgeGateScreen from './screens/AgeGateScreen';
@@ -29,7 +30,7 @@ function App() {
         </div>
 
         <PhoneFrame>
-          <Routes>
+          <RouteTransition>
             <Route path="/" element={<IntroScreen />} />
             <Route path="/join" element={<LocationScreen />} />
             <Route path="/join/age-gate" element={<AgeGateScreen />} />
@@ -48,7 +49,7 @@ function App() {
             <Route path="/join/discover" element={<DiscoveryScreen />} />
             <Route path="/join/map" element={<MapScreen />} />
             <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
+          </RouteTransition>
         </PhoneFrame>
       </div>
     </BrowserRouter>

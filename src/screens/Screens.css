@@ -3,18 +3,6 @@
   width: 100%;
   height: 100%;
   overflow: hidden;
-  animation: screen-enter 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes screen-enter {
-  from {
-    opacity: 0;
-    scale: 0.97;
-  }
-  to {
-    opacity: 1;
-    scale: 1;
-  }
 }
 
 /* Shared staggered-reveal utilities — apply alongside a screen's own
