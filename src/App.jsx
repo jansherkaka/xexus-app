@@ -4,6 +4,12 @@ import IntroScreen from './screens/IntroScreen';
 import LocationScreen from './screens/LocationScreen';
 import AgeGateScreen from './screens/AgeGateScreen';
 import BirthdayScreen from './screens/BirthdayScreen';
+import VerifyConsentScreen from './screens/VerifyConsentScreen';
+import VerifySafetyScreen from './screens/VerifySafetyScreen';
+import VerifyStepsScreen from './screens/VerifyStepsScreen';
+import GovernmentIdScreen from './screens/GovernmentIdScreen';
+import GovernmentIdUploadScreen from './screens/GovernmentIdUploadScreen';
+import LiveSelfieScreen from './screens/LiveSelfieScreen';
 import VerifyIdentityScreen from './screens/VerifyIdentityScreen';
 import GenderScreen from './screens/GenderScreen';
 import NameScreen from './screens/NameScreen';
@@ -29,6 +35,12 @@ function App() {
             <Route path="/join" element={<LocationScreen />} />
             <Route path="/join/age-gate" element={<AgeGateScreen />} />
             <Route path="/join/birthday" element={<BirthdayScreen />} />
+            <Route path="/join/verify-consent" element={<VerifyConsentScreen />} />
+            <Route path="/join/verify-safety" element={<VerifySafetyScreen />} />
+            <Route path="/join/verify-steps" element={<VerifyStepsScreen />} />
+            <Route path="/join/government-id" element={<GovernmentIdScreen />} />
+            <Route path="/join/government-id-upload" element={<GovernmentIdUploadScreen />} />
+            <Route path="/join/live-selfie" element={<LiveSelfieScreen />} />
             <Route path="/join/verify-identity" element={<VerifyIdentityScreen />} />
             <Route path="/join/gender" element={<GenderScreen />} />
             <Route path="/join/name" element={<NameScreen />} />

@@ -1,0 +1,176 @@
+.govid-icon {
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 107px;
+  height: 107px;
+}
+
+.govid-heading {
+  position: absolute;
+  top: 248px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 362px;
+  margin: 0;
+  text-align: center;
+  font-family: 'Berthold Akzidenz Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 41px;
+  line-height: 0.78;
+  color: #fd151b;
+}
+
+.govid-form {
+  position: absolute;
+  top: 315px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 327px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.govid-field {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.govid-field__label {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.3;
+  color: #8f8f8f;
+}
+
+.govid-select {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 56px;
+  padding: 0 16px;
+  border: 1px solid rgba(29, 29, 29, 0.12);
+  border-radius: 8px;
+}
+
+.govid-select__flag {
+  width: 26px;
+  height: 14px;
+  border-radius: 1px;
+  object-fit: cover;
+}
+
+.govid-select__text {
+  flex: 1;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #8f8f8f;
+}
+
+.govid-select__chevron {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #8f8f8f;
+}
+
+.govid-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.govid-method {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 64px;
+  padding: 0 16px;
+  background: #fff;
+  border: 1px solid rgba(29, 29, 29, 0.12);
+  border-radius: 8px;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.govid-method:active {
+  transform: scale(0.98);
+}
+
+.govid-method__left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.govid-method__icon {
+  width: 48px;
+  height: 48px;
+}
+
+.govid-method__label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #8f8f8f;
+}
+
+.govid-method__radio {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid #d9d9d9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.govid-method__radio--selected {
+  background: #19191a;
+  border-color: #19191a;
+}
+
+.govid-method__check {
+  width: 10px;
+  height: 6px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg) translateY(-1px);
+}
+
+.govid-cta-wrap {
+  position: absolute;
+  top: 718px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.govid-cta {
+  width: 246px;
+  padding: 24px;
+  background: #fd151b;
+  color: #fff;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.1;
+  box-shadow:
+    0 12px 8px rgba(234, 62, 47, 0.1),
+    0 4px 3px rgba(234, 62, 47, 0.05);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.govid-cta:active {
+  transform: scale(0.97);
+}
