@@ -202,7 +202,7 @@
 
 /* v1: fast cascade — soft rise + blur-out-of-focus resolve */
 .letter-reveal--v1 .letter-reveal__char {
-  animation: letter-cascade-in 480ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: letter-cascade-in 620ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes letter-cascade-in {
@@ -220,7 +220,7 @@
 
 /* v2: springy pop — each letter overshoots slightly as it lands */
 .letter-reveal--v2 .letter-reveal__char {
-  animation: letter-pop-in 620ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation: letter-pop-in 760ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 @keyframes letter-pop-in {
@@ -242,7 +242,7 @@
 }
 
 .letter-reveal--v3 .letter-reveal__char {
-  animation: letter-slide-up-in 520ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: letter-slide-up-in 660ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes letter-slide-up-in {

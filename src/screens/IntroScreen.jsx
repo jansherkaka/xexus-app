@@ -9,11 +9,11 @@ import './Screens.css';
 const SUBWORDS = ['into', 'the', 'real', 'world'];
 
 const SPLASH_DURATION = 2000; // logo screen
-const HEADLINE_LETTER_DELAY = 60; // ms between each "step" letter
-const WORD_STAGGER = 260; // ms between each subword's cascade start
-const LETTER_DELAY = 45; // ms between each letter within a subword
-const LETTER_ANIM_DURATION = 560; // longest per-letter animation, for timing budget
-const BUTTONS_DELAY = 400; // pause after the last letter before buttons slide in
+const HEADLINE_LETTER_DELAY = 110; // ms between each "step" letter
+const WORD_STAGGER = 460; // ms between each subword's cascade start
+const LETTER_DELAY = 90; // ms between each letter within a subword
+const LETTER_ANIM_DURATION = 700; // longest per-letter animation, for timing budget
+const BUTTONS_DELAY = 500; // pause after the last letter before buttons slide in
 
 const MAX_WORD_LETTERS = Math.max(...SUBWORDS.map((w) => w.length));
 const WORDS_DONE_AT =
