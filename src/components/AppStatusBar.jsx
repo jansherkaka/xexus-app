@@ -6,6 +6,7 @@ import batteryBlack from '../assets/battery-black.svg';
 import wifiBlack from '../assets/wifi-black.svg';
 import timeBlack from '../assets/time-black.svg';
 import useIsFullBleed from '../hooks/useIsFullBleed';
+import { useDeviceChromeContext } from '../context/DeviceChromeContext';
 import './DeviceChrome.css';
 
 const ASSETS = {
@@ -13,13 +14,17 @@ const ASSETS = {
   dark: { battery: batteryBlack, wifi: wifiBlack, time: timeBlack },
 };
 
-export default function StatusBar({ variant = 'dark', bg }) {
+// Single persistent status bar rendered outside RouteTransition's sliding
+// layers - see DeviceChromeContext.jsx for why.
+export default function AppStatusBar() {
+  const { chrome } = useDeviceChromeContext();
   const isFullBleed = useIsFullBleed();
+  const { statusBarVariant: variant, statusBarBg: bg } = chrome;
   const { battery, wifi, time } = ASSETS[variant];
 
-  // Tints the real OS status bar (Android TWA/PWA) to match this screen's
-  // own top background, instead of the one static color baked into the
-  // manifest. Also colors mobile Chrome's address bar the same way.
+  // Tints the real OS status bar (Android TWA/PWA) to match the current
+  // screen's own top background, instead of the one static color baked
+  // into the manifest. Also colors mobile Chrome's address bar the same way.
   useEffect(() => {
     if (!bg) return;
     const meta = document.querySelector('meta[name="theme-color"]');

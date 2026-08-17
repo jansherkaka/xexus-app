@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import StatusBar from '../components/StatusBar';
-import HomeIndicator from '../components/HomeIndicator';
+import { useDeviceChrome } from '../context/DeviceChromeContext';
 import govIdIcon from '../assets/icon-govid-card.png';
 import checkHook from '../assets/icon-check-hook.svg';
 import addIcon from '../assets/icon-add.svg';
@@ -11,6 +10,7 @@ import './GovernmentIdUploadScreen.css';
 export default function GovernmentIdUploadScreen() {
   const navigate = useNavigate();
   const [photo, setPhoto] = useState(null);
+  useDeviceChrome({ statusBarVariant: 'dark', statusBarBg: '#ffffff', homeIndicatorVariant: 'dark' });
 
   const handleFile = (e) => {
     const file = e.target.files?.[0];
@@ -20,8 +20,6 @@ export default function GovernmentIdUploadScreen() {
 
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" bg="#ffffff" />
-
       <img src={govIdIcon} alt="" className="govup-icon anim-fade-scale anim-d1" />
       <p className="govup-heading anim-fade-up anim-d2">government ID</p>
 
@@ -65,8 +63,6 @@ export default function GovernmentIdUploadScreen() {
           confirm
         </button>
       </div>
-
-      <HomeIndicator variant="dark" />
     </div>
   );
 }

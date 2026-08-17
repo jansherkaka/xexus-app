@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import StatusBar from '../components/StatusBar';
-import HomeIndicator from '../components/HomeIndicator';
+import { useDeviceChrome } from '../context/DeviceChromeContext';
 import selfieFrame from '../assets/selfie-frame.png';
 import iconTipPhone from '../assets/icon-tip-phone.svg';
 import iconTipSun from '../assets/icon-tip-sun.svg';
@@ -19,6 +18,7 @@ export default function LiveSelfieScreen() {
   const navigate = useNavigate();
   const [selfie, setSelfie] = useState(null);
   const [verified, setVerified] = useState(false);
+  useDeviceChrome({ statusBarVariant: 'dark', statusBarBg: '#ffffff', homeIndicatorVariant: 'dark' });
 
   const handleFile = (e) => {
     const file = e.target.files?.[0];
@@ -28,8 +28,6 @@ export default function LiveSelfieScreen() {
 
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" bg="#ffffff" />
-
       <p className="selfie-heading anim-fade-up anim-d1">live selfie</p>
 
       <label className="selfie-frame anim-fade-scale anim-d2">
@@ -65,8 +63,6 @@ export default function LiveSelfieScreen() {
           next
         </button>
       </div>
-
-      <HomeIndicator variant="dark" />
 
       {verified && (
         <>

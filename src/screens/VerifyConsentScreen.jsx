@@ -1,17 +1,15 @@
 import { useNavigate } from 'react-router-dom';
-import StatusBar from '../components/StatusBar';
-import HomeIndicator from '../components/HomeIndicator';
+import { useDeviceChrome } from '../context/DeviceChromeContext';
 import shieldIcon from '../assets/icon-shield-check.png';
 import './Screens.css';
 import './VerifyConsentScreen.css';
 
 export default function VerifyConsentScreen() {
   const navigate = useNavigate();
+  useDeviceChrome({ statusBarVariant: 'dark', statusBarBg: '#ffffff', homeIndicatorVariant: 'dark' });
 
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" bg="#ffffff" />
-
       <img src={shieldIcon} alt="" className="consent2-icon anim-fade-scale anim-d1" />
 
       <div className="consent2-content">
@@ -32,8 +30,6 @@ export default function VerifyConsentScreen() {
           next
         </button>
       </div>
-
-      <HomeIndicator variant="dark" />
     </div>
   );
 }

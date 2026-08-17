@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import StatusBar from '../components/StatusBar';
-import HomeIndicator from '../components/HomeIndicator';
+import { useDeviceChrome } from '../context/DeviceChromeContext';
 import addIcon from '../assets/icon-add.svg';
 import './Screens.css';
 import './PhotosScreen.css';
@@ -9,6 +8,7 @@ import './PhotosScreen.css';
 export default function PhotosScreen() {
   const navigate = useNavigate();
   const [photo, setPhoto] = useState(null);
+  useDeviceChrome({ statusBarVariant: 'dark', statusBarBg: '#ffffff', homeIndicatorVariant: 'dark' });
 
   const handleFile = (e) => {
     const file = e.target.files?.[0];
@@ -18,8 +18,6 @@ export default function PhotosScreen() {
 
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" bg="#ffffff" />
-
       <div className="photos-text">
         <p className="photos-heading anim-fade-up anim-d1">add your photo</p>
         <p className="photos-body anim-fade-up anim-d2">
@@ -50,8 +48,6 @@ export default function PhotosScreen() {
           next
         </button>
       </div>
-
-      <HomeIndicator variant="dark" />
     </div>
   );
 }

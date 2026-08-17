@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import StatusBar from '../components/StatusBar';
-import HomeIndicator from '../components/HomeIndicator';
+import { useDeviceChrome } from '../context/DeviceChromeContext';
 import WheelDatePicker from '../components/WheelDatePicker';
 import './Screens.css';
 import './BirthdayScreen.css';
@@ -41,10 +40,10 @@ export default function BirthdayScreen() {
 
   const resetDate = () => setDraftDob('2000-01-01');
 
+  useDeviceChrome({ statusBarVariant: 'dark', statusBarBg: '#ffffff', homeIndicatorVariant: 'dark' });
+
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" bg="#ffffff" />
-
       <div className="birthday-heading">
         <p className="birthday-line birthday-line--whatis anim-fade-up anim-d1">what is</p>
         <p className="birthday-line birthday-line--your anim-fade-up anim-d2">your</p>
@@ -68,8 +67,6 @@ export default function BirthdayScreen() {
           {dob ? formatDate(dob) : 'select a date'}
         </button>
       </div>
-
-      <HomeIndicator variant="dark" />
 
       {modal === 'pick' && (
         <>

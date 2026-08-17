@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import StatusBar from "../components/StatusBar";
-import HomeIndicator from "../components/HomeIndicator";
+import { useDeviceChrome } from "../context/DeviceChromeContext";
 import bgPhoto from "../assets/location-bg.jpg";
 import "./Screens.css";
 import "./LocationScreen.css";
 
 export default function LocationScreen() {
   const navigate = useNavigate();
+  useDeviceChrome({ statusBarVariant: "dark", statusBarBg: "#3e3126", homeIndicatorVariant: "light" });
 
   const handleEnableLocation = () => {
     if ("geolocation" in navigator) {
@@ -23,8 +23,6 @@ export default function LocationScreen() {
       <div className="location-bg">
         <img src={bgPhoto} alt="" className="location-bg__photo anim-fade-scale" />
       </div>
-
-      <StatusBar variant="dark" bg="#3e3126" />
 
       <div className="location-content">
         <div className="location-text">
@@ -50,8 +48,6 @@ export default function LocationScreen() {
           Enable location
         </button>
       </div>
-
-      <HomeIndicator variant="light" />
     </div>
   );
 }

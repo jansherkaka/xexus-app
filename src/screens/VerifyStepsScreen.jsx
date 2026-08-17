@@ -1,17 +1,15 @@
 import { useNavigate } from 'react-router-dom';
-import StatusBar from '../components/StatusBar';
-import HomeIndicator from '../components/HomeIndicator';
+import { useDeviceChrome } from '../context/DeviceChromeContext';
 import shieldIcon from '../assets/icon-shield-check.png';
 import './Screens.css';
 import './VerifyStepsScreen.css';
 
 export default function VerifyStepsScreen() {
   const navigate = useNavigate();
+  useDeviceChrome({ statusBarVariant: 'dark', statusBarBg: '#ffffff', homeIndicatorVariant: 'dark' });
 
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" bg="#ffffff" />
-
       <img src={shieldIcon} alt="" className="vsteps-icon anim-fade-scale anim-d1" />
 
       <div className="vsteps-content">
@@ -35,8 +33,6 @@ export default function VerifyStepsScreen() {
           next
         </button>
       </div>
-
-      <HomeIndicator variant="dark" />
     </div>
   );
 }

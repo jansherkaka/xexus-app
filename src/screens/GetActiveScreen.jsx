@@ -1,16 +1,14 @@
 import { useNavigate } from 'react-router-dom';
-import StatusBar from '../components/StatusBar';
-import HomeIndicator from '../components/HomeIndicator';
+import { useDeviceChrome } from '../context/DeviceChromeContext';
 import './Screens.css';
 import './GetActiveScreen.css';
 
 export default function GetActiveScreen() {
   const navigate = useNavigate();
+  useDeviceChrome({ statusBarVariant: 'dark', statusBarBg: '#ffffff', homeIndicatorVariant: 'dark' });
 
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" bg="#ffffff" />
-
       <div className="get-active-heading">
         <p className="get-active-line get-active-line--get anim-fade-up anim-d1">get</p>
         <p className="get-active-line get-active-line--active anim-fade-up anim-d2">active</p>
@@ -28,8 +26,6 @@ export default function GetActiveScreen() {
           activate LiveLustMap
         </button>
       </div>
-
-      <HomeIndicator variant="dark" />
     </div>
   );
 }

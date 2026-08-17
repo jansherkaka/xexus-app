@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import StatusBar from '../components/StatusBar';
-import HomeIndicator from '../components/HomeIndicator';
+import { useDeviceChrome } from '../context/DeviceChromeContext';
 import identityIcon from '../assets/icon-identify.svg';
 import './Screens.css';
 import './GenderScreen.css';
@@ -40,10 +39,10 @@ export default function GenderScreen() {
     setTimeout(() => navigate('/join/name'), 250);
   };
 
+  useDeviceChrome({ statusBarVariant: 'dark', statusBarBg: '#ffffff', homeIndicatorVariant: 'dark' });
+
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" bg="#ffffff" />
-
       <div className="gender-heading">
         <p className="gender-line gender-line--how anim-fade-up anim-d1">how</p>
         <p className="gender-line gender-line--doyou anim-fade-up anim-d2">do you</p>
@@ -66,8 +65,6 @@ export default function GenderScreen() {
           </button>
         ))}
       </div>
-
-      <HomeIndicator variant="dark" />
     </div>
   );
 }

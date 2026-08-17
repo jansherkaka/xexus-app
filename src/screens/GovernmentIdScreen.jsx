@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import StatusBar from '../components/StatusBar';
-import HomeIndicator from '../components/HomeIndicator';
+import { useDeviceChrome } from '../context/DeviceChromeContext';
 import govIdIcon from '../assets/icon-govid-card.png';
 import flagUk from '../assets/flag-uk.png';
 import iconIdCard from '../assets/icon-method-idcard.png';
@@ -19,11 +18,10 @@ const METHODS = [
 export default function GovernmentIdScreen() {
   const navigate = useNavigate();
   const [method, setMethod] = useState(null);
+  useDeviceChrome({ statusBarVariant: 'dark', statusBarBg: '#ffffff', homeIndicatorVariant: 'dark' });
 
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" bg="#ffffff" />
-
       <img src={govIdIcon} alt="" className="govid-icon anim-fade-scale anim-d1" />
       <p className="govid-heading anim-fade-up anim-d2">government ID</p>
 
@@ -68,8 +66,6 @@ export default function GovernmentIdScreen() {
           confirm
         </button>
       </div>
-
-      <HomeIndicator variant="dark" />
     </div>
   );
 }

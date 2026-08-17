@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import StatusBar from '../components/StatusBar';
-import HomeIndicator from '../components/HomeIndicator';
+import { useDeviceChrome } from '../context/DeviceChromeContext';
 import identityIconWhite from '../assets/icon-identity-white.png';
 import bgSetTone from '../assets/bg-set-tone.png';
 import './Screens.css';
@@ -8,12 +7,11 @@ import './SetToneScreen.css';
 
 export default function SetToneScreen() {
   const navigate = useNavigate();
+  useDeviceChrome({ statusBarVariant: 'light', statusBarBg: '#ca282a', homeIndicatorVariant: 'light' });
 
   return (
     <div className="screen set-tone-screen">
       <img src={bgSetTone} alt="" className="set-tone-bg anim-fade-scale" />
-
-      <StatusBar variant="light" bg="#ca282a" />
 
       <img src={identityIconWhite} alt="" className="set-tone-icon anim-fade-scale anim-d1" />
 
@@ -37,8 +35,6 @@ export default function SetToneScreen() {
           start chat with AI
         </button>
       </div>
-
-      <HomeIndicator variant="light" />
     </div>
   );
 }

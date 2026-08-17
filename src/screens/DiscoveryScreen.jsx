@@ -1,6 +1,6 @@
 import { useCallback, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import StatusBar from '../components/StatusBar';
+import { useDeviceChrome } from '../context/DeviceChromeContext';
 import BottomNav from '../components/BottomNav';
 import onlineDot from '../assets/icon-online-dot.svg';
 import iconX from '../assets/icon-x.svg';
@@ -122,10 +122,10 @@ export default function DiscoveryScreen() {
 
   const active = PROFILES[activeIndex];
 
+  useDeviceChrome({ statusBarVariant: 'dark', statusBarBg: '#ffffff', showHomeIndicator: false });
+
   return (
     <div className="screen screen--white discovery-screen">
-      <StatusBar variant="dark" bg="#ffffff" />
-
       <div
         className="discovery-stack anim-fade-scale anim-d1"
         onWheel={handleWheel}

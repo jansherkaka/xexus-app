@@ -1,17 +1,15 @@
 import { useNavigate } from 'react-router-dom';
-import StatusBar from '../components/StatusBar';
-import HomeIndicator from '../components/HomeIndicator';
+import { useDeviceChrome } from '../context/DeviceChromeContext';
 import thumbprintIcon from '../assets/icon-thumbprint.svg';
 import './Screens.css';
 import './VerifySafetyScreen.css';
 
 export default function VerifySafetyScreen() {
   const navigate = useNavigate();
+  useDeviceChrome({ statusBarVariant: 'dark', statusBarBg: '#ffffff', homeIndicatorVariant: 'dark' });
 
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" bg="#ffffff" />
-
       <div className="safety-content">
         <div className="safety-heading-wrap">
           <img src={thumbprintIcon} alt="" className="safety-icon anim-fade-scale anim-d1" />
@@ -34,8 +32,6 @@ export default function VerifySafetyScreen() {
           next
         </button>
       </div>
-
-      <HomeIndicator variant="dark" />
     </div>
   );
 }

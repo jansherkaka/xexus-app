@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import StatusBar from '../components/StatusBar';
+import { useDeviceChrome } from '../context/DeviceChromeContext';
 import BottomNav from '../components/BottomNav';
 import mapBg from '../assets/map-bg.jpg';
 import fadeTop from '../assets/top.png';
@@ -60,6 +60,7 @@ const PINS = [
 
 export default function MapScreen() {
   const navigate = useNavigate();
+  useDeviceChrome({ statusBarVariant: 'light', statusBarBg: '#2f3133', showHomeIndicator: false });
 
   return (
     <div className="screen screen--dark map-screen">
@@ -104,8 +105,6 @@ export default function MapScreen() {
       </div>
 
       <img src={fadeBottom} alt="" className="map-fade map-fade--bottom anim-fade" />
-
-      <StatusBar variant="light" bg="#2f3133" />
 
       <div className="map-toggle anim-fade-scale" style={{ animationDelay: '0.5s' }}>
         <button className="map-toggle__btn map-toggle__btn--top" aria-label="Photos">

@@ -1,16 +1,14 @@
 import { useNavigate } from 'react-router-dom';
-import StatusBar from '../components/StatusBar';
-import HomeIndicator from '../components/HomeIndicator';
+import { useDeviceChrome } from '../context/DeviceChromeContext';
 import './Screens.css';
 import './AgeGateScreen.css';
 
 export default function AgeGateScreen() {
   const navigate = useNavigate();
+  useDeviceChrome({ statusBarVariant: 'dark', statusBarBg: '#ffffff', homeIndicatorVariant: 'dark' });
 
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" bg="#ffffff" />
-
       <p className="age-gate-number anim-fade-up anim-d1">18</p>
 
       <div className="age-gate-only">
@@ -28,8 +26,6 @@ export default function AgeGateScreen() {
           i&rsquo;m 18 or older
         </button>
       </div>
-
-      <HomeIndicator variant="dark" />
     </div>
   );
 }

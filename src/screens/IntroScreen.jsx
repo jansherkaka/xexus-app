@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import StatusBar from '../components/StatusBar';
-import HomeIndicator from '../components/HomeIndicator';
+import { useDeviceChrome } from '../context/DeviceChromeContext';
 import LetterReveal from '../components/LetterReveal';
 import logo from '../assets/xexus-logo-white.png';
 import './Screens.css';
@@ -42,20 +41,23 @@ export default function IntroScreen() {
     return () => timers.forEach(clearTimeout);
   }, []);
 
+  const isSplash = stage === 'splash';
+  useDeviceChrome({
+    statusBarVariant: isSplash ? 'light' : 'dark',
+    statusBarBg: '#fd151b',
+    homeIndicatorVariant: isSplash ? 'light' : 'dark',
+  });
+
   if (stage === 'splash') {
     return (
       <div className="screen screen--red">
-        <StatusBar variant="light" bg="#fd151b" />
         <img src={logo} alt="Xexus" className="splash-logo" />
-        <HomeIndicator variant="light" />
       </div>
     );
   }
 
   return (
     <div className="screen screen--red">
-      <StatusBar variant="dark" bg="#fd151b" />
-
       <p className="intro-headline">
         <LetterReveal text="step" variant={variant} startDelay={0} letterDelay={HEADLINE_LETTER_DELAY} />
         {variant === 4 && stage === 'letters' && <span className="intro-cursor" />}
@@ -82,8 +84,6 @@ export default function IntroScreen() {
           log in
         </button>
       </div>
-
-      <HomeIndicator variant="dark" />
     </div>
   );
 }

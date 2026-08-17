@@ -1,18 +1,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import StatusBar from '../components/StatusBar';
-import HomeIndicator from '../components/HomeIndicator';
+import { useDeviceChrome } from '../context/DeviceChromeContext';
 import './Screens.css';
 import './NameScreen.css';
 
 export default function NameScreen() {
   const navigate = useNavigate();
   const [name, setName] = useState('');
+  useDeviceChrome({ statusBarVariant: 'dark', statusBarBg: '#ffffff', homeIndicatorVariant: 'dark' });
 
   return (
     <div className="screen screen--white">
-      <StatusBar variant="dark" bg="#ffffff" />
-
       <div className="name-heading">
         <p className="name-line name-line--what anim-fade-up anim-d1">what</p>
         <p className="name-line name-line--should anim-fade-up anim-d2">should</p>
@@ -47,8 +45,6 @@ export default function NameScreen() {
           next
         </button>
       </div>
-
-      <HomeIndicator variant="dark" />
     </div>
   );
 }
