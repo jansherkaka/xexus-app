@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { useDeviceChromeContext } from '../context/DeviceChromeContext';
 
 const DESIGN_WIDTH = 402;
 const DESIGN_HEIGHT = 874;
@@ -16,7 +15,6 @@ function isInstalledApp() {
 export default function PhoneFrame({ children }) {
   const outerRef = useRef(null);
   const [box, setBox] = useState({ scaleX: 1, scaleY: 1, bezel: 16, fullBleed: false });
-  const { chrome } = useDeviceChromeContext();
 
   useEffect(() => {
     const el = outerRef.current;
@@ -60,51 +58,26 @@ export default function PhoneFrame({ children }) {
     };
   }, []);
 
-  // On a real mobile browser tab, the design canvas is scaled uniformly (not
-  // stretched) to avoid distorting content, which can leave a sliver of
-  // empty space on one axis when the device's aspect ratio doesn't exactly
-  // match the design's. phone-outer already spans the full viewport there,
-  // so coloring it with the current screen's own background (instead of
-  // leaving the page's black showing through) fills that sliver without an
-  // extra overlay element - content itself stays untouched.
-  const outerStyle = box.fullBleed ? { background: chrome.statusBarBg } : undefined;
-
-  // The desktop demo bezel (border, shadow, padding) only exists to look
-  // like a physical phone mockup - on a real device it's fully invisible
-  // (background: transparent, no padding/border/shadow), so it's dropped
-  // from the DOM entirely rather than kept around as an empty wrapper.
-  // Scaling from the center (instead of top-left, which the bezel case
-  // relies on to line up with its precisely-sized box) keeps the visual
-  // result centered when phone-screen is flex-centered directly.
-  const screen = (
-    <div
-      className="phone-screen"
-      style={{
-        width: DESIGN_WIDTH,
-        height: DESIGN_HEIGHT,
-        transform: `scale(${box.scaleX}, ${box.scaleY})`,
-        transformOrigin: box.fullBleed ? 'center' : 'top left',
-      }}
-    >
-      {children}
-    </div>
-  );
-
   return (
-    <div className="phone-outer" ref={outerRef} style={outerStyle}>
-      {box.fullBleed ? (
-        screen
-      ) : (
+    <div className="phone-outer" ref={outerRef}>
+      <div
+        className="phone-bezel"
+        style={{
+          width: DESIGN_WIDTH * box.scaleX + box.bezel,
+          height: DESIGN_HEIGHT * box.scaleY + box.bezel,
+        }}
+      >
         <div
-          className="phone-bezel"
+          className="phone-screen"
           style={{
-            width: DESIGN_WIDTH * box.scaleX + box.bezel,
-            height: DESIGN_HEIGHT * box.scaleY + box.bezel,
+            width: DESIGN_WIDTH,
+            height: DESIGN_HEIGHT,
+            transform: `scale(${box.scaleX}, ${box.scaleY})`,
           }}
         >
-          {screen}
+          {children}
         </div>
-      )}
+      </div>
     </div>
   );
 }
