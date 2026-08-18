@@ -30,10 +30,14 @@ export default function PhoneFrame({ children }) {
         // aspect ratio is slightly off from the design canvas.
         setBox({ scaleX: width / DESIGN_WIDTH, scaleY: height / DESIGN_HEIGHT, bezel: 0, fullBleed: true });
       } else if (fullBleed) {
-        // Plain mobile browser tab: scale uniformly (same factor on both
-        // axes, so nothing distorts) based on width alone, so the design
-        // always fills the screen edge-to-edge horizontally - no side bars.
-        const s = width / DESIGN_WIDTH;
+        // Plain mobile browser tab: the visible viewport height wobbles as
+        // Safari/Chrome show and hide their address bar, so stretching to
+        // fill exactly would visibly distort the UI, and cover-fitting would
+        // crop real UI (status bar, back button, bottom CTA) off the edges.
+        // Scale uniformly to fit the whole design inside the viewport
+        // instead — no distortion, nothing cropped, at most a thin bar of
+        // the page background on one axis.
+        const s = Math.min(width / DESIGN_WIDTH, height / DESIGN_HEIGHT);
         setBox({ scaleX: s, scaleY: s, bezel: 0, fullBleed: true });
       } else {
         const s = Math.min(width / DESIGN_WIDTH, height / DESIGN_HEIGHT);
