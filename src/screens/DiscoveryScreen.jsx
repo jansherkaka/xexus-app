@@ -212,7 +212,7 @@ export default function DiscoveryScreen() {
         <img src={iconPin} alt="" />
       </button>
 
-      <BottomNav className="discovery-bottom-nav anim-fade-up" style={{ animationDelay: '1.05s' }} />
+      <BottomNav className="discovery-bottom-nav anim-fade-up" style={{ animationDelay: '1.4s' }} />
     </div>
   );
 }
