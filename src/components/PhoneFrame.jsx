@@ -69,26 +69,42 @@ export default function PhoneFrame({ children }) {
   // extra overlay element - content itself stays untouched.
   const outerStyle = box.fullBleed ? { background: chrome.statusBarBg } : undefined;
 
+  // The desktop demo bezel (border, shadow, padding) only exists to look
+  // like a physical phone mockup - on a real device it's fully invisible
+  // (background: transparent, no padding/border/shadow), so it's dropped
+  // from the DOM entirely rather than kept around as an empty wrapper.
+  // Scaling from the center (instead of top-left, which the bezel case
+  // relies on to line up with its precisely-sized box) keeps the visual
+  // result centered when phone-screen is flex-centered directly.
+  const screen = (
+    <div
+      className="phone-screen"
+      style={{
+        width: DESIGN_WIDTH,
+        height: DESIGN_HEIGHT,
+        transform: `scale(${box.scaleX}, ${box.scaleY})`,
+        transformOrigin: box.fullBleed ? 'center' : 'top left',
+      }}
+    >
+      {children}
+    </div>
+  );
+
   return (
     <div className="phone-outer" ref={outerRef} style={outerStyle}>
-      <div
-        className="phone-bezel"
-        style={{
-          width: DESIGN_WIDTH * box.scaleX + box.bezel,
-          height: DESIGN_HEIGHT * box.scaleY + box.bezel,
-        }}
-      >
+      {box.fullBleed ? (
+        screen
+      ) : (
         <div
-          className="phone-screen"
+          className="phone-bezel"
           style={{
-            width: DESIGN_WIDTH,
-            height: DESIGN_HEIGHT,
-            transform: `scale(${box.scaleX}, ${box.scaleY})`,
+            width: DESIGN_WIDTH * box.scaleX + box.bezel,
+            height: DESIGN_HEIGHT * box.scaleY + box.bezel,
           }}
         >
-          {children}
+          {screen}
         </div>
-      </div>
+      )}
     </div>
   );
 }
