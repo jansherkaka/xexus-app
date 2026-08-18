@@ -7,7 +7,7 @@
 
 .route-transition__layer--enter {
   box-shadow: -14px 0 36px rgba(0, 0, 0, 0.2);
-  animation: route-slide-in 380ms cubic-bezier(0.32, 0.72, 0, 1) both;
+  animation: route-slide-in 460ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes route-slide-in {
@@ -24,7 +24,7 @@
    staying fully legible - matches the native push-transition feel and stops
    a busy outgoing screen's text from looking like it "leaked" forward. */
 .route-transition__layer--exit {
-  animation: route-exit-dim 380ms cubic-bezier(0.32, 0.72, 0, 1) both;
+  animation: route-exit-dim 460ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes route-exit-dim {

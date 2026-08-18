@@ -19,7 +19,7 @@ import './RouteTransition.css';
 // alone while the incoming screen slides over it. That remount was the
 // visible "jhatka" (jolt) - the outgoing screen was flashing back to its own
 // entrance animation instead of just sitting still.
-const SLIDE_MS = 380;
+const SLIDE_MS = 460;
 
 export default function RouteTransition({ children }) {
   const location = useLocation();
