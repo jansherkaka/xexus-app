@@ -60,16 +60,17 @@ export default function PhoneFrame({ children }) {
     };
   }, []);
 
+  // On a real mobile browser tab, the design canvas is scaled uniformly (not
+  // stretched) to avoid distorting content, which can leave a sliver of
+  // empty space on one axis when the device's aspect ratio doesn't exactly
+  // match the design's. phone-outer already spans the full viewport there,
+  // so coloring it with the current screen's own background (instead of
+  // leaving the page's black showing through) fills that sliver without an
+  // extra overlay element - content itself stays untouched.
+  const outerStyle = box.fullBleed ? { background: chrome.statusBarBg } : undefined;
+
   return (
-    <div className="phone-outer" ref={outerRef}>
-      {/* On a real mobile browser tab, the design canvas is scaled uniformly
-          (not stretched) to avoid distorting content, which can leave a
-          sliver of empty space on one axis when the device's aspect ratio
-          doesn't exactly match the design's. This backdrop fills that sliver
-          with the current screen's own background color (instead of the
-          page's black) so it reads as a full-width background rather than a
-          black bar - content itself stays untouched. */}
-      {box.fullBleed && <div className="phone-backdrop" style={{ background: chrome.statusBarBg }} />}
+    <div className="phone-outer" ref={outerRef} style={outerStyle}>
       <div
         className="phone-bezel"
         style={{
