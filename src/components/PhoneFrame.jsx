@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useDeviceChromeContext } from '../context/DeviceChromeContext';
 
 const DESIGN_WIDTH = 402;
 const DESIGN_HEIGHT = 874;
@@ -15,6 +16,7 @@ function isInstalledApp() {
 export default function PhoneFrame({ children }) {
   const outerRef = useRef(null);
   const [box, setBox] = useState({ scaleX: 1, scaleY: 1, bezel: 16, fullBleed: false });
+  const { chrome } = useDeviceChromeContext();
 
   useEffect(() => {
     const el = outerRef.current;
@@ -60,6 +62,14 @@ export default function PhoneFrame({ children }) {
 
   return (
     <div className="phone-outer" ref={outerRef}>
+      {/* On a real mobile browser tab, the design canvas is scaled uniformly
+          (not stretched) to avoid distorting content, which can leave a
+          sliver of empty space on one axis when the device's aspect ratio
+          doesn't exactly match the design's. This backdrop fills that sliver
+          with the current screen's own background color (instead of the
+          page's black) so it reads as a full-width background rather than a
+          black bar - content itself stays untouched. */}
+      {box.fullBleed && <div className="phone-backdrop" style={{ background: chrome.statusBarBg }} />}
       <div
         className="phone-bezel"
         style={{

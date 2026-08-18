@@ -33,8 +33,8 @@ function App() {
           <span className="tag">Interactive Prototype</span>
         </div>
 
-        <PhoneFrame>
-          <DeviceChromeProvider>
+        <DeviceChromeProvider>
+          <PhoneFrame>
             <AppTopbar />
             <AppStatusBar />
             <RouteTransition>
@@ -58,8 +58,8 @@ function App() {
               <Route path="*" element={<Navigate to="/" replace />} />
             </RouteTransition>
             <AppHomeIndicator />
-          </DeviceChromeProvider>
-        </PhoneFrame>
+          </PhoneFrame>
+        </DeviceChromeProvider>
       </div>
     </BrowserRouter>
   );

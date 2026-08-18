@@ -32,6 +32,7 @@
 }
 
 .phone-outer {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -41,8 +42,16 @@
   min-height: 0;
 }
 
+.phone-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  transition: background-color 300ms ease;
+}
+
 .phone-bezel {
   position: relative;
+  z-index: 1;
   background: #111;
   border-radius: 54px;
   padding: 8px;
@@ -88,5 +97,9 @@
 
   .phone-screen {
     border-radius: 0;
+    /* Let the backdrop's matching color show through the hairline seam
+       left by scaling this element (transform: scale rounding), instead
+       of this element's own black fallback background. */
+    background: transparent;
   }
 }
