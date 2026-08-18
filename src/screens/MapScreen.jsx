@@ -106,7 +106,7 @@ export default function MapScreen() {
 
       <img src={fadeBottom} alt="" className="map-fade map-fade--bottom anim-fade" />
 
-      <div className="map-toggle anim-fade-scale" style={{ animationDelay: '0.5s' }}>
+      <div className="map-toggle anim-fade-scale" style={{ animationDelay: '0.75s' }}>
         <button className="map-toggle__btn map-toggle__btn--top" aria-label="Photos">
           <img src={iconSquiggle} alt="" />
         </button>
@@ -120,7 +120,7 @@ export default function MapScreen() {
 
       <BottomNav
         className="map-bottom-nav anim-fade-up"
-        style={{ animationDelay: '0.6s' }}
+        style={{ animationDelay: '0.9s' }}
         onChat={() => navigate('/join/discover')}
       />
     </div>

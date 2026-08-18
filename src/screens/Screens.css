@@ -12,7 +12,7 @@
 @keyframes fade-up-in {
   from {
     opacity: 0;
-    translate: 0 22px;
+    translate: 0 30px;
   }
   to {
     opacity: 1;
@@ -32,11 +32,11 @@
 }
 
 .anim-fade-up {
-  animation: fade-up-in 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: fade-up-in 1.15s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .anim-fade-scale {
-  animation: fade-scale-in 0.75s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: fade-scale-in 1s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes fade-in {
@@ -68,28 +68,28 @@
 }
 
 .anim-d1 {
-  animation-delay: 0.1s;
+  animation-delay: 0.15s;
 }
 .anim-d2 {
-  animation-delay: 0.2s;
-}
-.anim-d3 {
   animation-delay: 0.3s;
 }
+.anim-d3 {
+  animation-delay: 0.45s;
+}
 .anim-d4 {
-  animation-delay: 0.4s;
-}
-.anim-d5 {
-  animation-delay: 0.5s;
-}
-.anim-d6 {
   animation-delay: 0.6s;
 }
+.anim-d5 {
+  animation-delay: 0.75s;
+}
+.anim-d6 {
+  animation-delay: 0.9s;
+}
 .anim-d7 {
-  animation-delay: 0.7s;
+  animation-delay: 1.05s;
 }
 .anim-d8 {
-  animation-delay: 0.8s;
+  animation-delay: 1.2s;
 }
 
 .screen--red {
