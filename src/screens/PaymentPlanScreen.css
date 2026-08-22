@@ -145,16 +145,23 @@
 }
 
 .payment-plan-radio {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 20px;
   height: 20px;
+  border-radius: 50%;
+  border: 2px solid #e5e7eb;
+}
+
+.payment-plan-radio--selected {
+  border-color: #fd151b;
 }
 
 .payment-plan-radio img {
-  width: 20px;
-  height: 20px;
+  width: 12px;
+  height: 12px;
 }
 
 .payment-plan-features {
@@ -180,10 +187,6 @@
 
 .payment-plan-feature--bold {
   font-weight: 700;
-}
-
-.payment-plan-feature--regular {
-  font-weight: 400;
 }
 
 .payment-plan-feature__icon {

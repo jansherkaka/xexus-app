@@ -2,10 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDeviceChrome } from '../context/DeviceChromeContext';
 import iconShieldAlert from '../assets/icon-shield-alert.svg';
-import iconRadioEmpty from '../assets/icon-plan-radio-empty.svg';
 import iconCheck from '../assets/icon-plan-check.svg';
 import iconClock from '../assets/icon-clock-small.svg';
-import iconRadioCheck from '../assets/icon-plan-radio-check.svg';
 import iconDot from '../assets/icon-plan-dot.svg';
 import './Screens.css';
 import './PaymentPlanScreen.css';
@@ -44,7 +42,7 @@ const PLANS = [
     tagline: 'everything in xexus+, plus',
     price: '£19',
     bullet: 'check',
-    featureWeight: 'regular',
+    featureWeight: 'semibold',
     features: [
       'anonymous "no face no case" profiles',
       'archive chat access',
@@ -102,8 +100,8 @@ export default function PaymentPlanScreen() {
                       {plan.price}
                       <span className="payment-plan-price-unit"> /month</span>
                     </span>
-                    <span className="payment-plan-radio">
-                      <img src={selected === plan.key ? iconRadioCheck : iconRadioEmpty} alt="" />
+                    <span className={`payment-plan-radio${selected === plan.key ? ' payment-plan-radio--selected' : ''}`}>
+                      {selected === plan.key && <img src={iconCheck} alt="" />}
                     </span>
                   </div>
                 </div>
