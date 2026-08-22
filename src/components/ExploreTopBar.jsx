@@ -1,5 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import logo from '../assets/xexus-logo-white.png';
+import logoWhite from '../assets/xexus-logo-white.png';
+import logoRed from '../assets/xexus-logo-red-small.png';
 import iconSliders from '../assets/icon-sliders.svg';
 import iconBell from '../assets/icon-bell.svg';
 import iconNotifDot from '../assets/icon-notif-dot.svg';
@@ -33,7 +34,7 @@ export default function ExploreTopBar() {
           <img src={iconNotifDot} alt="" className="explore-topbar__notif-dot" />
         </button>
       </div>
-      <img src={logo} alt="Xexus" className="explore-topbar__logo" />
+      <img src={isMap ? logoWhite : logoRed} alt="Xexus" className="explore-topbar__logo" />
       <div className="explore-topbar__segment">
         <button
           className={`explore-topbar__segment-btn${active === 'map' ? ' explore-topbar__segment-btn--active' : ''}`}
