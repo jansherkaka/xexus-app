@@ -39,61 +39,233 @@
   transform: translateX(10.22px);
 }
 
-.gender-icon {
+.gender-instructions {
   position: absolute;
-  top: 467px;
+  top: 345px;
   left: 50%;
   transform: translateX(-50%);
-  width: 166px;
-  height: 205px;
+  width: 260px;
+  margin: 0;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #666;
 }
 
-.gender-label {
+.gender-instructions span {
+  font-weight: 700;
+  color: #fd151b;
+}
+
+.gender-axis {
   position: absolute;
-  margin: 0;
-  padding: 0;
+  top: 395px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+  height: 280px;
+  touch-action: none;
+}
+
+.gender-axis__dots {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 168px;
+  height: 168px;
+  background-image: radial-gradient(circle, #e2e2e2 1.2px, transparent 1.2px);
+  background-size: 19px 19px;
+  pointer-events: none;
+}
+
+.gender-axis__line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.gender-axis__line--v {
+  width: 0;
+  height: 210px;
+  transform: translate(-50%, -50%);
+  border-left: 1px dashed #999;
+}
+
+.gender-axis__line--h {
+  width: 210px;
+  height: 0;
+  transform: translate(-50%, -50%);
+  border-top: 1px dashed #999;
+}
+
+.gender-glow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 84px;
+  height: 84px;
+  pointer-events: none;
+}
+
+.gender-marker {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 74px;
+  margin: -37px 0 0 -30px;
   background: none;
   border: none;
+  padding: 0;
+  cursor: grab;
+  touch-action: none;
+}
+
+.gender-marker:active {
+  cursor: grabbing;
+}
+
+.gender-marker img {
+  width: 50px;
+  height: 61px;
+  pointer-events: none;
+}
+
+.gender-target {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.gender-target img {
+  width: 32px;
+  height: 32px;
+}
+
+.gender-target span {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  text-transform: lowercase;
   color: #19191a;
-  cursor: pointer;
-  transition:
-    color 0.15s ease,
-    scale 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  white-space: nowrap;
+  transition: color 0.15s ease;
 }
 
-.gender-label:active {
-  scale: 0.92;
-}
-
-.gender-label--selected {
+.gender-target--active span {
   color: #fd151b;
-  scale: 1.12;
 }
 
-.gender-label--female {
-  top: 49%;
-  left: 135px;
-  width: 132px;
-  height: 45px;
+.gender-target--female {
+  left: 50%;
+  top: -8px;
+  transform: translateX(-50%);
+  flex-direction: column-reverse;
 }
 
-.gender-label--male {
-  top: 81%;
-  left: 158px;
-  width: 85px;
-  height: 28px;
+.gender-target--non-binary {
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
 }
 
-.gender-label--non-binary {
-  top: 57%;
-  left: 71%;
-  width: 68px;
-  height: 190px;
+.gender-target--trans-other {
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.gender-label--trans-other {
-  top: 56%;
-  left: 12%;
-  width: 70px;
-  height: 205px;
+.gender-target--male {
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.gender-privacy {
+  position: absolute;
+  top: 692px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 340px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 16px;
+}
+
+.gender-privacy__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(253, 21, 27, 0.08);
+}
+
+.gender-privacy__icon img {
+  width: 16px;
+  height: 16px;
+}
+
+.gender-privacy__text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.gender-privacy__title {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: #19191a;
+}
+
+.gender-privacy__body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #666;
+}
+
+.gender-cta-wrap {
+  position: absolute;
+  top: 778px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 342px;
+}
+
+.gender-cta {
+  width: 100%;
+  height: 50px;
+  background: #fd151b;
+  color: #fff;
+  border: none;
+  border-radius: 27px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.gender-cta:active {
+  transform: scale(0.98);
 }
