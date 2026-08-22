@@ -16,7 +16,7 @@ export default function GovernmentIdUploadScreen() {
 
   const handleConfirm = () => {
     complete('governmentId');
-    navigate('/join/verification-progress', { state: { justCompleted: 'governmentId' } });
+    navigate('/join/verification-progress');
   };
 
   const handleFile = (e) => {

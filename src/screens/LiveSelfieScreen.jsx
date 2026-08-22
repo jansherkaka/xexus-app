@@ -24,7 +24,7 @@ export default function LiveSelfieScreen() {
 
   const handleFinish = () => {
     complete('liveSelfie');
-    navigate('/join/verification-progress', { state: { justCompleted: 'liveSelfie' } });
+    navigate('/join/verification-progress');
   };
 
   const handleFile = (e) => {

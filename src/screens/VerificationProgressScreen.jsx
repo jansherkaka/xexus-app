@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useDeviceChrome } from '../context/DeviceChromeContext';
 import { useVerification } from '../context/VerificationContext';
 import shieldHero from '../assets/icon-verif-shield-hero.png';
@@ -36,29 +35,13 @@ const STEPS = [
   },
 ];
 
-// After a sub-flow reports itself done and lands back here, pause just long
-// enough for the tick to register before auto-continuing to the next
-// incomplete step - matches completing one verification step flowing
-// straight into the next, with this screen as the visible checkpoint
-// between them rather than something the user has to manually re-enter.
-const AUTO_ADVANCE_MS = 1200;
-
 export default function VerificationProgressScreen() {
   const navigate = useNavigate();
-  const location = useLocation();
   const { progress } = useVerification();
   useDeviceChrome({ statusBarVariant: 'dark', statusBarBg: '#ffffff', homeIndicatorVariant: 'dark' });
 
   const firstIncompleteIndex = STEPS.findIndex((step) => !progress[step.key]);
   const allDone = firstIncompleteIndex === -1;
-  const justCompleted = Boolean(location.state?.justCompleted);
-
-  useEffect(() => {
-    if (!justCompleted || allDone) return undefined;
-    const next = STEPS[firstIncompleteIndex];
-    const timer = setTimeout(() => navigate(next.path, { replace: true }), AUTO_ADVANCE_MS);
-    return () => clearTimeout(timer);
-  }, [justCompleted, allDone, firstIncompleteIndex, navigate]);
 
   return (
     <div className="screen screen--white">

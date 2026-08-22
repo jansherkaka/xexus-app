@@ -13,7 +13,7 @@ export default function NameScreen() {
 
   const handleNext = () => {
     complete('personalDetails');
-    navigate('/join/verification-progress', { state: { justCompleted: 'personalDetails' } });
+    navigate('/join/verification-progress');
   };
 
   return (
