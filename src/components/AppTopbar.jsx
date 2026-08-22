@@ -10,9 +10,7 @@ import './AppTopbar.css';
 const TOPBAR_CONFIG = {
   '/join': { back: '/', progress: 17.4 },
   '/join/age-gate': { back: '/join', progress: 27.2 },
-  '/join/birthday': { back: '/join/age-gate', progress: 39.9 },
-  '/join/gender': { back: '/join/live-selfie', progress: 57 },
-  '/join/name': { back: '/join/gender', progress: 74 },
+  '/join/gender': { back: '/join/verification-progress', progress: 57 },
   '/join/photos': { back: null, progress: 88.6 },
   '/join/get-active': { back: '/join/photos', progress: 68 },
   '/join/discover': { back: '/join/get-active', progress: null },

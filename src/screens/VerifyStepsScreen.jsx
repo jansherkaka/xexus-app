@@ -29,7 +29,7 @@ export default function VerifyStepsScreen() {
       </div>
 
       <div className="vsteps-cta-wrap">
-        <button className="vsteps-cta anim-fade-up anim-d6" onClick={() => navigate('/join/government-id')}>
+        <button className="vsteps-cta anim-fade-up anim-d6" onClick={() => navigate('/join/verification-progress')}>
           next
         </button>
       </div>

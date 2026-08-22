@@ -36,7 +36,7 @@ export default function GenderScreen() {
 
   const selectOption = (id) => {
     setSelected(id);
-    setTimeout(() => navigate('/join/name'), 250);
+    setTimeout(() => navigate('/join/set-tone'), 250);
   };
 
   useDeviceChrome({ statusBarVariant: 'dark', statusBarBg: '#ffffff', homeIndicatorVariant: 'dark' });

@@ -5,6 +5,7 @@ import AppTopbar from './components/AppTopbar';
 import AppStatusBar from './components/AppStatusBar';
 import AppHomeIndicator from './components/AppHomeIndicator';
 import { DeviceChromeProvider } from './context/DeviceChromeContext';
+import { VerificationProvider } from './context/VerificationContext';
 import IntroScreen from './screens/IntroScreen';
 import LocationScreen from './screens/LocationScreen';
 import AgeGateScreen from './screens/AgeGateScreen';
@@ -12,6 +13,7 @@ import BirthdayScreen from './screens/BirthdayScreen';
 import VerifyConsentScreen from './screens/VerifyConsentScreen';
 import VerifySafetyScreen from './screens/VerifySafetyScreen';
 import VerifyStepsScreen from './screens/VerifyStepsScreen';
+import VerificationProgressScreen from './screens/VerificationProgressScreen';
 import GovernmentIdScreen from './screens/GovernmentIdScreen';
 import GovernmentIdUploadScreen from './screens/GovernmentIdUploadScreen';
 import LiveSelfieScreen from './screens/LiveSelfieScreen';
@@ -35,29 +37,32 @@ function App() {
 
         <PhoneFrame>
           <DeviceChromeProvider>
-            <AppTopbar />
-            <AppStatusBar />
-            <RouteTransition>
-              <Route path="/" element={<IntroScreen />} />
-              <Route path="/join" element={<LocationScreen />} />
-              <Route path="/join/age-gate" element={<AgeGateScreen />} />
-              <Route path="/join/birthday" element={<BirthdayScreen />} />
-              <Route path="/join/verify-consent" element={<VerifyConsentScreen />} />
-              <Route path="/join/verify-safety" element={<VerifySafetyScreen />} />
-              <Route path="/join/verify-steps" element={<VerifyStepsScreen />} />
-              <Route path="/join/government-id" element={<GovernmentIdScreen />} />
-              <Route path="/join/government-id-upload" element={<GovernmentIdUploadScreen />} />
-              <Route path="/join/live-selfie" element={<LiveSelfieScreen />} />
-              <Route path="/join/gender" element={<GenderScreen />} />
-              <Route path="/join/name" element={<NameScreen />} />
-              <Route path="/join/set-tone" element={<SetToneScreen />} />
-              <Route path="/join/photos" element={<PhotosScreen />} />
-              <Route path="/join/get-active" element={<GetActiveScreen />} />
-              <Route path="/join/discover" element={<DiscoveryScreen />} />
-              <Route path="/join/map" element={<MapScreen />} />
-              <Route path="*" element={<Navigate to="/" replace />} />
-            </RouteTransition>
-            <AppHomeIndicator />
+            <VerificationProvider>
+              <AppTopbar />
+              <AppStatusBar />
+              <RouteTransition>
+                <Route path="/" element={<IntroScreen />} />
+                <Route path="/join" element={<LocationScreen />} />
+                <Route path="/join/age-gate" element={<AgeGateScreen />} />
+                <Route path="/join/birthday" element={<BirthdayScreen />} />
+                <Route path="/join/verify-consent" element={<VerifyConsentScreen />} />
+                <Route path="/join/verify-safety" element={<VerifySafetyScreen />} />
+                <Route path="/join/verify-steps" element={<VerifyStepsScreen />} />
+                <Route path="/join/verification-progress" element={<VerificationProgressScreen />} />
+                <Route path="/join/government-id" element={<GovernmentIdScreen />} />
+                <Route path="/join/government-id-upload" element={<GovernmentIdUploadScreen />} />
+                <Route path="/join/live-selfie" element={<LiveSelfieScreen />} />
+                <Route path="/join/gender" element={<GenderScreen />} />
+                <Route path="/join/name" element={<NameScreen />} />
+                <Route path="/join/set-tone" element={<SetToneScreen />} />
+                <Route path="/join/photos" element={<PhotosScreen />} />
+                <Route path="/join/get-active" element={<GetActiveScreen />} />
+                <Route path="/join/discover" element={<DiscoveryScreen />} />
+                <Route path="/join/map" element={<MapScreen />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
+              </RouteTransition>
+              <AppHomeIndicator />
+            </VerificationProvider>
           </DeviceChromeProvider>
         </PhoneFrame>
       </div>

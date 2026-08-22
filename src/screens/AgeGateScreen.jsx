@@ -21,7 +21,7 @@ export default function AgeGateScreen() {
       <div className="age-gate-cta-wrap">
         <button
           className="age-gate-cta anim-fade-up anim-d5"
-          onClick={() => navigate('/join/birthday')}
+          onClick={() => navigate('/join/verify-consent')}
         >
           i&rsquo;m 18 or older
         </button>

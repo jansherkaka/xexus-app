@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDeviceChrome } from '../context/DeviceChromeContext';
+import { useVerification } from '../context/VerificationContext';
 import selfieFrame from '../assets/selfie-frame.png';
 import iconTipPhone from '../assets/icon-tip-phone.svg';
 import iconTipSun from '../assets/icon-tip-sun.svg';
@@ -16,9 +17,15 @@ const TIPS = [
 
 export default function LiveSelfieScreen() {
   const navigate = useNavigate();
+  const { complete } = useVerification();
   const [selfie, setSelfie] = useState(null);
   const [verified, setVerified] = useState(false);
   useDeviceChrome({ statusBarVariant: 'dark', statusBarBg: '#ffffff', homeIndicatorVariant: 'dark' });
+
+  const handleFinish = () => {
+    complete('liveSelfie');
+    navigate('/join/verification-progress', { state: { justCompleted: 'liveSelfie' } });
+  };
 
   const handleFile = (e) => {
     const file = e.target.files?.[0];
@@ -77,7 +84,7 @@ export default function LiveSelfieScreen() {
             </p>
             <button
               className="verify3-popup-cta"
-              onClick={() => navigate('/join/gender')}
+              onClick={handleFinish}
             >
               finish
             </button>

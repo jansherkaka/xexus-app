@@ -104,7 +104,7 @@ export default function BirthdayScreen() {
             <div className="birthday-popup__actions">
               <button
                 className="birthday-confirm-popup__confirm"
-                onClick={() => navigate('/join/verify-consent')}
+                onClick={() => navigate('/join/name')}
               >
                 confirm
               </button>

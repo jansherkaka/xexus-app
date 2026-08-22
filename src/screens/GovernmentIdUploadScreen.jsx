@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDeviceChrome } from '../context/DeviceChromeContext';
+import { useVerification } from '../context/VerificationContext';
 import govIdIcon from '../assets/icon-govid-card.png';
 import checkHook from '../assets/icon-check-hook.svg';
 import addIcon from '../assets/icon-add.svg';
@@ -9,8 +10,14 @@ import './GovernmentIdUploadScreen.css';
 
 export default function GovernmentIdUploadScreen() {
   const navigate = useNavigate();
+  const { complete } = useVerification();
   const [photo, setPhoto] = useState(null);
   useDeviceChrome({ statusBarVariant: 'dark', statusBarBg: '#ffffff', homeIndicatorVariant: 'dark' });
+
+  const handleConfirm = () => {
+    complete('governmentId');
+    navigate('/join/verification-progress', { state: { justCompleted: 'governmentId' } });
+  };
 
   const handleFile = (e) => {
     const file = e.target.files?.[0];
@@ -58,7 +65,7 @@ export default function GovernmentIdUploadScreen() {
       <div className="govup-cta-wrap">
         <button
           className="govup-cta anim-fade-up anim-d6"
-          onClick={() => navigate('/join/live-selfie')}
+          onClick={handleConfirm}
         >
           confirm
         </button>

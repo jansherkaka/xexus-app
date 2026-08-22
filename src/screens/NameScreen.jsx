@@ -1,13 +1,20 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDeviceChrome } from '../context/DeviceChromeContext';
+import { useVerification } from '../context/VerificationContext';
 import './Screens.css';
 import './NameScreen.css';
 
 export default function NameScreen() {
   const navigate = useNavigate();
+  const { complete } = useVerification();
   const [name, setName] = useState('');
   useDeviceChrome({ statusBarVariant: 'dark', statusBarBg: '#ffffff', homeIndicatorVariant: 'dark' });
+
+  const handleNext = () => {
+    complete('personalDetails');
+    navigate('/join/verification-progress', { state: { justCompleted: 'personalDetails' } });
+  };
 
   return (
     <div className="screen screen--white">
@@ -40,7 +47,7 @@ export default function NameScreen() {
       <div className="name-cta-wrap">
         <button
           className="name-cta anim-fade-up anim-d8"
-          onClick={() => navigate('/join/set-tone')}
+          onClick={handleNext}
         >
           next
         </button>
