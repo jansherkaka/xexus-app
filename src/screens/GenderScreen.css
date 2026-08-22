@@ -1,6 +1,6 @@
 .gender-heading {
   position: absolute;
-  top: 159px;
+  top: 144px;
   left: 50%;
   transform: translateX(-50%);
   width: 344px;
@@ -22,26 +22,26 @@
 .gender-line--how {
   font-size: 113px;
   letter-spacing: -5.65px;
-  line-height: 0.85;
+  line-height: 0.76;
 }
 
 .gender-line--doyou {
   font-size: 28px;
   letter-spacing: 19.32px;
-  line-height: 0.92;
+  line-height: 0.86;
   transform: translateX(9.66px);
 }
 
 .gender-line--identify {
   font-size: 28px;
   letter-spacing: 20.44px;
-  line-height: 0.92;
+  line-height: 0.86;
   transform: translateX(10.22px);
 }
 
 .gender-instructions {
   position: absolute;
-  top: 370px;
+  top: 369px;
   left: 50%;
   transform: translateX(-50%);
   width: 260px;
@@ -61,43 +61,48 @@
 
 .gender-axis {
   position: absolute;
-  top: 414px;
+  top: 405px;
   left: 50%;
   transform: translateX(-50%);
-  width: 265px;
-  height: 265px;
+  width: 342px;
+  height: 342px;
   touch-action: none;
 }
 
+/* All center-anchored elements (dots, axis lines, glow, marker's rest
+   position) share this exact point - taken from Figma's own dot-mesh /
+   axis-line / glow coordinates, which all converge here. It's not the
+   axis-container's geometric center (171,171): the grid sits 27px above
+   that. */
 .gender-axis__dots {
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: 170px;
+  top: 144px;
   transform: translate(-50%, -50%);
-  width: 158px;
-  height: 158px;
+  width: 204px;
+  height: 204px;
   background-image: radial-gradient(circle, #e2e2e2 1.2px, transparent 1.2px);
-  background-size: 18px 18px;
+  background-size: 22.7px 22.7px;
   pointer-events: none;
 }
 
 .gender-axis__line {
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: 170px;
+  top: 144px;
   opacity: 0.4;
   pointer-events: none;
 }
 
 .gender-axis__line--v {
   width: 0;
-  height: 198px;
+  height: 172px;
   transform: translate(-50%, -50%);
   border-left: 1px dashed #999;
 }
 
 .gender-axis__line--h {
-  width: 198px;
+  width: 173px;
   height: 0;
   transform: translate(-50%, -50%);
   border-top: 1px dashed #999;
@@ -105,18 +110,18 @@
 
 .gender-glow {
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: 170px;
+  top: 144px;
   transform: translate(-50%, -50%);
-  width: 80px;
-  height: 80px;
+  width: 94px;
+  height: 94px;
   pointer-events: none;
 }
 
 .gender-marker {
   position: absolute;
-  left: 50%;
-  top: 50%;
+  left: 170px;
+  top: 144px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -141,8 +146,9 @@
 
 .gender-target {
   position: absolute;
+  left: 170px;
+  top: 144px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   gap: 6px;
   pointer-events: none;
@@ -167,34 +173,40 @@
   color: #fd151b;
 }
 
+/* Offsets below are each label group's own center relative to the shared
+   (170,144) grid center, measured from Figma's target-female/-male/-trans/
+   -nonbinary group boxes. */
 .gender-target--female {
-  left: 50%;
-  top: -8px;
-  transform: translateX(-50%);
-  flex-direction: column-reverse;
+  flex-direction: column;
+  transform: translate(-50%, calc(-50% - 100px));
 }
 
 .gender-target--non-binary {
-  left: 50%;
-  bottom: -8px;
-  transform: translateX(-50%);
+  flex-direction: column;
+  transform: translate(-50%, calc(-50% + 92px));
 }
 
 .gender-target--trans-other {
-  left: -8px;
-  top: 50%;
-  transform: translateY(-50%);
+  flex-direction: row;
+  transform: translate(calc(-50% - 109px), -50%);
+}
+
+.gender-target--trans-other span {
+  transform: rotate(-90deg);
 }
 
 .gender-target--male {
-  right: -8px;
-  top: 50%;
-  transform: translateY(-50%);
+  flex-direction: row;
+  transform: translate(calc(-50% + 111px), -50%);
+}
+
+.gender-target--male span {
+  transform: rotate(90deg);
 }
 
 .gender-privacy {
   position: absolute;
-  top: 695px;
+  top: 680px;
   left: 50%;
   transform: translateX(-50%);
   width: 340px;
@@ -247,7 +259,7 @@
 
 .gender-cta-wrap {
   position: absolute;
-  top: 785px;
+  top: 768px;
   left: 50%;
   transform: translateX(-50%);
   width: 342px;
@@ -255,7 +267,7 @@
 
 .gender-cta {
   width: 100%;
-  height: 50px;
+  height: 54px;
   background: #fd151b;
   color: #fff;
   border: none;

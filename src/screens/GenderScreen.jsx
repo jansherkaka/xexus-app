@@ -8,14 +8,7 @@ import lockIcon from '../assets/icon-lock.svg';
 import './Screens.css';
 import './GenderScreen.css';
 
-const MAX_RADIUS = 100;
-
-const DIRECTIONS = {
-  female: { x: 0, y: -1 },
-  male: { x: 1, y: 0 },
-  'non-binary': { x: 0, y: 1 },
-  'trans-other': { x: -1, y: 0 },
-};
+const MAX_RADIUS = 95;
 
 function nearestDirection(x, y) {
   if (x === 0 && y === 0) return null;
@@ -80,12 +73,22 @@ export default function GenderScreen() {
         <div className="gender-axis__line gender-axis__line--v" />
         <div className="gender-axis__line gender-axis__line--h" />
 
-        {Object.keys(DIRECTIONS).map((id) => (
-          <div key={id} className={`gender-target gender-target--${id}${active === id ? ' gender-target--active' : ''}`}>
-            <img src={anchorIcon} alt="" />
-            <span>{id === 'trans-other' ? 'trans / other' : id}</span>
-          </div>
-        ))}
+        <div className={`gender-target gender-target--female${active === 'female' ? ' gender-target--active' : ''}`}>
+          <span>female</span>
+          <img src={anchorIcon} alt="" />
+        </div>
+        <div className={`gender-target gender-target--non-binary${active === 'non-binary' ? ' gender-target--active' : ''}`}>
+          <img src={anchorIcon} alt="" />
+          <span>non-binary</span>
+        </div>
+        <div className={`gender-target gender-target--trans-other${active === 'trans-other' ? ' gender-target--active' : ''}`}>
+          <span>trans / other</span>
+          <img src={anchorIcon} alt="" />
+        </div>
+        <div className={`gender-target gender-target--male${active === 'male' ? ' gender-target--active' : ''}`}>
+          <img src={anchorIcon} alt="" />
+          <span>male</span>
+        </div>
 
         <img src={glowIcon} alt="" className="gender-glow" />
         <button
