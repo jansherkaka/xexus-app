@@ -7,6 +7,7 @@ import AppHomeIndicator from './components/AppHomeIndicator';
 import { DeviceChromeProvider } from './context/DeviceChromeContext';
 import { VerificationProvider } from './context/VerificationContext';
 import IntroScreen from './screens/IntroScreen';
+import PaymentPlanScreen from './screens/PaymentPlanScreen';
 import LocationScreen from './screens/LocationScreen';
 import AgeGateScreen from './screens/AgeGateScreen';
 import BirthdayScreen from './screens/BirthdayScreen';
@@ -42,6 +43,7 @@ function App() {
               <AppStatusBar />
               <RouteTransition>
                 <Route path="/" element={<IntroScreen />} />
+                <Route path="/join/payment-plan" element={<PaymentPlanScreen />} />
                 <Route path="/join" element={<LocationScreen />} />
                 <Route path="/join/age-gate" element={<AgeGateScreen />} />
                 <Route path="/join/birthday" element={<BirthdayScreen />} />

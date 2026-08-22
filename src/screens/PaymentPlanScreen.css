@@ -1,0 +1,281 @@
+/* This is the app's first screen with content taller than the 874px design
+   canvas (three pricing tiers + banner + actions don't fit in one page), so
+   unlike every other screen it scrolls internally instead of being laid out
+   with fixed absolute positions. */
+.payment-screen {
+  background: #fd151b;
+}
+
+.payment-scroll {
+  position: absolute;
+  inset: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.payment-header {
+  padding: 64px 24px 24px;
+  text-align: center;
+}
+
+.payment-heading {
+  margin: 0;
+  font-family: 'Berthold Akzidenz Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 46px;
+  line-height: 0.9;
+  color: #fff;
+}
+
+.payment-subtitle {
+  margin: 12px 0 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #fff;
+}
+
+.payment-sheet {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+  padding: 28px 16px 48px;
+}
+
+.payment-plan-wrap {
+  position: relative;
+}
+
+.payment-plan-badge {
+  position: absolute;
+  top: -13px;
+  left: 12px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: #fd151b;
+  border-radius: 6px 6px 0 0;
+}
+
+.payment-plan-badge img {
+  width: 12px;
+  height: 12px;
+}
+
+.payment-plan-badge span {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.payment-plan-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  text-align: left;
+  font-family: inherit;
+}
+
+.payment-plan-card--highlighted {
+  background: #fff1f1;
+  border: 1.5px solid #fd151b;
+}
+
+.payment-plan-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.payment-plan-name-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.payment-plan-name {
+  font-family: 'Berthold Akzidenz Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  color: #111;
+}
+
+.payment-plan-tagline {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  color: #fd151b;
+}
+
+.payment-plan-price-wrap {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.payment-plan-price {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  color: #111;
+  white-space: nowrap;
+}
+
+.payment-plan-price-unit {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #666;
+}
+
+.payment-plan-radio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+
+.payment-plan-radio img {
+  width: 20px;
+  height: 20px;
+}
+
+.payment-plan-features {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.payment-plan-feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  color: #111;
+}
+
+.payment-plan-feature--semibold {
+  font-weight: 600;
+}
+
+.payment-plan-feature--bold {
+  font-weight: 700;
+}
+
+.payment-plan-feature--regular {
+  font-weight: 400;
+}
+
+.payment-plan-feature__icon {
+  flex-shrink: 0;
+}
+
+.payment-plan-feature__icon--check {
+  width: 12px;
+  height: 12px;
+}
+
+.payment-plan-feature__icon--dot {
+  width: 4px;
+  height: 4px;
+}
+
+.payment-trial-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: #fff1f1;
+  border-radius: 8px;
+}
+
+.payment-trial-banner img {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.payment-trial-banner__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.payment-trial-banner__title {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  color: #111;
+}
+
+.payment-trial-banner__body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  color: #666;
+}
+
+.payment-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.payment-cta-primary,
+.payment-cta-secondary {
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+}
+
+.payment-cta-primary {
+  background: #fd151b;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+}
+
+.payment-cta-secondary {
+  background: transparent;
+  color: #fd151b;
+  font-weight: 600;
+  border: 1px solid #fd151b;
+}
+
+.payment-cta-primary:active,
+.payment-cta-secondary:active {
+  transform: scale(0.98);
+}
+
+.payment-or {
+  margin-top: -4px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  color: #666;
+}

@@ -77,7 +77,7 @@ export default function IntroScreen() {
       </div>
 
       <div className={`onboarding-actions ${stage === 'buttons' ? 'onboarding-actions--in' : ''}`}>
-        <button className="btn-primary" onClick={() => navigate('/join')}>
+        <button className="btn-primary" onClick={() => navigate('/join/payment-plan')}>
           Join XEXUS
         </button>
         <button className="btn-secondary" onClick={() => navigate('/login')}>

@@ -8,7 +8,7 @@ import './AppTopbar.css';
 // previous one. Screens no longer render their own logo/progress/back
 // button - this reads per-route config instead.
 const TOPBAR_CONFIG = {
-  '/join': { back: '/', progress: 17.4 },
+  '/join': { back: '/join/payment-plan', progress: 17.4 },
   '/join/age-gate': { back: '/join', progress: 27.2 },
   '/join/gender': { back: '/join/verification-progress', progress: 57 },
   '/join/photos': { back: null, progress: 88.6 },
