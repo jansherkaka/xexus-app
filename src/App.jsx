@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Navigate } from 'react-router-dom';
 import PhoneFrame from './components/PhoneFrame';
 import RouteTransition from './components/RouteTransition';
 import AppTopbar from './components/AppTopbar';
+import ExploreTopBar from './components/ExploreTopBar';
 import AppStatusBar from './components/AppStatusBar';
 import AppHomeIndicator from './components/AppHomeIndicator';
 import { DeviceChromeProvider } from './context/DeviceChromeContext';
@@ -25,6 +26,7 @@ import PhotosScreen from './screens/PhotosScreen';
 import GetActiveScreen from './screens/GetActiveScreen';
 import DiscoveryScreen from './screens/DiscoveryScreen';
 import MapScreen from './screens/MapScreen';
+import FiltersScreen from './screens/FiltersScreen';
 import './App.css';
 
 function App() {
@@ -40,6 +42,7 @@ function App() {
           <DeviceChromeProvider>
             <VerificationProvider>
               <AppTopbar />
+              <ExploreTopBar />
               <AppStatusBar />
               <RouteTransition>
                 <Route path="/" element={<IntroScreen />} />
@@ -61,6 +64,7 @@ function App() {
                 <Route path="/join/get-active" element={<GetActiveScreen />} />
                 <Route path="/join/discover" element={<DiscoveryScreen />} />
                 <Route path="/join/map" element={<MapScreen />} />
+                <Route path="/join/filters" element={<FiltersScreen />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
               </RouteTransition>
               <AppHomeIndicator />

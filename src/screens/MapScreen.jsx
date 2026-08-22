@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDeviceChrome } from '../context/DeviceChromeContext';
 import BottomNav from '../components/BottomNav';
@@ -12,6 +13,9 @@ import avatarWys from '../assets/map-avatar-wys-2.png';
 import avatarWildgyal from '../assets/map-avatar-wildgyal.png';
 import avatarYou from '../assets/map-avatar-you.png';
 import avatarComeovr from '../assets/map-avatar-comeovr.png';
+import iconSwitchOn from '../assets/icon-switch-on.svg';
+import iconSwitchOff from '../assets/icon-switch-off.svg';
+import iconTarget from '../assets/icon-target.svg';
 import './Screens.css';
 import './MapScreen.css';
 
@@ -60,6 +64,8 @@ const PINS = [
 
 export default function MapScreen() {
   const navigate = useNavigate();
+  const [imActive, setImActive] = useState(true);
+  const [shadowMode, setShadowMode] = useState(false);
   useDeviceChrome({ statusBarVariant: 'light', statusBarBg: '#2f3133', showHomeIndicator: false });
 
   return (
@@ -115,6 +121,20 @@ export default function MapScreen() {
         </button>
         <button className="map-toggle__btn map-toggle__btn--bottom" aria-label="Casual">
           🍸
+        </button>
+      </div>
+
+      <div className="map-status-switches anim-fade-up" style={{ animationDelay: '1.1s' }}>
+        <button className="map-switch" onClick={() => setImActive((v) => !v)}>
+          <span>i&rsquo;m active</span>
+          <img src={imActive ? iconSwitchOn : iconSwitchOff} alt="" />
+        </button>
+        <button className="map-switch" onClick={() => setShadowMode((v) => !v)}>
+          <span>shadow mode</span>
+          <img src={shadowMode ? iconSwitchOn : iconSwitchOff} alt="" />
+        </button>
+        <button className="map-recenter" aria-label="Recenter">
+          <img src={iconTarget} alt="" />
         </button>
       </div>
 

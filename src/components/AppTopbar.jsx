@@ -13,8 +13,6 @@ const TOPBAR_CONFIG = {
   '/join/gender': { back: '/join/verification-progress', progress: 57 },
   '/join/photos': { back: null, progress: 88.6 },
   '/join/get-active': { back: '/join/photos', progress: 68 },
-  '/join/discover': { back: '/join/get-active', progress: null },
-  '/join/map': { back: '/join/discover', progress: null },
 };
 
 export default function AppTopbar() {

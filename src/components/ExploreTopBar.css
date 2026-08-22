@@ -1,0 +1,89 @@
+.explore-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 145px;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.explore-topbar__actions {
+  position: absolute;
+  top: 59px;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.explore-topbar__icon-btn {
+  position: relative;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: rgba(18, 18, 23, 0.7);
+  border: 1px solid #888896;
+  padding: 0;
+}
+
+.explore-topbar__icon-btn img {
+  width: 18px;
+  height: 18px;
+}
+
+.explore-topbar__notif-dot {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 8px !important;
+  height: 8px !important;
+}
+
+.explore-topbar__logo {
+  position: absolute;
+  top: 67px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.explore-topbar__segment {
+  position: absolute;
+  top: 123px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  width: 196px;
+  height: 40px;
+  padding: 2px;
+  border-radius: 20px;
+  background: rgba(18, 18, 23, 0.7);
+  border: 0.5px solid #888896;
+  pointer-events: auto;
+}
+
+.explore-topbar__segment-btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  border-radius: 18px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  transition: background-color 0.2s ease;
+}
+
+.explore-topbar__segment-btn--active {
+  background: #fd151b;
+  font-weight: 700;
+}
