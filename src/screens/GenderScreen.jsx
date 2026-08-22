@@ -8,7 +8,7 @@ import lockIcon from '../assets/icon-lock.svg';
 import './Screens.css';
 import './GenderScreen.css';
 
-const MAX_RADIUS = 108;
+const MAX_RADIUS = 100;
 
 const DIRECTIONS = {
   female: { x: 0, y: -1 },
@@ -34,9 +34,16 @@ export default function GenderScreen() {
     const rect = containerRef.current.getBoundingClientRect();
     const dx = clientX - (rect.left + rect.width / 2);
     const dy = clientY - (rect.top + rect.height / 2);
-    const dist = Math.hypot(dx, dy);
-    const scale = dist > MAX_RADIUS ? MAX_RADIUS / dist : 1;
-    setPos({ x: dx * scale, y: dy * scale });
+    const clamp = (v) => Math.max(-MAX_RADIUS, Math.min(MAX_RADIUS, v));
+    // Constrain to whichever single axis the drag leans toward, instead of
+    // free 2D movement - the marker only ever travels along the horizontal
+    // or vertical crosshair, snapping between the two as the drag angle
+    // crosses the diagonal.
+    if (Math.abs(dx) >= Math.abs(dy)) {
+      setPos({ x: clamp(dx), y: 0 });
+    } else {
+      setPos({ x: 0, y: clamp(dy) });
+    }
   };
 
   const handlePointerDown = (e) => {

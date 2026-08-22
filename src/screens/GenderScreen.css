@@ -41,7 +41,7 @@
 
 .gender-instructions {
   position: absolute;
-  top: 345px;
+  top: 370px;
   left: 50%;
   transform: translateX(-50%);
   width: 260px;
@@ -61,11 +61,11 @@
 
 .gender-axis {
   position: absolute;
-  top: 395px;
+  top: 414px;
   left: 50%;
   transform: translateX(-50%);
-  width: 280px;
-  height: 280px;
+  width: 265px;
+  height: 265px;
   touch-action: none;
 }
 
@@ -74,10 +74,10 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 168px;
-  height: 168px;
+  width: 158px;
+  height: 158px;
   background-image: radial-gradient(circle, #e2e2e2 1.2px, transparent 1.2px);
-  background-size: 19px 19px;
+  background-size: 18px 18px;
   pointer-events: none;
 }
 
@@ -91,13 +91,13 @@
 
 .gender-axis__line--v {
   width: 0;
-  height: 210px;
+  height: 198px;
   transform: translate(-50%, -50%);
   border-left: 1px dashed #999;
 }
 
 .gender-axis__line--h {
-  width: 210px;
+  width: 198px;
   height: 0;
   transform: translate(-50%, -50%);
   border-top: 1px dashed #999;
@@ -108,8 +108,8 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 84px;
-  height: 84px;
+  width: 80px;
+  height: 80px;
   pointer-events: none;
 }
 
@@ -122,7 +122,6 @@
   justify-content: center;
   width: 60px;
   height: 74px;
-  margin: -37px 0 0 -30px;
   background: none;
   border: none;
   padding: 0;
@@ -195,7 +194,7 @@
 
 .gender-privacy {
   position: absolute;
-  top: 692px;
+  top: 695px;
   left: 50%;
   transform: translateX(-50%);
   width: 340px;
@@ -248,7 +247,7 @@
 
 .gender-cta-wrap {
   position: absolute;
-  top: 778px;
+  top: 785px;
   left: 50%;
   transform: translateX(-50%);
   width: 342px;
