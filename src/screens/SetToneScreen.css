@@ -11,13 +11,47 @@
   z-index: 0;
 }
 
-.set-tone-icon {
+.set-tone-icon-wrap {
   position: absolute;
   top: 87px;
   left: 50%;
   transform: translateX(-50%);
   width: 142px;
   height: 174px;
+}
+
+/* The logo reads as two mirrored halves meeting in the middle, so instead
+   of a plain fade/scale it plays as two independent halves - each the full
+   image, clipped to just its side - sliding in from opposite edges and
+   landing together, a bespoke entrance just for this screen rather than
+   the shared fade-up used everywhere else. */
+.set-tone-icon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  animation: set-tone-halves-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+.set-tone-icon--left {
+  clip-path: inset(0 50% 0 0);
+  transform: translateX(-46px);
+}
+
+.set-tone-icon--right {
+  clip-path: inset(0 0 0 50%);
+  transform: translateX(46px);
+}
+
+@keyframes set-tone-halves-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .set-tone-heading {

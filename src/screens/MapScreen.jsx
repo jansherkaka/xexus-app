@@ -12,7 +12,7 @@ import avatarDtf from '../assets/map-avatar-dtf.png';
 import avatarWys from '../assets/map-avatar-wys-2.png';
 import avatarWildgyal from '../assets/map-avatar-wildgyal.png';
 import avatarYou from '../assets/map-avatar-you.png';
-import avatarComeovr from '../assets/map-avatar-comeovr.png';
+import avatarComeovr from '../assets/discovery-3-comeovr.jpg';
 import iconSwitchOn from '../assets/icon-switch-on.svg';
 import iconSwitchOff from '../assets/icon-switch-off.svg';
 import iconTarget from '../assets/icon-target.svg';

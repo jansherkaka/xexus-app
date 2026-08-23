@@ -66,7 +66,7 @@ function RangeSlider({ min, max, valueMin, valueMax, onChangeMin, onChangeMax })
 
 export default function FiltersScreen() {
   const navigate = useNavigate();
-  const [lookingFor, setLookingFor] = useState('everyone');
+  const [lookingFor, setLookingFor] = useState(['everyone']);
   const [ageMin, setAgeMin] = useState(18);
   const [ageMax, setAgeMax] = useState(45);
   const [distMin, setDistMin] = useState(2);
@@ -79,6 +79,17 @@ export default function FiltersScreen() {
 
   const toggleInto = (tag) => {
     setInto((prev) => (prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]));
+  };
+
+  // "everyone" is exclusive - picking it clears any specific selections, and
+  // picking a specific one drops "everyone" so multiple specific options can
+  // stack instead.
+  const toggleLookingFor = (id) => {
+    setLookingFor((prev) => {
+      if (id === 'everyone') return ['everyone'];
+      const specific = prev.filter((v) => v !== 'everyone');
+      return specific.includes(id) ? specific.filter((v) => v !== id) : [...specific, id];
+    });
   };
 
   return (
@@ -99,8 +110,8 @@ export default function FiltersScreen() {
                 <button
                   key={opt.id}
                   type="button"
-                  className={`filters-lookingfor${lookingFor === opt.id ? ' filters-lookingfor--selected' : ''}`}
-                  onClick={() => setLookingFor(opt.id)}
+                  className={`filters-lookingfor${lookingFor.includes(opt.id) ? ' filters-lookingfor--selected' : ''}`}
+                  onClick={() => toggleLookingFor(opt.id)}
                 >
                   <img src={opt.icon} alt="" />
                   <span>{opt.label}</span>
@@ -199,7 +210,7 @@ export default function FiltersScreen() {
             <button
               className="filters-reset"
               onClick={() => {
-                setLookingFor('everyone');
+                setLookingFor(['everyone']);
                 setAgeMin(18);
                 setAgeMax(45);
                 setDistMin(2);

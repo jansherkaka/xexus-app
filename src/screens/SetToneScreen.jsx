@@ -13,7 +13,10 @@ export default function SetToneScreen() {
     <div className="screen set-tone-screen">
       <img src={bgSetTone} alt="" className="set-tone-bg anim-fade-scale" />
 
-      <img src={identityIconWhite} alt="" className="set-tone-icon anim-fade-scale anim-d1" />
+      <div className="set-tone-icon-wrap">
+        <img src={identityIconWhite} alt="" className="set-tone-icon set-tone-icon--left" />
+        <img src={identityIconWhite} alt="" className="set-tone-icon set-tone-icon--right" />
+      </div>
 
       <div className="set-tone-heading">
         <p className="set-tone-line set-tone-line--lets anim-fade-up anim-d2">let&rsquo;s</p>
