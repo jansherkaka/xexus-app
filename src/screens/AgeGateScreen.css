@@ -2,12 +2,7 @@
   position: absolute;
   top: 215px;
   left: 50%;
-  /* Negative letter-spacing shifts the visible glyphs right of the box's
-     true center (text-align:center still budgets space for a phantom
-     trailing tracking-gap after the last glyph) - nudge left by half the
-     tracking value to compensate, mirroring the opposite correction
-     already applied below for age-gate-only-line's positive tracking. */
-  transform: translateX(calc(-50% - 4.075px));
+  transform: translateX(-50%);
   width: 327px;
   margin: 0;
   text-align: center;
@@ -40,10 +35,6 @@
   line-height: 1.63;
   letter-spacing: 30.48px;
   color: #fd151b;
-  /* letter-spacing adds trailing space after the last glyph, which text-align:
-     center includes in its math and pulls the visible text left of true
-     center — nudge right by half the tracking value to compensate. */
-  transform: translateX(15.24px);
 }
 
 .age-gate-body {

@@ -170,15 +170,6 @@
 .onboarding-line {
   width: 100%;
   margin: 0;
-  /* letter-spacing adds trailing space after the last glyph, which text-align:
-     center includes in its math and pulls the visible text left of true
-     center — nudge right by half the tracking value to compensate. */
-  transform: translateX(23.76px);
-  transition: transform 550ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.intro-subwords--buttons .onboarding-line {
-  transform: translateX(18.92px);
 }
 
 /* Per-letter reveal — three candidate styles, picked via ?intro=1|2|3 */

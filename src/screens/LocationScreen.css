@@ -65,15 +65,10 @@
 
 .location-heading__line--location {
   letter-spacing: 19.32px;
-  /* letter-spacing adds trailing space after the last glyph, which text-align:
-     center includes in its math and pulls the visible text left of true
-     center — nudge right by half the tracking value to compensate. */
-  transform: translateX(9.66px);
 }
 
 .location-heading__line--based {
   letter-spacing: 20.44px;
-  transform: translateX(10.22px);
 }
 
 .location-body {

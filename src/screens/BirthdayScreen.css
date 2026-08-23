@@ -29,17 +29,12 @@
   font-size: 24px;
   letter-spacing: 45.6px;
   line-height: 0.92;
-  /* letter-spacing adds trailing space after the last glyph, which text-align:
-     center includes in its math and pulls the visible text left of true
-     center — nudge right by half the tracking value to compensate. */
-  transform: translateX(22.8px);
 }
 
 .birthday-line--date {
   font-size: 24px;
   letter-spacing: 66.48px;
   line-height: 0.92;
-  transform: translateX(33.24px);
 }
 
 .birthday-line--ofbirth {
