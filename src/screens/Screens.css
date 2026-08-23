@@ -6,28 +6,25 @@
 }
 
 /* Shared staggered-reveal utilities — apply alongside a screen's own
-   layout classes. Uses the standalone `translate`/`scale` properties
-   (not `transform`) so it never clobbers a positioning rule's own
-   `transform: translateX(...)` centering. */
+   layout classes. Every entrance is a plain fade (no slide/scale) so
+   pages read consistently regardless of which utility a given element
+   uses - per client feedback that mixed slide/scale entrances made
+   pages feel inconsistent next to their fade-only reference app. */
 @keyframes fade-up-in {
   from {
     opacity: 0;
-    translate: 0 30px;
   }
   to {
     opacity: 1;
-    translate: 0 0;
   }
 }
 
 @keyframes fade-scale-in {
   from {
     opacity: 0;
-    scale: 0.9;
   }
   to {
     opacity: 1;
-    scale: 1;
   }
 }
 
@@ -51,11 +48,9 @@
 @keyframes pop-in {
   from {
     opacity: 0;
-    scale: 0.9;
   }
   to {
     opacity: 1;
-    scale: 1;
   }
 }
 

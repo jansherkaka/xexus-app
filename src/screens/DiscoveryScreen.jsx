@@ -15,61 +15,40 @@ import './DiscoveryScreen.css';
 
 const PROFILES = [
   {
-    name: 'UNHOLYHOURS',
-    age: 28,
-    height: '5’9',
-    distance: '2 miles away',
-    bio: 'a gracious reciever',
-    showBioLabel: false,
-    tags: ['something casual', 'queer', 'hosting tonight'],
+    name: 'DOMEBOY',
+    age: 27,
+    height: '6’1',
+    distance: '4 miles away',
+    bio: 'who’s on what',
+    tags: ['something casual', 'straight', 'partying'],
     photo: discovery1,
-    overlayBg: 'rgba(75, 74, 74, 0.95)',
-    textColor: '#ffffff',
-    mutedColor: '#b9b5b5',
-    accent: '#fd151b',
-    tagTextColor: '#ea3e2f',
-  },
-  {
-    name: 'PLAYDIRTY92',
-    age: 23,
-    height: '5’7',
-    distance: '2 miles away',
-    bio: 'hi, i’m queer & i love to meet new ppl! I love martinis, swimming, and couples dates,  deff looking for something casual.',
-    showBioLabel: true,
-    tags: ['Something casual 👀', 'Queer', 'Hosting tonight 🏠'],
-    photo: discovery2,
-    overlayBg: 'rgba(33, 32, 32, 0.64)',
-    textColor: '#ffffff',
-    mutedColor: '#b9b5b5',
-  },
-  {
-    name: 'COMEOVR',
-    age: 25,
-    height: '5’1',
-    distance: '2 miles away',
-    bio: 'whos on what',
-    showBioLabel: true,
-    tags: ['Something casual 👀', 'Queer', 'Hosting tonight 🏠'],
-    photo: discovery3,
-    overlayBg: 'rgba(75, 74, 74, 0.64)',
-    textColor: '#ffffff',
-    mutedColor: '#b9b5b5',
-    accent: '#636363',
   },
   {
     name: 'UNHOLYHOURS',
     age: 28,
     height: '5’9',
     distance: '2 miles away',
-    bio: 'a gracious reciever',
-    showBioLabel: false,
+    bio: 'a gracious receiver',
     tags: ['something casual', 'queer', 'hosting tonight'],
+    photo: discovery2,
+  },
+  {
+    name: 'BAREEEBONES',
+    age: 22,
+    height: '5’5',
+    distance: '1 miles away',
+    bio: 'take care of me',
+    tags: ['netflix and chill', 'bi', 'invite me over'],
+    photo: discovery3,
+  },
+  {
+    name: 'QUIETONTHECREK',
+    age: 19,
+    height: '5’8',
+    distance: '2 miles away',
+    bio: 'i come with friends',
+    tags: ['a wild time', 'queer', 'teach me'],
     photo: discovery4,
-    overlayBg: 'rgba(75, 74, 74, 0.95)',
-    textColor: '#ffffff',
-    mutedColor: '#b9b5b5',
-    accent: '#fd151b',
-    tagTextColor: '#ea3e2f',
   },
 ];
 
@@ -140,24 +119,16 @@ export default function DiscoveryScreen() {
             <div
               key={`${p.name}-${i}`}
               className={`discovery-card${isActive ? ' discovery-card--active' : ' discovery-card--peek'}`}
-              style={{
-                top: slot.top,
-                height: slot.height,
-                opacity: slot.opacity,
-                borderColor: isActive && p.accent ? p.accent : 'transparent',
-                borderWidth: isActive && p.accent ? 2 : 0,
-              }}
+              style={{ top: slot.top, height: slot.height, opacity: slot.opacity }}
             >
               <img src={p.photo} alt="" className="discovery-card__photo" />
-              <div className="discovery-card__overlay" style={{ background: p.overlayBg, opacity: isActive ? 1 : 0 }}>
+              <div className="discovery-card__overlay" style={{ opacity: isActive ? 1 : 0 }}>
                 <div className="discovery-card__info">
                   <div className="discovery-card__row">
-                    <p className="discovery-card__name" style={{ color: p.textColor }}>
+                    <p className="discovery-card__name">
                       <span className="discovery-card__name-bold">{p.name},</span> {p.age} - {p.height}
                     </p>
-                    <p className="discovery-card__distance" style={{ color: p.mutedColor }}>
-                      {p.distance}
-                    </p>
+                    <p className="discovery-card__distance">{p.distance}</p>
                   </div>
                   <div className="discovery-card__online">
                     <span>Online</span>
@@ -165,14 +136,7 @@ export default function DiscoveryScreen() {
                   </div>
                 </div>
                 <div className="discovery-card__bio">
-                  {p.showBioLabel && (
-                    <p className="discovery-card__bio-label" style={{ color: p.textColor }}>
-                      Bio
-                    </p>
-                  )}
-                  <p className="discovery-card__bio-text" style={{ color: p.textColor }}>
-                    {p.bio}
-                  </p>
+                  <p className="discovery-card__bio-text">{p.bio}</p>
                 </div>
               </div>
             </div>
@@ -181,11 +145,7 @@ export default function DiscoveryScreen() {
       </div>
 
       {active.tags.map((tag, idx) => (
-        <div
-          key={idx}
-          className={`discovery-tag discovery-tag--${idx + 1} anim-fade-up anim-d${idx + 3}`}
-          style={{ color: active.tagTextColor || '#19191a' }}
-        >
+        <div key={idx} className={`discovery-tag discovery-tag--${idx + 1} anim-fade-up anim-d${idx + 3}`}>
           {tag}
         </div>
       ))}

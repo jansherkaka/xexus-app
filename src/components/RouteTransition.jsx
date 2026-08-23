@@ -2,13 +2,13 @@ import { useEffect, useRef, useState } from 'react';
 import { Routes, useLocation } from 'react-router-dom';
 import './RouteTransition.css';
 
-// Mimics a native iOS-style push transition: the new screen slides in from
-// the right and covers the previous one, which stays put underneath (not a
-// fade/scale-in-place, which is what this replaced after client feedback
-// referencing Hinge's onboarding flow). The outgoing screen also dims
+// The new screen crossfades in on top of the previous one, which stays put
+// underneath (previously a right-to-left slide, changed to a plain fade per
+// client feedback that a slide-in read as inconsistent with every other
+// entrance animation, which are all fades). The outgoing screen also dims
 // progressively while it's covered (see .route-transition__layer--exit) -
 // without it, a busy/high-contrast outgoing screen (e.g. Location's dark
-// photo + bold heading) stays fully legible for the whole slide, which read
+// photo + bold heading) stays fully legible through the crossfade, which read
 // as its content "leaking" into the next screen rather than a clean handoff.
 //
 // Each screen gets its own layer div keyed on location.key, and that key
