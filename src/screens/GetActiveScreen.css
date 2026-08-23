@@ -97,7 +97,7 @@
   top: 143px;
   width: 183px;
   height: 85px;
-  opacity: 0.3;
+  opacity: 1;
 }
 
 .get-active-radar__ring--5 {
@@ -105,7 +105,7 @@
   top: 142px;
   width: 104px;
   height: 48px;
-  opacity: 0.2;
+  opacity: 1;
 }
 
 .get-active-radar__pin {
