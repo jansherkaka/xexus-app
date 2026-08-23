@@ -45,7 +45,7 @@ export default function LocationScreen() {
 
       <div className="location-cta-wrap">
         <button className="location-cta anim-fade-up anim-d5" onClick={handleEnableLocation}>
-          Enable location
+          enable location
         </button>
       </div>
     </div>

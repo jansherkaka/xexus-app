@@ -8,10 +8,10 @@ import './Screens.css';
 const SUBWORDS = ['into', 'the', 'real', 'world'];
 
 const SPLASH_DURATION = 2000; // logo screen
-const HEADLINE_LETTER_DELAY = 110; // ms between each "step" letter
-const WORD_STAGGER = 460; // ms between each subword's cascade start
-const LETTER_DELAY = 90; // ms between each letter within a subword
-const LETTER_ANIM_DURATION = 950; // longest per-letter animation, for timing budget
+const HEADLINE_LETTER_DELAY = 155; // ms between each "step" letter
+const WORD_STAGGER = 640; // ms between each subword's cascade start
+const LETTER_DELAY = 125; // ms between each letter within a subword
+const LETTER_ANIM_DURATION = 1150; // longest per-letter animation, for timing budget
 const BUTTONS_DELAY = 500; // pause after the last letter before buttons slide in
 
 const MAX_WORD_LETTERS = Math.max(...SUBWORDS.map((w) => w.length));
@@ -78,7 +78,7 @@ export default function IntroScreen() {
 
       <div className={`onboarding-actions ${stage === 'buttons' ? 'onboarding-actions--in' : ''}`}>
         <button className="btn-primary" onClick={() => navigate('/join/payment-plan')}>
-          Join XEXUS
+          join XEXUS
         </button>
         <button className="btn-secondary" onClick={() => navigate('/login')}>
           log in

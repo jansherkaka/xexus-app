@@ -32,7 +32,7 @@ export default function NameScreen() {
 
       <div className="name-field anim-fade-up anim-d7">
         <label className="name-field__label" htmlFor="profile-name">
-          Name
+          name
         </label>
         <input
           id="profile-name"
