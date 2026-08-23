@@ -31,12 +31,26 @@
   line-height: 0.92;
 }
 
-.get-active-body {
+.get-active-promo {
   position: absolute;
-  top: 421px;
+  top: 424px;
   left: 50%;
   transform: translateX(-50%);
-  width: 332px;
+  width: 338px;
+  margin: 0;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 28px;
+  color: #fd151b;
+}
+
+.get-active-body {
+  position: absolute;
+  top: 491px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 338px;
   margin: 0;
   text-align: center;
   font-family: 'Inter', sans-serif;
@@ -45,9 +59,67 @@
   color: #8f8f8f;
 }
 
+.get-active-radar {
+  position: absolute;
+  top: 507px;
+  left: 0;
+  width: 402px;
+  height: 280px;
+  overflow: hidden;
+}
+
+.get-active-radar__ring {
+  position: absolute;
+}
+
+.get-active-radar__ring--1 {
+  left: -73px;
+  top: 137px;
+  width: 547px;
+  height: 243px;
+}
+
+.get-active-radar__ring--2 {
+  left: -12px;
+  top: 137px;
+  width: 425px;
+  height: 182px;
+}
+
+.get-active-radar__ring--3 {
+  left: 49px;
+  top: 140px;
+  width: 303px;
+  height: 136px;
+}
+
+.get-active-radar__ring--4 {
+  left: 109px;
+  top: 143px;
+  width: 183px;
+  height: 85px;
+  opacity: 0.3;
+}
+
+.get-active-radar__ring--5 {
+  left: 148px;
+  top: 142px;
+  width: 104px;
+  height: 48px;
+  opacity: 0.2;
+}
+
+.get-active-radar__pin {
+  position: absolute;
+  left: 175px;
+  top: 98px;
+  width: 52px;
+  height: 68px;
+}
+
 .get-active-cta-wrap {
   position: absolute;
-  top: 740px;
+  top: 718px;
   left: 0;
   width: 100%;
   display: flex;

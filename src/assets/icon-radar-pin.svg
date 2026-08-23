@@ -1,0 +1,8 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="52" height="74" viewBox="0 0 52 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="central-pin">
+<g id="map-pin">
+<path id="Vector" d="M28.2654 66.3777C33.7292 61.399 50 45.2788 50 29.8003C50 23.2229 47.5241 16.9148 43.117 12.2638C38.7099 7.61288 32.7326 5 26.5 5C20.2674 5 14.2901 7.61288 9.88299 12.2638C5.47589 16.9148 3 23.2229 3 29.8003C3 45.2788 19.2708 61.399 24.7346 66.3777C25.2436 66.7816 25.8632 67 26.5 67C27.1368 67 27.7564 66.7816 28.2654 66.3777Z" fill="#FD151B" stroke="#FD151B" stroke-linecap="round"/>
+</g>
+<ellipse id="Ellipse" cx="26" cy="64" rx="12" ry="5" fill="#FD151B" fill-opacity="0.133333"/>
+</g>
+</svg>
