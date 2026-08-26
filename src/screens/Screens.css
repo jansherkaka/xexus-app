@@ -92,6 +92,47 @@
   animation-delay: 1.6s;
 }
 
+/* Deeper/slower fade-up used only on the age-gate -> verify-consent ->
+   verify-safety -> verify-steps chain (per feedback for those screens
+   specifically) - travels further (60px vs 30px) and each element is
+   spaced further apart (0.35s steps vs 0.2s) than the app-wide default. */
+@keyframes fade-up-in-deep {
+  from {
+    opacity: 0;
+    translate: 0 60px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+.anim-fade-up-deep {
+  animation: fade-up-in-deep 2s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.anim-dd1 {
+  animation-delay: 0.35s;
+}
+.anim-dd2 {
+  animation-delay: 0.7s;
+}
+.anim-dd3 {
+  animation-delay: 1.05s;
+}
+.anim-dd4 {
+  animation-delay: 1.4s;
+}
+.anim-dd5 {
+  animation-delay: 1.75s;
+}
+.anim-dd6 {
+  animation-delay: 2.1s;
+}
+.anim-dd7 {
+  animation-delay: 2.45s;
+}
+
 .screen--red {
   background: #fd151b;
 }

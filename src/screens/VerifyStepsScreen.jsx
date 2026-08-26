@@ -10,15 +10,15 @@ export default function VerifyStepsScreen() {
 
   return (
     <div className="screen screen--white">
-      <img src={shieldIcon} alt="" className="vsteps-icon anim-fade-up anim-d1" />
+      <img src={shieldIcon} alt="" className="vsteps-icon anim-fade-up-deep anim-dd1" />
 
       <div className="vsteps-content">
         <div className="vsteps-heading">
-          <p className="vsteps-line vsteps-line--verify anim-fade-up anim-d2">verify</p>
-          <p className="vsteps-line vsteps-line--youre anim-fade-up anim-d3">you&rsquo;re</p>
-          <p className="vsteps-line vsteps-line--over18 anim-fade-up anim-d4">over 18</p>
+          <p className="vsteps-line vsteps-line--verify anim-fade-up-deep anim-dd2">verify</p>
+          <p className="vsteps-line vsteps-line--youre anim-fade-up-deep anim-dd3">you&rsquo;re</p>
+          <p className="vsteps-line vsteps-line--over18 anim-fade-up-deep anim-dd4">over 18</p>
         </div>
-        <p className="vsteps-body anim-fade-up anim-d5">
+        <p className="vsteps-body anim-fade-up-deep anim-dd5">
           to keep xexus adult only and safer for everyone, verification
           requires two steps: a valid government ID and a live selfie.
           <br />
@@ -29,7 +29,7 @@ export default function VerifyStepsScreen() {
       </div>
 
       <div className="vsteps-cta-wrap">
-        <button className="vsteps-cta anim-fade-up anim-d6" onClick={() => navigate('/join/verification-progress')}>
+        <button className="vsteps-cta anim-fade-up-deep anim-dd6" onClick={() => navigate('/join/verification-progress')}>
           next
         </button>
       </div>
