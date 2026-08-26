@@ -112,7 +112,7 @@ export default function MapScreen() {
 
       <img src={fadeBottom} alt="" className="map-fade map-fade--bottom anim-fade" />
 
-      <div className="map-toggle anim-fade-scale" style={{ animationDelay: '1s' }}>
+      <div className="map-toggle anim-fade-up" style={{ animationDelay: '1s' }}>
         <button className="map-toggle__btn map-toggle__btn--top" aria-label="Photos">
           <img src={iconSquiggle} alt="" />
         </button>

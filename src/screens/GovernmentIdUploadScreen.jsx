@@ -27,10 +27,10 @@ export default function GovernmentIdUploadScreen() {
 
   return (
     <div className="screen screen--white">
-      <img src={govIdIcon} alt="" className="govup-icon anim-fade-scale anim-d1" />
+      <img src={govIdIcon} alt="" className="govup-icon anim-fade-up anim-d1" />
       <p className="govup-heading anim-fade-up anim-d2">government ID</p>
 
-      <label className="govup-upload anim-fade-scale anim-d3">
+      <label className="govup-upload anim-fade-up anim-d3">
         {photo ? (
           <img src={photo} alt="" className="govup-upload__photo" />
         ) : (

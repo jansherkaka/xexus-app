@@ -37,7 +37,7 @@ export default function LiveSelfieScreen() {
     <div className="screen screen--white">
       <p className="selfie-heading anim-fade-up anim-d1">live selfie</p>
 
-      <label className="selfie-frame anim-fade-scale anim-d2">
+      <label className="selfie-frame anim-fade-up anim-d2">
         {selfie && <img src={selfie} alt="" className="selfie-frame__photo" />}
         <img src={selfieFrame} alt="" className="selfie-frame__overlay" />
         {!selfie && <span className="selfie-frame__hint">tap to take selfie</span>}

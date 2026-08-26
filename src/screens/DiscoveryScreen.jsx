@@ -151,21 +151,21 @@ export default function DiscoveryScreen() {
       ))}
 
       <button
-        className="discovery-action discovery-action--dislike anim-fade-scale anim-d6"
+        className="discovery-action discovery-action--dislike anim-fade-up anim-d6"
         aria-label="Pass"
         onClick={() => step(1)}
       >
         <img src={iconX} alt="" />
       </button>
       <button
-        className="discovery-action discovery-action--like anim-fade-scale anim-d7"
+        className="discovery-action discovery-action--like anim-fade-up anim-d7"
         aria-label="Like"
         onClick={() => step(1)}
       >
         <img src={iconHeart} alt="" />
       </button>
       <button
-        className="discovery-action discovery-action--superlike anim-fade-scale anim-d8"
+        className="discovery-action discovery-action--superlike anim-fade-up anim-d8"
         aria-label="Open LiveLustMap"
         onClick={() => navigate('/join/map')}
       >

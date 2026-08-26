@@ -26,7 +26,7 @@ export default function PhotosScreen() {
         </p>
       </div>
 
-      <label className="photos-slot anim-fade-scale anim-d3">
+      <label className="photos-slot anim-fade-up anim-d3">
         {photo ? (
           <img src={photo} alt="" className="photos-slot__img" />
         ) : (

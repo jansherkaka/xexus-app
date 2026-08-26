@@ -9,18 +9,18 @@ export default function AgeGateScreen() {
 
   return (
     <div className="screen screen--white">
-      <p className="age-gate-number anim-fade-up-deep anim-dd1">18</p>
+      <p className="age-gate-number anim-fade-up anim-d1">18</p>
 
       <div className="age-gate-only">
-        <p className="age-gate-only-line anim-fade-up-deep anim-dd2">++++</p>
-        <p className="age-gate-only-line anim-fade-up-deep anim-dd3">only</p>
+        <p className="age-gate-only-line anim-fade-up anim-d2">++++</p>
+        <p className="age-gate-only-line anim-fade-up anim-d3">only</p>
       </div>
 
-      <p className="age-gate-body anim-fade-up-deep anim-dd4">xexus is for people aged 18 and over.</p>
+      <p className="age-gate-body anim-fade-up anim-d4">xexus is for people aged 18 and over.</p>
 
       <div className="age-gate-cta-wrap">
         <button
-          className="age-gate-cta anim-fade-up-deep anim-dd5"
+          className="age-gate-cta anim-fade-up anim-d5"
           onClick={() => navigate('/join/verify-consent')}
         >
           i&rsquo;m 18 or older

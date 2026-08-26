@@ -22,7 +22,7 @@ export default function GovernmentIdScreen() {
 
   return (
     <div className="screen screen--white">
-      <img src={govIdIcon} alt="" className="govid-icon anim-fade-scale anim-d1" />
+      <img src={govIdIcon} alt="" className="govid-icon anim-fade-up anim-d1" />
       <p className="govid-heading anim-fade-up anim-d2">government ID</p>
 
       <div className="govid-form anim-fade-up anim-d3">

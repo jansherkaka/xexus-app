@@ -24,7 +24,7 @@ export default function GetActiveScreen() {
 
       <p className="get-active-body anim-fade-up anim-d4">see who wants to play near you.</p>
 
-      <div className="get-active-radar anim-fade-scale anim-d5">
+      <div className="get-active-radar anim-fade-up anim-d5">
         <img src={ringOuter} alt="" className="get-active-radar__ring get-active-radar__ring--1" />
         <img src={ringMidOuter} alt="" className="get-active-radar__ring get-active-radar__ring--2" />
         <img src={ringMid} alt="" className="get-active-radar__ring get-active-radar__ring--3" />
