@@ -7,7 +7,7 @@
   position: absolute;
   top: 215px;
   left: 50%;
-  transform: translateX(calc(-50% - 11px));
+  transform: translate(calc(-50% - 17px));
   width: 327px;
   margin: 0;
   text-align: center;
