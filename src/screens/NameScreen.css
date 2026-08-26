@@ -19,10 +19,15 @@
   width: 100%;
 }
 
+/* letter-spacing adds its gap after the last glyph too, so text-align:
+   center centers a box that's one tracking-gap wider than what's visible
+   - each line is nudged right by half its own letter-spacing to land the
+   visible glyphs on true center. */
 .name-line--what {
   font-size: 140px;
   letter-spacing: -7px;
   line-height: 0.85;
+  transform: translateX(-3.5px);
 }
 
 .name-line--should,
@@ -31,6 +36,7 @@
   font-size: 24px;
   letter-spacing: 23.04px;
   line-height: 0.92;
+  transform: translateX(11.52px);
 }
 
 .name-line--you {
@@ -38,6 +44,7 @@
   letter-spacing: -5.05px;
   line-height: 0.92;
   margin-top: -12px;
+  transform: translateX(-2.525px);
 }
 
 .name-body {

@@ -19,22 +19,30 @@
   width: 100%;
 }
 
+/* letter-spacing adds its gap after the last glyph too, so text-align:
+   center centers a box that's one tracking-gap wider than what's visible
+   - each line is nudged right by half its own letter-spacing to land the
+   visible glyphs on true center (negligible/skipped where the tracking
+   is small enough not to matter). */
 .birthday-line--whatis {
   font-size: 103px;
   letter-spacing: -5.15px;
   line-height: 0.85;
+  transform: translateX(-2.575px);
 }
 
 .birthday-line--your {
   font-size: 24px;
   letter-spacing: 45.6px;
   line-height: 0.92;
+  transform: translateX(22.8px);
 }
 
 .birthday-line--date {
   font-size: 24px;
   letter-spacing: 66.48px;
   line-height: 0.92;
+  transform: translateX(33.24px);
 }
 
 .birthday-line--ofbirth {

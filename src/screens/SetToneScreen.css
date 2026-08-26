@@ -75,10 +75,15 @@
   width: 100%;
 }
 
+/* letter-spacing adds its gap after the last glyph too, so text-align:
+   center centers a box that's one tracking-gap wider than what's visible
+   - each line is nudged right by half its own letter-spacing to land the
+   visible glyphs on true center. */
 .set-tone-line--lets {
   font-size: 101px;
   letter-spacing: -5.05px;
   line-height: 0.85;
+  transform: translateX(-2.525px);
 }
 
 .set-tone-line--set,
@@ -86,12 +91,14 @@
   font-size: 24px;
   letter-spacing: 45.6px;
   line-height: 0.92;
+  transform: translateX(22.8px);
 }
 
 .set-tone-line--tone {
   font-size: 101px;
   letter-spacing: -5.05px;
   line-height: 0.92;
+  transform: translateX(-2.525px);
 }
 
 .set-tone-body {

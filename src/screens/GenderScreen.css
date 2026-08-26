@@ -19,22 +19,29 @@
   width: 100%;
 }
 
+/* letter-spacing adds its gap after the last glyph too, so text-align:
+   center centers a box that's one tracking-gap wider than what's visible
+   - each line is nudged right by half its own letter-spacing to land the
+   visible glyphs on true center. */
 .gender-line--how {
   font-size: 113px;
   letter-spacing: -5.65px;
   line-height: 0.76;
+  transform: translateX(-2.825px);
 }
 
 .gender-line--doyou {
   font-size: 28px;
   letter-spacing: 19.32px;
   line-height: 0.86;
+  transform: translateX(9.66px);
 }
 
 .gender-line--identify {
   font-size: 28px;
   letter-spacing: 20.44px;
   line-height: 0.86;
+  transform: translateX(10.22px);
 }
 
 .gender-instructions {

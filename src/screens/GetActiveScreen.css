@@ -18,10 +18,15 @@
   width: 100%;
 }
 
+/* letter-spacing adds its gap after the last glyph too, so text-align:
+   center centers a box that's one tracking-gap wider than what's visible
+   - each line is nudged right by half its own letter-spacing to land the
+   visible glyphs on true center. */
 .get-active-line--get {
   font-size: 163px;
   letter-spacing: -8.15px;
   line-height: 0.85;
+  transform: translateX(-4.075px);
 }
 
 .get-active-line--active {
@@ -29,6 +34,7 @@
   font-size: 30px;
   letter-spacing: 28.8px;
   line-height: 0.92;
+  transform: translateX(14.4px);
 }
 
 .get-active-promo {
