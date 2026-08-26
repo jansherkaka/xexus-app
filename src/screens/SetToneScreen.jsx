@@ -1,6 +1,6 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useDeviceChrome } from '../context/DeviceChromeContext';
-import identityIconWhite from '../assets/icon-identity-white.png';
+import identityIconWhite from '../assets/icon-identity.svg';
 import bgSetTone from '../assets/bg-set-tone.png';
 import './Screens.css';
 import './SetToneScreen.css';
