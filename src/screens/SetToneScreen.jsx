@@ -14,8 +14,8 @@ export default function SetToneScreen() {
       <img src={bgSetTone} alt="" className="set-tone-bg anim-fade-scale" />
 
       <div className="set-tone-icon-wrap">
-        <img src={identityIconWhite} alt="" className="set-tone-icon set-tone-icon--left" />
-        <img src={identityIconWhite} alt="" className="set-tone-icon set-tone-icon--right" />
+        <img src={identityIconWhite} alt="" className="set-tone-icon set-tone-icon--top" />
+        <img src={identityIconWhite} alt="" className="set-tone-icon set-tone-icon--bottom" />
       </div>
 
       <div className="set-tone-heading">

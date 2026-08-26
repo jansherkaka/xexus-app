@@ -20,11 +20,12 @@
   height: 174px;
 }
 
-/* The logo reads as two mirrored halves meeting in the middle, so instead
-   of a plain fade/scale it plays as two independent halves - each the full
-   image, clipped to just its side - sliding in from opposite edges and
-   landing together, a bespoke entrance just for this screen rather than
-   the shared fade-up used everywhere else. */
+/* Per client feedback, the logo isn't meant to join as left/right halves -
+   it's the top loop and the bottom loop coming together. Plays as two
+   independent pieces - each the full image, clipped to just its portion,
+   split right at the loop's narrow "waist" (~65% down) so the seam falls
+   in a clean single-strand spot instead of cutting through the knot's
+   overlap - sliding in from above/below and landing together. */
 .set-tone-icon {
   position: absolute;
   inset: 0;
@@ -34,14 +35,14 @@
   animation: set-tone-halves-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
 
-.set-tone-icon--left {
-  clip-path: inset(0 50% 0 0);
-  transform: translateX(-46px);
+.set-tone-icon--top {
+  clip-path: inset(0 0 35% 0);
+  transform: translateY(-50px);
 }
 
-.set-tone-icon--right {
-  clip-path: inset(0 0 0 50%);
-  transform: translateX(46px);
+.set-tone-icon--bottom {
+  clip-path: inset(65% 0 0 0);
+  transform: translateY(50px);
 }
 
 @keyframes set-tone-halves-in {
@@ -50,7 +51,7 @@
   }
   to {
     opacity: 1;
-    transform: translateX(0);
+    transform: translateY(0);
   }
 }
 
