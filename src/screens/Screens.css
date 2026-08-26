@@ -133,11 +133,21 @@
   transform: translateX(-50%);
 }
 
-/* "into the real world" — wide-tracked small type below the headline */
+/* "into the real world" — wide-tracked small type below the headline.
+   letter-spacing adds its gap after the LAST glyph too (no visible
+   character follows it to balance that out), so text-align:center
+   centers a box that's one tracking-gap wider than what's actually
+   visible - shifting the real glyphs left by half that gap. At this
+   tracking (47.52px/37.84px) that's a very visible ~24px/~19px, unlike
+   the headings elsewhere in the app whose much tighter tracking makes
+   the same effect negligible. Counter-shifted right by half the
+   tracking via --tracking, kept in sync with the letter-spacing value
+   below so both states (and the transition between them) stay centered. */
 .intro-subwords {
+  --tracking: 47.52px;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(calc(-50% + var(--tracking) / 2));
   width: 327px;
   display: flex;
   flex-direction: column;
@@ -149,21 +159,22 @@
 
   top: 260px;
   font-size: 24px;
-  letter-spacing: 47.52px;
+  letter-spacing: var(--tracking);
   line-height: 6;
 
   transition:
     top 550ms cubic-bezier(0.16, 1, 0.3, 1),
     font-size 550ms cubic-bezier(0.16, 1, 0.3, 1),
     letter-spacing 550ms cubic-bezier(0.16, 1, 0.3, 1),
-    line-height 550ms cubic-bezier(0.16, 1, 0.3, 1);
+    line-height 550ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 550ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* tightens slightly + shifts down as the buttons slide in */
 .intro-subwords--buttons {
+  --tracking: 37.84px;
   top: 278px;
   font-size: 22px;
-  letter-spacing: 37.84px;
   line-height: 3.72;
 }
 
