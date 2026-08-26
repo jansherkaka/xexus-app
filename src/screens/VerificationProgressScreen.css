@@ -1,8 +1,7 @@
 /* This screen is a transient checkpoint the user bounces back to after each
-   verification step (and briefly sees again on auto-advance), not a hero
-   content moment - so it fades in quickly rather than using the app's
-   slower marketing-style entrance timing, keeping the checklist feeling
-   responsive rather than sluggish. */
+   verification step (and briefly sees again on auto-advance), so it uses a
+   quicker fade-up than the app's slower marketing-style entrance timing -
+   just not as quick as the original pass, which read as too fast. */
 @keyframes verifprog-fade-up-in {
   from {
     opacity: 0;
@@ -15,26 +14,26 @@
 }
 
 .verifprog-anim {
-  animation: verifprog-fade-up-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: verifprog-fade-up-in 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .verifprog-anim-d1 {
-  animation-delay: 0.05s;
-}
-.verifprog-anim-d2 {
-  animation-delay: 0.1s;
-}
-.verifprog-anim-d3 {
   animation-delay: 0.15s;
 }
+.verifprog-anim-d2 {
+  animation-delay: 0.3s;
+}
+.verifprog-anim-d3 {
+  animation-delay: 0.45s;
+}
 .verifprog-anim-d4 {
-  animation-delay: 0.2s;
+  animation-delay: 0.6s;
 }
 .verifprog-anim-d5 {
-  animation-delay: 0.25s;
+  animation-delay: 0.75s;
 }
 .verifprog-anim-d6 {
-  animation-delay: 0.3s;
+  animation-delay: 0.9s;
 }
 
 .verifprog-hero {
