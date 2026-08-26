@@ -1,8 +1,13 @@
+/* "1" and "8" have very different glyph widths in this display font, so
+   their combined bounding box doesn't sit dead-center on the box even
+   though text-align:center is mathematically correct - nudged left to
+   match where the glyphs actually look centered against the rest of the
+   page (measured against the rendered pixels, not the box geometry). */
 .age-gate-number {
   position: absolute;
   top: 215px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(calc(-50% - 11px));
   width: 327px;
   margin: 0;
   text-align: center;
