@@ -21,16 +21,20 @@ import './RouteTransition.css';
 // entrance animation instead of just sitting still.
 const SLIDE_MS = 460;
 
-// This short age-gate -> verify-consent -> verify-safety -> verify-steps
-// chain reads as one continuous flow rather than distinct app sections, so
-// navigating between these specific screens crossfades in place instead of
-// using the app's usual slide-over - it should feel like the same screen's
-// content is advancing, not like you've navigated somewhere new.
+// These short chains each read as one continuous flow rather than distinct
+// app sections, so navigating between the screens within a chain crossfades
+// in place instead of using the app's usual slide-over - it should feel
+// like the same screen's content is advancing, not like you've navigated
+// somewhere new. Entering/leaving a chain (e.g. verification-progress ->
+// birthday, or name -> verification-progress) still slides normally, since
+// only pairs where BOTH sides are in the set fade.
 const FADE_FLOW_PATHS = new Set([
   '/join/age-gate',
   '/join/verify-consent',
   '/join/verify-safety',
   '/join/verify-steps',
+  '/join/birthday',
+  '/join/name',
 ]);
 
 export default function RouteTransition({ children }) {

@@ -45,13 +45,13 @@ export default function BirthdayScreen() {
   return (
     <div className="screen screen--white">
       <div className="birthday-heading">
-        <p className="birthday-line birthday-line--whatis anim-fade-up anim-d1">what is</p>
-        <p className="birthday-line birthday-line--your anim-fade-up anim-d2">your</p>
-        <p className="birthday-line birthday-line--date anim-fade-up anim-d3">date</p>
-        <p className="birthday-line birthday-line--ofbirth anim-fade-up anim-d4">of birth?</p>
+        <p className="birthday-line birthday-line--whatis anim-fade-up-deep anim-dd1">what is</p>
+        <p className="birthday-line birthday-line--your anim-fade-up-deep anim-dd2">your</p>
+        <p className="birthday-line birthday-line--date anim-fade-up-deep anim-dd3">date</p>
+        <p className="birthday-line birthday-line--ofbirth anim-fade-up-deep anim-dd4">of birth?</p>
       </div>
 
-      <div className="birthday-body anim-fade-up anim-d5">
+      <div className="birthday-body anim-fade-up-deep anim-dd5">
         <p className="birthday-body__line">
           please enter your date of birth to confirm that you meet the age
           requirement and personalize your experience.
@@ -63,7 +63,7 @@ export default function BirthdayScreen() {
       </div>
 
       <div className="birthday-cta-wrap">
-        <button className="birthday-cta anim-fade-up anim-d6" onClick={openPicker}>
+        <button className="birthday-cta anim-fade-up-deep anim-dd6" onClick={openPicker}>
           {dob ? formatDate(dob) : 'select a date'}
         </button>
       </div>

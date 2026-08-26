@@ -93,9 +93,10 @@
 }
 
 /* Deeper/slower fade-up used only on the age-gate -> verify-consent ->
-   verify-safety -> verify-steps chain (per feedback for those screens
-   specifically) - travels further (60px vs 30px) and each element is
-   spaced further apart (0.35s steps vs 0.2s) than the app-wide default. */
+   verify-safety -> verify-steps chain and the birthday/name screens (per
+   feedback for those screens specifically) - travels further (60px vs
+   30px) and each element is spaced further apart (0.35s steps vs 0.2s)
+   than the app-wide default. */
 @keyframes fade-up-in-deep {
   from {
     opacity: 0;
@@ -131,6 +132,9 @@
 }
 .anim-dd7 {
   animation-delay: 2.45s;
+}
+.anim-dd8 {
+  animation-delay: 2.8s;
 }
 
 .screen--red {
