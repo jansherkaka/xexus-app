@@ -10,7 +10,7 @@ export default function VerifyConsentScreen() {
 
   return (
     <div className="screen screen--white">
-      <img src={shieldIcon} alt="" className="consent2-icon anim-fade-scale anim-d1" />
+      <img src={shieldIcon} alt="" className="consent2-icon anim-fade-up anim-d1" />
 
       <div className="consent2-content">
         <div className="consent2-heading">

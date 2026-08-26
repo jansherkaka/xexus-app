@@ -41,10 +41,15 @@
   line-height: 1.2;
 }
 
+/* letter-spacing adds its gap after the last glyph too, so text-align:
+   center centers a box that's one tracking-gap wider than what's visible
+   - nudged right by half the letter-spacing to land the visible text on
+   true center. */
 .vsteps-line--youre {
   font-size: 28px;
   letter-spacing: 20.44px;
   line-height: 0.92;
+  transform: translateX(10.22px);
 }
 
 .vsteps-line--over18 {

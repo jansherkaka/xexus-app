@@ -12,7 +12,7 @@ export default function VerifySafetyScreen() {
     <div className="screen screen--white">
       <div className="safety-content">
         <div className="safety-heading-wrap">
-          <img src={thumbprintIcon} alt="" className="safety-icon anim-fade-scale anim-d1" />
+          <img src={thumbprintIcon} alt="" className="safety-icon anim-fade-up anim-d1" />
           <div className="safety-heading">
             <p className="safety-line safety-line--prioritize anim-fade-up anim-d2">we prioritize</p>
             <p className="safety-line safety-line--safety anim-fade-up anim-d3">safety</p>

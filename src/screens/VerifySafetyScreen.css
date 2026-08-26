@@ -40,22 +40,31 @@
   width: 100%;
 }
 
+/* letter-spacing adds its gap after the last glyph too, so text-align:
+   center centers a box that's one tracking-gap wider than what's visible
+   - shifting the real glyphs off-center by half that gap. Each line here
+   is nudged right by half its own letter-spacing to land the visible
+   text on true center (negligible/skipped where the tracking is small
+   enough not to matter). */
 .safety-line--prioritize {
   font-size: 65px;
   letter-spacing: -3.25px;
   line-height: 0.85;
+  transform: translateX(-1.625px);
 }
 
 .safety-line--safety {
   font-size: 28px;
   letter-spacing: 29.68px;
   line-height: 0.92;
+  transform: translateX(14.84px);
 }
 
 .safety-line--at {
   font-size: 28px;
   letter-spacing: 16.24px;
   line-height: 0.92;
+  transform: translateX(8.12px);
 }
 
 .safety-line--step {

@@ -10,7 +10,7 @@ export default function VerifyStepsScreen() {
 
   return (
     <div className="screen screen--white">
-      <img src={shieldIcon} alt="" className="vsteps-icon anim-fade-scale anim-d1" />
+      <img src={shieldIcon} alt="" className="vsteps-icon anim-fade-up anim-d1" />
 
       <div className="vsteps-content">
         <div className="vsteps-heading">
