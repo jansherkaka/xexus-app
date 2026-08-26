@@ -35,3 +35,18 @@
     filter: brightness(0.55);
   }
 }
+
+/* Used for the age-gate/verify-consent/verify-safety/verify-steps chain -
+   plain crossfade in place, no slide, no dim on the outgoing screen. */
+.route-transition__layer--enter-fade {
+  animation: route-fade-in 460ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes route-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
