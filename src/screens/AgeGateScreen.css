@@ -1,7 +1,7 @@
 .age-gate-number {
   position: absolute;
   top: 215px;
-  left: 43%;
+  left: 50%;
   transform: translateX(-50%);
   width: 327px;
   margin: 0;
@@ -14,11 +14,16 @@
   color: #fd151b;
 }
 
+/* letter-spacing adds its gap after the last glyph too, so text-align:
+   center centers a box one tracking-gap wider than what's visible -
+   shifting the real glyphs left by half that gap. Negligible at small
+   tracking, but very visible at this width (30.48px) - counter-shifted
+   right by half of it, same fix as the intro screen's subwords. */
 .age-gate-only {
   position: absolute;
   top: 376px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(calc(-50% + 15.24px));
   width: 372px;
   display: flex;
   flex-direction: column;
