@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useDeviceChrome } from '../context/DeviceChromeContext';
 import identityIconWhite from '../assets/icon-identity-white.png';
 import bgSetTone from '../assets/bg-set-tone.png';
@@ -7,6 +7,14 @@ import './SetToneScreen.css';
 
 export default function SetToneScreen() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  // ?logo=1 (default): top/bottom pieces slide in from above/below.
+  // ?logo=2: each piece "draws" itself in as a line wipe instead - top
+  // left-to-right, bottom right-to-left. Both kept side by side for
+  // client comparison rather than replacing one with the other.
+  const requestedVariant = Number(searchParams.get('logo'));
+  const variant = [1, 2].includes(requestedVariant) ? requestedVariant : 1;
+  const iconVariantClass = variant === 2 ? 'set-tone-icon--wipe' : 'set-tone-icon--slide';
   useDeviceChrome({ statusBarVariant: 'light', statusBarBg: '#ca282a', homeIndicatorVariant: 'light' });
 
   return (
@@ -14,8 +22,8 @@ export default function SetToneScreen() {
       <img src={bgSetTone} alt="" className="set-tone-bg anim-fade-scale" />
 
       <div className="set-tone-icon-wrap">
-        <img src={identityIconWhite} alt="" className="set-tone-icon set-tone-icon--top" />
-        <img src={identityIconWhite} alt="" className="set-tone-icon set-tone-icon--bottom" />
+        <img src={identityIconWhite} alt="" className={`set-tone-icon set-tone-icon--top ${iconVariantClass}`} />
+        <img src={identityIconWhite} alt="" className={`set-tone-icon set-tone-icon--bottom ${iconVariantClass}`} />
       </div>
 
       <div className="set-tone-heading">
