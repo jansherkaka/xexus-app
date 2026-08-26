@@ -1,6 +1,7 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useDeviceChrome } from '../context/DeviceChromeContext';
-import identityIconWhite from '../assets/icon-identity.svg';
+import identityIconTop from '../assets/icon-identity-top.svg';
+import identityIconBottom from '../assets/icon-identity-bottom.svg';
 import bgSetTone from '../assets/bg-set-tone.png';
 import './Screens.css';
 import './SetToneScreen.css';
@@ -22,8 +23,8 @@ export default function SetToneScreen() {
       <img src={bgSetTone} alt="" className="set-tone-bg anim-fade-scale" />
 
       <div className="set-tone-icon-wrap">
-        <img src={identityIconWhite} alt="" className={`set-tone-icon set-tone-icon--top ${iconVariantClass}`} />
-        <img src={identityIconWhite} alt="" className={`set-tone-icon set-tone-icon--bottom ${iconVariantClass}`} />
+        <img src={identityIconTop} alt="" className={`set-tone-icon--top ${iconVariantClass}`} />
+        <img src={identityIconBottom} alt="" className={`set-tone-icon--bottom ${iconVariantClass}`} />
       </div>
 
       <div className="set-tone-heading">

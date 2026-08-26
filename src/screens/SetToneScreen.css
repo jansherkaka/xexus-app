@@ -17,31 +17,40 @@
   left: 50%;
   transform: translateX(-50%);
   width: 142px;
-  height: 174px;
+  height: 173.53px;
 }
 
-/* Per client feedback, the logo is the top loop and the bottom loop coming
-   together, split right at the loop's narrow "waist" (~65% down) so the
-   seam falls in a clean single-strand spot instead of cutting through the
-   knot's overlap. Two entrance styles for comparison (?logo=1 default /
-   ?logo=2 on this screen's URL): */
-.set-tone-icon {
+/* The client now supplies the logo as two real, independent vector pieces
+   (Figma "top Vector" / "bottom Vector") instead of one image clipped in
+   two - each is a complete, self-contained shape, so there's no seam or
+   torn-knot artifact regardless of how they animate in. Positioned at
+   their exact relative offsets from the combined logo's frame. Two
+   entrance styles for comparison (?logo=1 default / ?logo=2 on this
+   screen's URL): */
+.set-tone-icon--top {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  left: 0;
+  top: 0;
+  width: 142px;
+  height: 127.68px;
 }
 
-/* Variant 1 (default): each piece is a whole clipped chunk that slides in
-   from above/below and lands in place. */
+.set-tone-icon--bottom {
+  position: absolute;
+  left: 39px;
+  top: 90px;
+  width: 58.4px;
+  height: 83.53px;
+}
+
+/* Variant 1 (default): each piece slides in from above/below and lands in
+   place. */
 .set-tone-icon--top.set-tone-icon--slide {
-  clip-path: inset(0 0 35% 0);
   opacity: 0;
   animation: set-tone-slide-top-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
 
 .set-tone-icon--bottom.set-tone-icon--slide {
-  clip-path: inset(65% 0 0 0);
   opacity: 0;
   animation: set-tone-slide-bottom-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
@@ -68,10 +77,10 @@
   }
 }
 
-/* Variant 2: instead of sliding in as whole pieces, each half "draws"
-   itself in like a traced line - the top line reveals left-to-right, the
-   bottom line reveals right-to-left, by animating a second clip-path
-   inset on top of the fixed vertical crop. */
+/* Variant 2: instead of sliding in as whole pieces, each piece "draws"
+   itself in like a traced line - the top piece reveals left-to-right, the
+   bottom piece reveals right-to-left. Since each is now its own complete
+   image, the reveal is a plain horizontal wipe of that piece's own box. */
 .set-tone-icon--top.set-tone-icon--wipe {
   animation: set-tone-line-top-in 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
 }
@@ -82,19 +91,19 @@
 
 @keyframes set-tone-line-top-in {
   from {
-    clip-path: inset(0 100% 35% 0);
+    clip-path: inset(0 100% 0 0);
   }
   to {
-    clip-path: inset(0 0 35% 0);
+    clip-path: inset(0 0 0 0);
   }
 }
 
 @keyframes set-tone-line-bottom-in {
   from {
-    clip-path: inset(65% 0 0 100%);
+    clip-path: inset(0 0 0 100%);
   }
   to {
-    clip-path: inset(65% 0 0 0);
+    clip-path: inset(0 0 0 0);
   }
 }
 
