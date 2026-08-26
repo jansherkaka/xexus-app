@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import logoWhite from '../assets/xexus-logo-white.png';
-import logoRed from '../assets/xexus-logo-red-small.png';
+import logoWhite from '../assets/xexus-logo-white.svg';
+import logoRed from '../assets/xexus-logo-red.svg';
 import iconSliders from '../assets/icon-sliders.svg';
 import iconBell from '../assets/icon-bell.svg';
 import iconNotifDot from '../assets/icon-notif-dot.svg';

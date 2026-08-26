@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom';
-import logo from '../assets/xexus-logo-red-small.png';
+import logo from '../assets/xexus-logo-red.svg';
 import arrowBack from '../assets/icon-arrow-back.svg';
 import './AppTopbar.css';
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useDeviceChrome } from '../context/DeviceChromeContext';
 import LetterReveal from '../components/LetterReveal';
-import logo from '../assets/xexus-logo-white.png';
+import logo from '../assets/xexus-logo-white.svg';
 import './Screens.css';
 
 const SUBWORDS = ['into', 'the', 'real', 'world'];
