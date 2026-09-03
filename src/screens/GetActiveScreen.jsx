@@ -36,7 +36,7 @@ export default function GetActiveScreen() {
       <div className="get-active-cta-wrap">
         <button
           className="get-active-cta get-active-cta--pulse"
-          onClick={() => navigate('/join/discover')}
+          onClick={() => navigate('/join/map')}
         >
           activate LiveLustMap
         </button>
